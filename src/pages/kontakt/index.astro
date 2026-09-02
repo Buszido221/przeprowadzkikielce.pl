@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import LeadForm from '../../components/forms/LeadForm.astro';
+import { site } from '../../data/site';
+import { kontaktPage as page } from '../../data/services';
+import { getSeo } from '../../data/seo';
+import { buildSchemaGraph } from '../../lib/schema';
+
+const seo = getSeo('/kontakt/');
+const schemaGraph = buildSchemaGraph({ slug: '/kontakt/', breadcrumbs: [{ name: 'Kontakt' }] });
+---
+
+<Layout seo={seo} schemaGraph={schemaGraph}>
+
+  <SubpageHero
+    heading={page.hero.heading}
+    lead={page.hero.lead}
+    breadcrumbs={page.breadcrumbs}
+  />
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading label="Dane kontaktowe" title="Skontaktuj się z WHM" alignment="center" />
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-card__title">Telefon i SMS</p>
+          <div class="contact-card__row">
+            <span class="contact-card__label">Telefon</span>
+            <span class="contact-card__value"><a href={`tel:${page.contact.phoneRaw}`}>{page.contact.phone}</a></span>
+          </div>
+          <div class="contact-card__row">
+            <span class="contact-card__label">SMS</span>
+            <span class="contact-card__value"><a href={`sms:${page.contact.phoneRaw}`}>{page.contact.phone}</a></span>
+          </div>
+          <div class="contact-card__row">
+            <span class="contact-card__label">Godziny kontaktu</span>
+            <span class="contact-card__value">Pn–Pt: {page.contact.hoursWeekdays}<br />Sob: {page.contact.hoursSaturday}</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <p class="contact-card__title">E-mail</p>
+          <div class="contact-card__row">
+            <span class="contact-card__label">Adres e-mail</span>
+            <span class="contact-card__value"><a href={`mailto:${page.contact.email}`}>{page.contact.email}</a></span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <p class="contact-card__title">Adres operacyjny</p>
+          <div class="contact-card__row">
+            <span class="contact-card__label">Adres</span>
+            <span class="contact-card__value">{page.contact.operationalAddress}</span>
+          </div>
+          <div class="contact-card__row">
+            <span class="contact-card__label">Wskazówki dojazdu</span>
+            <span class="contact-card__value"><a href={page.contact.directionsUrl} target="_blank" rel="noopener noreferrer">Zobacz na mapie</a></span>
+          </div>
+          <p class="contact-card__note">{page.contact.visitNote}</p>
+        </div>
+
+        <div class="contact-card">
+          <p class="contact-card__title">Adres rejestrowy</p>
+          <div class="contact-card__row">
+            <span class="contact-card__label">Adres</span>
+            <span class="contact-card__value">{page.contact.registeredAddress}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formularz" class="section">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-section__content">
+          <SectionHeading label="Formularz wyceny" title="Opowiedz nam, czego potrzebujesz" alignment="left" />
+
+          <LeadForm
+            formId="contact-form"
+            serviceType="Wycena - formularz kontaktowy"
+            presentation="page"
+            context="consumer"
+            formLocation="/kontakt/"
+            submitLabel="Wyślij zapytanie"
+          />
+        </div>
+
+        <div class="split-section__media">
+          <SectionHeading label="Alternatywy" title="Możesz też skontaktować się bezpośrednio" alignment="left" />
+          <div class="contact-card">
+            <div class="contact-card__row">
+              <span class="contact-card__label">Telefon / SMS</span>
+              <span class="contact-card__value"><a href={`tel:${site.phoneRaw}`}>{site.phone}</a></span>
+            </div>
+            <div class="contact-card__row">
+              <span class="contact-card__label">E-mail</span>
+              <span class="contact-card__value"><a href={`mailto:${site.email}`}>{site.email}</a></span>
+            </div>
+            <div class="contact-card__row">
+              <span class="contact-card__label">Godziny kontaktu</span>
+              <span class="contact-card__value">Pn–Pt: {site.hours.weekdays}<br />Sob: {site.hours.saturday}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,461 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import MobileStickyCta from '../components/MobileStickyCta.astro';
+import SafeImage from '../components/SafeImage.astro';
+import { site } from '../data/site';
+import { getSeo } from '../data/seo';
+import { buildSchemaGraph, buildFaqSchema } from '../lib/schema';
+import {
+  hero,
+  trustFacts,
+  introSection,
+  servicesSection,
+  standardSection,
+  featuredRealizations,
+  specialTransportSection,
+  testimonials,
+  ecosystemSection,
+  processSection,
+  guideSection,
+  faqItems,
+  finalCta,
+} from '../data/home';
+---
+
+<Layout
+  seo={getSeo('/')}
+  schemaGraph={buildSchemaGraph({ slug: '/' })}
+  faqSchema={buildFaqSchema(faqItems)}
+>
+  <link slot="head" rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link slot="head" rel="preload" href="/fonts/manrope-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- HERO -->
+  <section class="hero hero--single">
+    <div class="hero__bg">
+      <SafeImage
+        src={hero.image}
+        alt={hero.imageAlt}
+        class="hero__img"
+        fetchpriority="high"
+        decoding="async"
+        displayMode="hero"
+      />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">{hero.eyebrow}</p>
+        <h1 class="hero__heading">{hero.heading}</h1>
+        <p class="hero__lead">{hero.lead}</p>
+        <div class="hero__actions">
+          <a href={`tel:${site.phoneRaw}`} class="btn btn--primary btn--lg" data-cta-click data-cta-location="home-hero">Zadzwoń: {site.phone}</a>
+          <a href="/kontakt/#formularz" class="btn btn--hero-secondary btn--lg" data-cta-click data-cta-location="home-hero">Poproś o wycenę</a>
+        </div>
+        <p class="hero__note">{hero.contactNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-strip__grid">
+        {trustFacts.map((fact) => (
+          <div class="trust-strip__item">
+            <p class="trust-strip__title">{fact.title}</p>
+            <p class="trust-strip__desc">{fact.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B -->
+  <section class="section home-business">
+    <div class="container">
+      <div class="split-section split-section--reverse">
+        <div class="split-section__content">
+          <SectionHeading label="Dla firm i instytucji" title="Relokacja zaplanowana tak, aby ograniczyć przestój" description="Bezpłatne oględziny, plan etapów, transport archiwów i sprzętu oraz magazynowanie pomostowe tworzą jeden koordynowany proces." />
+          <ul class="check-list">
+            <li class="check-list__item">firmy, biura i instytucje,</li>
+            <li class="check-list__item">archiwa i setki zamykanych pojemników około 70 l,</li>
+            <li class="check-list__item">serwery, laboratoria i wyposażenie specjalistyczne,</li>
+            <li class="check-list__item">ochrona ubezpieczeniowa do 1 mln zł — warunki potwierdzane dla zlecenia.</li>
+          </ul>
+          <div class="section-cta"><a href="/dla-firm/" class="btn btn--primary">Zobacz ofertę B2B</a></div>
+        </div>
+        <div class="split-section__media"><SafeImage src="/images/institution-moving/przeprowadzki-instytucji-4.webp" alt="Zespół WHM podczas relokacji instytucji" loading="lazy" decoding="async" class="section-img" displayMode="section" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-section__content">
+          <SectionHeading
+            label={introSection.eyebrow}
+            title={introSection.heading}
+            description={introSection.text}
+          />
+          <ul class="check-list">
+            {introSection.points.map((point) => (
+              <li class="check-list__item">{point}</li>
+            ))}
+          </ul>
+          <div class="section-cta">
+            <a href={introSection.cta.href} class="arrow-link">{introSection.cta.label}</a>
+          </div>
+        </div>
+        <div class="split-section__media">
+          <SafeImage
+            src={introSection.image}
+            alt="Pracownik WHM zabezpiecza wyposażenie do transportu"
+            loading="lazy"
+            decoding="async"
+            class="section-img"
+            displayMode="section"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        label={servicesSection.eyebrow}
+        title={servicesSection.heading}
+        description={servicesSection.intro}
+      />
+      <div class="services-grid">
+        {servicesSection.items.map((item) => (
+          <a href={item.href} class="service-card">
+            <div class="service-card__media">
+              <SafeImage
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">{item.title}</h3>
+              <p class="service-card__desc">{item.desc}</p>
+              <span class="service-card__link">Dowiedz się więcej</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="section-cta section-cta--center">
+        <a href={servicesSection.cta.href} class="arrow-link">{servicesSection.cta.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDARD WHM -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading
+        label={standardSection.eyebrow}
+        title={standardSection.heading}
+        description={standardSection.text}
+      />
+      <div class="equipment-grid">
+        {standardSection.equipmentModules.map((mod) => (
+          <div class="equipment-card">
+            <div class="equipment-card__media">
+              <SafeImage src={mod.image} alt={mod.name} loading="lazy" decoding="async" />
+            </div>
+            <div class="equipment-card__body">
+              <h3 class="equipment-card__name">{mod.name}</h3>
+              <p class="equipment-card__benefit">{mod.benefit}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="section-cta section-cta--center">
+        <a href={standardSection.cta.href} class="arrow-link">{standardSection.cta.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED REALIZATIONS -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        label="Prawdziwe realizacje"
+        title="Nie pokazujemy zdjęć stockowych. Pokazujemy swoją pracę."
+        description="Każde zdjęcie na stronie pochodzi z naszych realizacji. Zobaczysz prawdziwy sprzęt, prawdziwe zabezpieczenia i efekty prawdziwej pracy."
+      />
+      <div class="featured-realizations">
+        {featuredRealizations.map((real) => (
+          <a class="featured-realization" href={real.href}>
+            <div class="featured-realization__media">
+              <SafeImage src={real.image} alt="Zdjęcie z realizacji WHM Przeprowadzki" loading="lazy" decoding="async" />
+            </div>
+            <div class="featured-realization__body">
+              <span class="featured-realization__label">{real.label}</span>
+              <h3 class="featured-realization__title">{real.title}</h3>
+              <p class="featured-realization__location">{real.location}</p>
+              <ul class="featured-realization__params">
+                {real.params.map((param) => <li>{param}</li>)}
+              </ul>
+              <div class="featured-realization__challenge">
+                <p><strong>Wyzwanie:</strong> {real.challenge}</p>
+                <p><strong>Rezultat:</strong> {real.result}</p>
+              </div>
+              <span class="arrow-link">Poznaj przebieg realizacji</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="section-cta section-cta--center">
+        <a href="/realizacje/" class="arrow-link">Zobacz wszystkie realizacje</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL TRANSPORT -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-section__content">
+          <SectionHeading
+            label={specialTransportSection.eyebrow}
+            title={specialTransportSection.heading}
+            description={specialTransportSection.text}
+          />
+          <ul class="tag-list">
+            {specialTransportSection.categories.map((cat) => (
+              <li class="tag-list__item">{cat}</li>
+            ))}
+          </ul>
+          <div class="notice-box">
+            <p>{specialTransportSection.notice}</p>
+          </div>
+          <div class="section-cta" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
+            <a href={specialTransportSection.cta.href} class="btn btn--primary">{specialTransportSection.cta.label}</a>
+            <a href={specialTransportSection.ctaSecondary.href} class="btn btn--secondary">{specialTransportSection.ctaSecondary.label}</a>
+          </div>
+        </div>
+        <div class="split-section__media split-section__media--stack">
+          <SafeImage
+            src={specialTransportSection.images[0]}
+            alt="Wykorzystanie schodołazu przy transporcie ciężkiego ładunku"
+            loading="lazy"
+            decoding="async"
+            class="section-img"
+            displayMode="section"
+          />
+          <SafeImage
+            src={specialTransportSection.images[1]}
+            alt="Transport instrumentu muzycznego przez zespół WHM"
+            loading="lazy"
+            decoding="async"
+            class="section-img"
+            displayMode="section"
+          />
+          <SafeImage
+            src={specialTransportSection.images[2]}
+            alt="Praca z dużym wyposażeniem biurowym"
+            loading="lazy"
+            decoding="async"
+            class="section-img"
+            displayMode="section"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (static) -->
+  {testimonials.length > 0 && (
+    <section class="section testimonials-static">
+      <div class="container">
+        <SectionHeading label="Opinie klientów" title="Sprawdź, co mówią o nas klienci." />
+        <div class="testimonials-static__grid">
+          {testimonials.map((t) => (
+            <div class="testimonial-static">
+              <blockquote class="testimonial-static__text">{t.text}</blockquote>
+              <figcaption class="testimonial-static__author">— {t.author}{t.source ? `, ${t.source}` : ''}</figcaption>
+              <p class="testimonial-static__author">
+                {t.author}
+                {t.source && <span class="testimonial-static__source"> · {t.source}</span>}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div class="section-cta section-cta--center" style="margin-top: var(--space-6);">
+          <a href="https://maps.app.goo.gl/G3BqHNabtfWtzAhk7" target="_blank" rel="noopener noreferrer" class="arrow-link">
+            Zobacz wszystkie opinie na Google
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ECOSYSTEM -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading
+        label={ecosystemSection.eyebrow}
+        title={ecosystemSection.heading}
+      />
+      <div class="ecosystem-grid">
+        <div class="ecosystem-card ecosystem-card--storage">
+          <div class="ecosystem-card__body">
+            <div class="ecosystem-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="14" width="40" height="26" rx="2" />
+                <path d="M4 22h40" />
+                <path d="M4 30h40" />
+                <path d="M16 14V8h16v6" />
+                <circle cx="24" cy="18" r="1.5" fill="currentColor" stroke="none" />
+                <circle cx="24" cy="26" r="1.5" fill="currentColor" stroke="none" />
+                <circle cx="24" cy="34" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+            </div>
+            <h3>{ecosystemSection.storage.title}</h3>
+            <p>{ecosystemSection.storage.text}</p>
+            <p class="ecosystem-card__note">Ogrzewane boksy od 2 do 9 m² są gotowe i częściowo zajęte. Dostępność potwierdzamy na bieżąco.</p>
+            <div class="section-cta">
+              <a href={ecosystemSection.storage.cta.href} class="arrow-link">{ecosystemSection.storage.cta.label}</a>
+            </div>
+          </div>
+        </div>
+        <div class="ecosystem-card">
+          <div class="ecosystem-card__media">
+            <SafeImage
+              src={ecosystemSection.shop.image}
+              alt="Zapas kartonów i materiałów do przeprowadzki w WHM Shop"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="ecosystem-card__body">
+            <h3>{ecosystemSection.shop.title}</h3>
+            <p>{ecosystemSection.shop.text}</p>
+            <div class="section-cta">
+              <a href={ecosystemSection.shop.cta.href} class="arrow-link">{ecosystemSection.shop.cta.label}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        label={processSection.eyebrow}
+        title={processSection.heading}
+      />
+      <div class="process-steps">
+        {processSection.steps.map((step) => (
+          <div class="process-step">
+            <span class="process-step__number">{step.number}</span>
+            <div>
+              <p class="process-step__title">{step.title}</p>
+              <p class="process-step__desc">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="section-cta section-cta--center">
+        <a href={processSection.cta.href} class="arrow-link">{processSection.cta.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-section__content">
+          <SectionHeading
+            label={guideSection.eyebrow}
+            title={guideSection.heading}
+            description={guideSection.text}
+          />
+          <div class="section-cta">
+            <a href={guideSection.cta.href} class="arrow-link">{guideSection.cta.label}</a>
+          </div>
+        </div>
+        <div class="split-section__media">
+          <SafeImage
+            src={guideSection.image}
+            alt="Poradnik przygotowania do przeprowadzki WHM"
+            loading="lazy"
+            decoding="async"
+            class="section-img"
+            displayMode="section"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeading
+        label="Najczęstsze pytania"
+        title="Odpowiedzi na pytania, które słyszymy najczęściej."
+      />
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-item__question">{item.question}</summary>
+            <div class="faq-item__answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK VALUATION HUB -->
+  <section class="section section--sm">
+    <div class="container">
+      <SectionHeading label="Szybka wycena" title="Wyceń konkretną usługę" />
+      <div class="related-links">
+        <a href="/przeprowadzki/" class="arrow-link">Wyceń przeprowadzkę w Kielcach</a>
+        <a href="/przeprowadzki/" class="arrow-link">Sprawdź, co wpływa na cenę przeprowadzki</a>
+        <a href="/przeprowadzki-firm-i-instytucji/" class="arrow-link">Omów relokację firmy</a>
+        <a href="/oproznianie-mieszkan-i-wywoz-mebli/" class="arrow-link">Wyceń wywóz starych mebli</a>
+        <a href="/transport-pianin-i-fortepianow-kielce/" class="arrow-link">Wyceń transport pianina</a>
+        <a href="/transport-specjalistyczny/" class="arrow-link">Wyceń transport specjalistyczny</a>
+        <a href="/transport-specjalistyczny/" class="arrow-link">Wyceń transport gabarytowy</a>
+        <a href="/przeprowadzki/" class="arrow-link">Wyceń transport lodówki</a>
+        <a href="/przeprowadzki/" class="arrow-link">Wyceń transport AGD</a>
+        <a href="/pakowanie-i-zabezpieczanie/" class="arrow-link">Zamów pakowanie do przeprowadzki</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="final-cta__inner">
+        <h2 class="final-cta__heading">{finalCta.heading}</h2>
+        <p class="final-cta__text">{finalCta.text}</p>
+        <div class="final-cta__actions">
+          <a href={`tel:${site.phoneRaw}`} class="btn btn--primary btn--lg" data-cta-click data-cta-location="home-final">Zadzwoń: {site.phone}</a>
+          <a href="/kontakt/#formularz" class="btn btn--secondary btn--lg" data-cta-click data-cta-location="home-final">Poproś o wycenę</a>
+          <a href={`sms:${site.phoneRaw}`} class="btn btn--secondary btn--lg">Wyślij SMS</a>
+        </div>
+        <p class="final-cta__hours">
+          Pn–Pt: {site.hours.weekdays} · Sob: {site.hours.saturday}
+        </p>
+      </div>
+    </div>
+  </section>
+  <MobileStickyCta formHref="/kontakt/#formularz" />
+</Layout>

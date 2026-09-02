@@ -1,0 +1,87 @@
+---
+import { publicAssetExists } from '../lib/public-assets';
+import { getImageAsset } from '../data/imageManifest';
+import type { Orientation } from '../data/imageManifest';
+
+interface Props {
+  src: string;
+  alt?: string;
+  width?: number | string;
+  height?: number | string;
+  class?: string;
+  loading?: 'eager' | 'lazy';
+  decoding?: 'sync' | 'async' | 'auto';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  role?: string;
+  objectPosition?: string;
+  displayMode?: 'hero' | 'card' | 'natural' | 'section';
+  placeholderLabel?: string;
+  [key: `data-${string}`]: string | number | undefined;
+}
+
+const {
+  src,
+  alt = '',
+  width: widthProp,
+  height: heightProp,
+  class: className,
+  loading,
+  decoding = 'async',
+  fetchpriority,
+  role,
+  objectPosition: objectPositionProp,
+  displayMode,
+  placeholderLabel = 'Zdjęcie w przygotowaniu',
+  ...attributes
+} = Astro.props;
+
+const asset = getImageAsset(src);
+const intrinsicWidth = asset?.width ?? (widthProp ? Number(widthProp) : 800);
+const intrinsicHeight = asset?.height ?? (heightProp ? Number(heightProp) : 600);
+const orientation: Orientation = asset?.orientation ?? (intrinsicHeight > intrinsicWidth ? 'portrait' : intrinsicWidth > intrinsicHeight ? 'landscape' : 'square');
+const position = objectPositionProp ?? asset?.objectPosition ?? 'center center';
+
+const available = publicAssetExists(src);
+const decorative = role === 'presentation' || alt === '';
+
+function buildStyle(): string {
+  const parts: string[] = [];
+  if (displayMode === 'hero') parts.push('object-fit: cover');
+  else if (displayMode === 'natural') parts.push('object-fit: contain');
+  else if (displayMode === 'section') parts.push(`object-fit: ${orientation === 'portrait' ? 'contain' : 'cover'}`);
+  parts.push(`object-position: ${position}`);
+  return parts.join('; ');
+}
+
+const imgStyle = buildStyle();
+const placeholderRatio = `${intrinsicWidth}/${intrinsicHeight}`;
+---
+
+{available ? (
+  <img
+    src={src}
+    alt={alt}
+    width={intrinsicWidth}
+    height={intrinsicHeight}
+    class={className}
+    loading={loading}
+    decoding={decoding}
+    fetchpriority={fetchpriority}
+    role={role}
+    data-orientation={orientation}
+    style={imgStyle}
+    {...attributes}
+  />
+) : (
+  <div
+    class:list={['media-placeholder', className]}
+    style={`aspect-ratio: ${placeholderRatio}`}
+    role={decorative ? 'presentation' : 'img'}
+    aria-label={decorative ? undefined : alt}
+    data-planned-image={src}
+    data-orientation={orientation}
+    {...attributes}
+  >
+    {!decorative && <span class="media-placeholder__label">{placeholderLabel}</span>}
+  </div>
+)}

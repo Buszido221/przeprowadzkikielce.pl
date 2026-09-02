@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceHero from './ServiceHero.astro';
+import SectionHeading from './SectionHeading.astro';
+import MobileStickyCta from './MobileStickyCta.astro';
+import SafeImage from './SafeImage.astro';
+import { site } from '../data/site';
+import { getSeo } from '../data/seo';
+import { buildSchemaGraph } from '../lib/schema';
+import type { CaseStudy } from '../data/realizacje';
+
+interface Props {
+  study: CaseStudy;
+}
+
+const { study } = Astro.props;
+const seo = getSeo(study.slug);
+const schemaGraph = buildSchemaGraph({
+  slug: study.slug,
+  breadcrumbs: [
+    { name: 'Realizacje', url: 'https://przeprowadzkikielce.pl/realizacje/' },
+    { name: study.heading },
+  ],
+});
+---
+
+<Layout seo={seo} schemaGraph={schemaGraph}>
+  <ServiceHero
+    eyebrow={study.eyebrow}
+    heading={study.heading}
+    lead={study.lead}
+    breadcrumbs={[{ label: 'Realizacje', href: '/realizacje/' }, { label: study.heading }]}
+    heroImage={study.heroImage}
+    heroAlt={study.heroAlt}
+    secondaryCtaLabel="Umów bezpłatne oględziny"
+    secondaryCtaHref="/kontakt/#formularz"
+  />
+
+  <section class="case-study__facts" aria-label="Najważniejsze fakty">
+    <div class="container">
+      <SectionHeading label="Najważniejsze fakty" title="Kluczowe parametry realizacji" />
+      <ul class="case-study__facts-list">
+        {study.facts.map((fact) => <li>{fact}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-study__content">
+    <div class="container case-study__content-grid">
+      <div class="case-study__content-body">
+        {study.sections.map((section) => (
+          <div class="case-study__section">
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        ))}
+        <div class="case-study__conclusion">
+          <h2>{study.conclusionHeading}</h2>
+          <p>{study.conclusionText}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {study.gallery.length > 0 && (
+  <section class="case-study__gallery section--alt" aria-label="Zdjęcia przedstawiające sposób pracy WHM">
+    <div class="container">
+      <SectionHeading label="Zdjęcia z pracy WHM" title="Sposób pracy i zabezpieczenia" />
+      <div class={`photo-grid photo-grid--${Math.min(study.gallery.length, 3)}`}>
+        {study.gallery.map((image) => (
+          <figure class="photo-grid__item case-study__gallery-item">
+            <SafeImage src={image.src} alt={image.alt} loading="lazy" decoding="async" displayMode="natural" />
+            <figcaption>{image.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+  )}
+
+  <section class="case-study__related-services" aria-label="Powiązane usługi">
+    <div class="container">
+      <SectionHeading label="Powiązane usługi" title="Sprawdź właściwą ścieżkę" />
+      <div class="related-services__grid">
+        {study.relatedServices.map((item) => (
+          <a class="related-service" href={item.href}>
+            <h3>{item.label}</h3>
+            <p>{item.text}</p>
+            <span>Dowiedz się więcej</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__related-realizacje" aria-label="Inne realizacje">
+    <div class="container">
+      <SectionHeading label="Inne realizacje" title="Zobacz również" />
+      <div class="case-study__related-realizacje-grid">
+        {study.relatedRealizacje.map((item) => (
+          <a class="case-study__related-realizacje-card" href={item.href}>
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__sales-cta" aria-label={study.salesHeading}>
+    <div class="container">
+      <div class="case-study__sales-cta-inner">
+        <h2>{study.salesHeading}</h2>
+        <p>{study.salesText}</p>
+        <div class="case-study__sales-cta-actions">
+          <a href={`tel:${site.phoneRaw}`} class="btn btn--primary btn--lg" data-cta-click data-cta-location="case-study-sales">Zadzwoń: {site.phone}</a>
+          <a href="/kontakt/#formularz" class="btn btn--secondary btn--lg" data-cta-click data-cta-location="case-study-sales">Umów bezpłatne oględziny</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <MobileStickyCta formHref="/kontakt/#formularz" />
+</Layout>

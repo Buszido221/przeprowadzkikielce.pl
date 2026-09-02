@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import LeadForm from '../../components/forms/LeadForm.astro';
+import MobileStickyCta from '../../components/MobileStickyCta.astro';
+import SafeImage from '../../components/SafeImage.astro';
+import { site } from '../../data/site';
+import { getRoute } from '../../data/routes';
+import { getSeo } from '../../data/seo';
+import { buildSchemaGraph, buildFaqSchema } from '../../lib/schema';
+
+const route = getRoute('/przeprowadzki-firm-i-instytucji/');
+
+const process = [
+  ['01', 'Bezpłatna wizja lokalna', 'Oglądamy lokalizacje, drogi transportu, wyposażenie i ograniczenia organizacyjne.'],
+  ['02', 'Plan i podział na etapy', 'Ustalamy kolejność, harmonogram, oznaczenia oraz odpowiedzialność po obu stronach.'],
+  ['03', 'Przygotowanie mienia', 'Dostarczamy uzgodnione materiały, zabezpieczamy wyposażenie i porządkujemy jednostki transportowe.'],
+  ['04', 'Kontrolowana relokacja', 'Realizujemy przeprowadzkę etapami, aby ograniczyć przestój organizacji.'],
+  ['05', 'Rozmieszczenie i odbiór', 'Wnosimy do wskazanych stref, ustawiamy uzgodnione elementy i domykamy zakres.'],
+];
+
+const faq = [
+  ['Czy wizja lokalna jest płatna?', 'Nie. Dla relokacji firm i instytucji oferujemy bezpłatne oględziny przed przygotowaniem planu i wyceny.'],
+  ['Czy przeprowadzka może odbywać się etapami?', 'Tak. Etapowanie ustalamy po rozpoznaniu zależności między działami, lokalizacjami i terminami, aby ograniczyć przestój.'],
+  ['Jak organizujecie dokumenty i archiwa?', 'Ustalamy system oznaczeń i kolejność. Możemy wykorzystać setki zamykanych pojemników o pojemności około 70 litrów, co ułatwia kontrolowany transport archiwów.'],
+  ['Czy możliwe jest czasowe magazynowanie?', 'Tak. Ogrzewane boksy WHM od 2 do 9 m² mogą wspierać relokację etapową albo przechowanie wyposażenia pomiędzy terminami.'],
+  ['Czy mienie jest ubezpieczone?', 'Zakres odpowiedzialności i dokumenty ustalamy przed realizacją. WHM posiada ochronę ubezpieczeniową do 1 mln zł; zastosowanie i warunki potwierdzamy dla konkretnego zlecenia.'],
+];
+---
+
+<Layout seo={getSeo('/przeprowadzki-firm-i-instytucji/')} schemaGraph={buildSchemaGraph({ slug: '/przeprowadzki-firm-i-instytucji/', breadcrumbs: [{ name: 'Dla firm', url: 'https://przeprowadzkikielce.pl/dla-firm/' }, { name: 'Przeprowadzki firm i instytucji' }] })} faqSchema={buildFaqSchema(faq.map(([question, answer]) => ({ question, answer })))}>
+
+  <ServiceHero
+    eyebrow="Relokacje B2B"
+    heading="Przeprowadzki firm i instytucji zaplanowane etap po etapie"
+    lead="Zaczynamy od bezpłatnych oględzin, a potem przygotowujemy plan obejmujący ludzi, wyposażenie, dokumenty, terminy i ciągłość pracy organizacji."
+    breadcrumbs={[{ label: 'Dla firm', href: '/dla-firm/' }, { label: route.name }]}
+    heroImage="/images/institution-moving/przeprowadzki-instytucji-4.webp"
+    heroAlt="Zespół WHM podczas relokacji instytucji"
+    secondaryCtaLabel="Umów oględziny"
+    secondaryCtaHref="#kontakt-b2b"
+    note="Zakres, technologia i odpowiedzialność są potwierdzane przed realizacją."
+  />
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading label="Zakres" title="Jeden plan dla całej relokacji" description="Łączymy organizację, materiały, zespół, transport i zaplecze magazynowe. Zakres dobieramy do realnych zależności w organizacji." />
+      <div class="items-grid items-grid--2x2">
+        <article class="items-grid__item"><h3 class="items-grid__title">Biura i zespoły</h3><p class="items-grid__desc">Stanowiska pracy, meble, komputery, serwery i wyposażenie wspólne.</p></article>
+        <article class="items-grid__item"><h3 class="items-grid__title">Instytucje i archiwa</h3><p class="items-grid__desc">Kontrolowana kolejność, oznaczenia oraz zamykane pojemniki na dokumenty.</p></article>
+        <article class="items-grid__item"><h3 class="items-grid__title">Laboratoria i sprzęt</h3><p class="items-grid__desc">Ocena techniczna, uzgodnione zabezpieczenia i osobny plan dla elementów nietypowych.</p></article>
+        <article class="items-grid__item"><h3 class="items-grid__title">Relokacje etapowe</h3><p class="items-grid__desc">Harmonogram ograniczający przestój i możliwość czasowego magazynowania.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading label="Proces" title="Od oględzin do odbioru" />
+      <ol class="process-steps business-process">
+        {process.map(([number, title, desc]) => (
+          <li class="process-step"><span class="process-step__number">{number}</span><div><h3 class="process-step__title">{title}</h3><p class="process-step__desc">{desc}</p></div></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-section__content">
+          <SectionHeading label="Archiwa i wyposażenie" title="Porządek, który da się odtworzyć w nowej lokalizacji" description="Przy większych relokacjach system oznaczeń jest równie ważny jak sam transport. Korzystamy z setek zamykanych pojemników o pojemności około 70 litrów, planujemy kolejność wynoszenia i przypisujemy jednostki do docelowych stref." />
+          <ul class="check-list">
+            <li class="check-list__item">spis stref i kolejności pracy,</li>
+            <li class="check-list__item">kodowanie pojemników, mebli i stanowisk,</li>
+            <li class="check-list__item">osobna ścieżka dla serwerów i sprzętu specjalistycznego,</li>
+            <li class="check-list__item">magazynowanie pomostowe, jeśli terminy lokalizacji się nie pokrywają.</li>
+          </ul>
+        </div>
+        <div class="split-section__media"><SafeImage src="/images/institution-moving/przeprowadzki-instytucji-3.webp" alt="Oznaczone pojemniki i wyposażenie podczas relokacji instytucji" loading="lazy" decoding="async" class="section-img" displayMode="section" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section case-proof">
+    <div class="container">
+      <SectionHeading label="Studium przypadku" title="Relokacja Prokuratury Kielce-Wschód i Kielce-Zachód" />
+      <div class="case-proof__grid">
+        <div class="case-proof__summary"><p>Zakres obejmował cztery piętra i piwnicę, rozbudowane archiwum oraz dziesiątki szaf i komputerów. Prace zaplanowano tak, aby instytucja mogła działać bez przerwy.</p><a class="arrow-link" href="/realizacje/">Zobacz pozostałe realizacje</a></div>
+        <dl class="case-proof__facts">
+          <div><dt>Skala</dt><dd>4 piętra i piwnica</dd></div>
+          <div><dt>Mienie</dt><dd>duże archiwum, szafy i komputery</dd></div>
+          <div><dt>Priorytet</dt><dd>ciągłość pracy instytucji</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeading label="Odpowiedzialność" title="Zakres i zabezpieczenia potwierdzone przed startem" description="Dla każdego zlecenia ustalamy warunki, odpowiedzialność i sposób ochrony mienia. WHM posiada ochronę ubezpieczeniową do 1 mln zł; jej zastosowanie i szczegóły potwierdzamy dla konkretnej realizacji." />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading label="Najczęstsze pytania" title="Pytania o relokacje B2B" />
+      <div class="faq-list">{faq.map(([question, answer]) => <details class="faq-item"><summary class="faq-item__question">{question}</summary><div class="faq-item__answer"><p>{answer}</p></div></details>)}</div>
+    </div>
+  </section>
+
+  <section id="kontakt-b2b" class="form-section" aria-label="Formularz kontaktowy dla firm i instytucji">
+    <div class="container">
+      <SectionHeading title="Umów bezpłatne oględziny" description="Podaj lokalizacje, przybliżony zakres i oczekiwany termin. Firma lub instytucja jest polem opcjonalnym." />
+      <div class="form-section__grid">
+        <div class="form-section__phone-card"><p class="section-heading__label">Kontakt bezpośredni</p><h3>Omów relokację</h3><a href={`tel:${site.phoneRaw}`} data-cta-click data-cta-location="business-form">{site.phone}</a><p class="form-section__phone-note">Po wstępnej rozmowie ustalimy termin bezpłatnej wizji lokalnej.</p></div>
+        <LeadForm formId="business-relocation-form" serviceType="Przeprowadzka firmy lub instytucji" variant="firma" presentation="page" context="business" formLocation="/przeprowadzki-firm-i-instytucji/" placeholder="Jakiej relokacji dotyczy zapytanie?" submitLabel="Wyślij zapytanie B2B" />
+      </div>
+    </div>
+  </section>
+  <MobileStickyCta formHref="#kontakt-b2b" />
+</Layout>

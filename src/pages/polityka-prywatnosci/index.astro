@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import { politykaPage as page, privacyPolicyFinalized } from '../../data/services';
+import { getSeo } from '../../data/seo';
+import { buildSchemaGraph } from '../../lib/schema';
+
+const isDev = import.meta.env.DEV;
+
+const seo = getSeo('/polityka-prywatnosci/');
+const schemaGraph = buildSchemaGraph({ slug: '/polityka-prywatnosci/', breadcrumbs: [{ name: 'Polityka prywatności' }] });
+---
+
+<Layout seo={seo} schemaGraph={schemaGraph}>
+
+  <SubpageHero
+    heading={page.hero.heading}
+    lead={page.hero.lead}
+    breadcrumbs={page.breadcrumbs}
+    heroImage="/images/hero/hero-1.webp"
+  />
+
+  <section class="section">
+    <div class="container">
+      {isDev && !privacyPolicyFinalized && (
+        <p style="padding: var(--space-3) var(--space-4); background: var(--color-surface-dark); color: rgba(255,255,255,0.6); border-radius: var(--radius-md); font-size: var(--text-xs); margin-bottom: var(--space-6); text-align: center;">
+          Dokument w stanie roboczy - finalizacja po wdrożeniu formularza i analityki.
+        </p>
+      )}
+
+      <div class="privacy-section">
+        <h2 class="privacy-section__heading">{page.administrator.name}</h2>
+        <div class="privacy-section__content">
+          <p>NIP: {page.administrator.nip}</p>
+          <p>Adres rejestrowy: {page.administrator.registeredAddress}</p>
+          <p>E-mail: <a href={`mailto:${page.administrator.email}`} style="color: var(--color-red); text-decoration: underline;">{page.administrator.email}</a></p>
+        </div>
+      </div>
+
+      {page.sections.map((section) => (
+        <div class="privacy-section">
+          <h2 class="privacy-section__heading">{section.heading}</h2>
+          <div class="privacy-section__content">
+            <p>{section.content}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
