@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
 import GtmHead from '../components/GtmHead.astro';
+import GoogleTag from '../components/GoogleTag.astro';
 import CampaignAttribution from '../components/CampaignAttribution.astro';
 import ClientEvents from '../components/ClientEvents.astro';
 import { site } from '../data/site';
@@ -68,6 +69,7 @@ const ogImageType = ogImage?.endsWith('.webp') ? 'image/webp' : ogImage?.endsWit
     <meta name="theme-color" content="#1a1a1a" />
 
     <GtmHead />
+    <GoogleTag />
     <CampaignAttribution />
     <ClientEvents />
     {schemaGraph && <script slot="head" type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />}

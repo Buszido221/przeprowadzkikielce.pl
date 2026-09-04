@@ -53,11 +53,10 @@ const srcContent = srcFiles.map((path) => readFileSync(path, 'utf8')).join('\n')
 // No GTM noscript iframe anywhere
 report(!hasGtmIframe, 'GTM noscript iframe found (should not exist in any build).');
 
-// No direct GA4 / Meta Pixel
+// No direct GA4 / Meta Pixel (legacy snippet patterns)
 report(!allHtml.includes('www.google-analytics.com/analytics.js'), 'Direct GA analytics.js found.');
 report(!allHtml.includes('connect.facebook.net/en_US/fbevents.js'), 'Direct Meta Pixel script found.');
-report(!allHtml.includes("gtag('config'"), 'Direct gtag config found (should use GTM).');
-report(!allHtml.includes('fbq('), 'Direct fbq() call found (should use GTM).');
+report(!allHtml.includes('fbq('), 'Direct fbq() call found.');
 
 // No inline event handlers
 for (const path of htmlFiles) {
@@ -74,7 +73,7 @@ report(!srcContent.includes("'lead_form_submit_error'"), 'Old event name "lead_f
 report(!srcContent.includes("whm:analytics"), 'Old custom event "whm:analytics" still in source.');
 report(!srcContent.includes("'whm_consent_v2'"), 'Old consent key whm_consent_v2 still in source.');
 report(!srcContent.includes("'whm_campaign_v2'"), 'Old campaign key whm_campaign_v2 still in source.');
-report(!srcContent.includes("'PUBLIC_GA4_ID'"), 'Reference to PUBLIC_GA4_ID still in source.');
+report(srcContent.includes('PUBLIC_GA_MEASUREMENT_ID'), 'PUBLIC_GA_MEASUREMENT_ID not found in source.');
 
 // Consent + campaign keys present
 report(srcContent.includes('whm_consent_v3'), 'Consent key whm_consent_v3 not found in source.');
@@ -83,8 +82,9 @@ report(srcContent.includes('whm_campaign_v3'), 'Campaign key whm_campaign_v3 not
 // pushEvent returns boolean
 report(srcContent.includes('): boolean'), 'pushEvent should return boolean.');
 
-// data-whm-gtm idempotency guard
+// data-whm-gtm and data-whm-ga idempotency guards
 report(srcContent.includes('data-whm-gtm'), 'GTM idempotency guard (data-whm-gtm) not found in source.');
+report(srcContent.includes('data-whm-ga'), 'GA idempotency guard (data-whm-ga) not found in source.');
 
 // gtm.start pushed BEFORE script append
 const consentTs = existsSync(resolve('src/lib/consent.ts'))
@@ -115,6 +115,7 @@ if (variant === 'staging') {
     const html = readFileSync(path, 'utf8');
     const route = routeForHtml(path);
     report(!html.includes('__WHM_GTM_ID'), `${route}: staging page contains __WHM_GTM_ID.`);
+    report(!html.includes('__WHM_GA_ID'), `${route}: staging page contains __WHM_GA_ID.`);
     report(!html.includes('consent_default'), `${route}: staging page contains consent defaults.`);
   }
 } else {

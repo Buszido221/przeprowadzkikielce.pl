@@ -4,6 +4,7 @@
 interface ImportMetaEnv {
   readonly PUBLIC_SITE_ENV?: string;
   readonly PUBLIC_GTM_ID?: string;
+  readonly PUBLIC_GA_MEASUREMENT_ID?: string;
   readonly PUBLIC_EMAILJS_SERVICE_ID?: string;
   readonly PUBLIC_EMAILJS_TEMPLATE_ID?: string;
   readonly PUBLIC_EMAILJS_PUBLIC_KEY?: string;
