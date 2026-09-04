@@ -1,4 +1,4 @@
-# WHM Przeprowadzki — kierunek wizualny i plan poprawek estetycznych
+# WHM Przeprowadzki - kierunek wizualny i plan poprawek estetycznych
 
 ## Status dokumentu
 
@@ -50,9 +50,9 @@ Obecny projekt jest estetyczny, przestronny i czytelny, ale część elementów 
 
 Stworzyć wizualny język rozpoznawalny jako WHM, bez odcinania się od obecnej strony. Projekt powinien łączyć trzy cechy:
 
-1. **Operacyjność** — firma planuje, mierzy, zabezpiecza i odpowiada za proces.
-2. **Premium przez kompetencje** — wartość wynika ze standardu i doświadczenia, a nie z dekoracyjnego luksusu.
-3. **Ludzka dostępność** — łatwy kontakt, normalny język i prawdziwy zespół.
+1. **Operacyjność** - firma planuje, mierzy, zabezpiecza i odpowiada za proces.
+2. **Premium przez kompetencje** - wartość wynika ze standardu i doświadczenia, a nie z dekoracyjnego luksusu.
+3. **Ludzka dostępność** - łatwy kontakt, normalny język i prawdziwy zespół.
 
 ### Zasady wykonania
 
@@ -62,7 +62,7 @@ Stworzyć wizualny język rozpoznawalny jako WHM, bez odcinania się od obecnej 
 - ograniczyć liczbę typowych kart z cieniem;
 - budować hierarchię przez typografię, kadry, liczby i rytm sekcji;
 - stosować wyłącznie prawdziwe zdjęcia WHM;
-- nie tworzyć osobnej stylistyki dla B2B — B2B ma być cięższą, bardziej dowodową odmianą tego samego systemu.
+- nie tworzyć osobnej stylistyki dla B2B - B2B ma być cięższą, bardziej dowodową odmianą tego samego systemu.
 
 ### Kryterium akceptacji
 
@@ -240,7 +240,7 @@ Zbudować jednoznaczne pierwsze wrażenie: WHM jest przygotowaną firmą przepro
 Rekomendowany zestaw:
 
 - od 2019 roku;
-- ochrona ubezpieczeniowa do 1 mln zł — warunki potwierdzane dla zlecenia;
+- ochrona ubezpieczeniowa do 1 mln zł - warunki potwierdzane dla zlecenia;
 - bezpłatne oględziny większych projektów;
 - Kielce, województwo świętokrzyskie i cała Polska.
 
@@ -300,11 +300,11 @@ Traktować zdjęcia jak dokumentację i reportaż z pracy, a nie dekorację stro
 
 ### Docelowe formaty
 
-1. **Zdjęcie otwierające** — szeroki, mocny kadr sekcji lub podstrony.
-2. **Układ reportażowy 1 + 2** — jedno duże zdjęcie i dwa mniejsze detale.
-3. **Zdjęcie z podpisem** — fotografia wraz z informacją, co widzimy i dlaczego było to istotne.
-4. **Detal sprzętu** — zbliżenie zabezpieczenia, pokrowca, pasa, pojemnika albo elementu pojazdu.
-5. **Sekwencja procesu** — maksymalnie trzy fotografie pokazujące przygotowanie, transport i rezultat.
+1. **Zdjęcie otwierające** - szeroki, mocny kadr sekcji lub podstrony.
+2. **Układ reportażowy 1 + 2** - jedno duże zdjęcie i dwa mniejsze detale.
+3. **Zdjęcie z podpisem** - fotografia wraz z informacją, co widzimy i dlaczego było to istotne.
+4. **Detal sprzętu** - zbliżenie zabezpieczenia, pokrowca, pasa, pojemnika albo elementu pojazdu.
+5. **Sekwencja procesu** - maksymalnie trzy fotografie pokazujące przygotowanie, transport i rezultat.
 
 ### Zasady kadrowania
 
@@ -413,9 +413,9 @@ Uczynić realizacje centralnym dowodem jakości WHM, szczególnie dla B2B.
 
 Pokazać trzy wyróżnione realizacje:
 
-1. **Relokacja Prokuratur Kielce-Wschód i Kielce-Zachód** — dowód skali, etapowania i ciągłości działania.
-2. **Relokacja Teatru im. Stefana Żeromskiego** — dowód organizacji zróżnicowanego mienia i pracy dla instytucji kultury.
-3. **Transport zabytkowego obrazu z Zamku Szydłowieckich** — dowód kreatywnego rozwiązania nietypowego problemu.
+1. **Relokacja Prokuratur Kielce-Wschód i Kielce-Zachód** - dowód skali, etapowania i ciągłości działania.
+2. **Relokacja Teatru im. Stefana Żeromskiego** - dowód organizacji zróżnicowanego mienia i pracy dla instytucji kultury.
+3. **Transport zabytkowego obrazu z Zamku Szydłowieckich** - dowód kreatywnego rozwiązania nietypowego problemu.
 
 ### Konstrukcja wyróżnionej realizacji
 
@@ -572,7 +572,7 @@ Zbudować jednoznaczną hierarchię kontaktu:
 ### Formularz docelowy
 
 - imię i nazwisko;
-- numer telefonu lub adres e-mail — co najmniej jedno pole kontaktowe wymagane;
+- numer telefonu lub adres e-mail - co najmniej jedno pole kontaktowe wymagane;
 - pole „W czym możemy pomóc?”;
 - opcjonalna nazwa firmy w formularzu B2B;
 - zgoda i link do polityki prywatności;
@@ -819,7 +819,7 @@ Poniższe kierunki są niezgodne z marką lub obecnym etapem projektu:
 
 ## 24. Kolejność wdrożenia
 
-### Etap 1 — prototyp systemu na stronie głównej
+### Etap 1 - prototyp systemu na stronie głównej
 
 1. Wprowadzić nową typografię i dopracować skalę tekstu.
 2. Uporządkować role kolorów i CTA.
@@ -834,7 +834,7 @@ Poniższe kierunki są niezgodne z marką lub obecnym etapem projektu:
 
 Nie należy od razu przenosić niesprawdzonego systemu na wszystkie 30 stron. Najpierw trzeba ocenić kompletną stronę główną jako wzorzec.
 
-### Etap 2 — komponenty wspólne
+### Etap 2 - komponenty wspólne
 
 1. Nagłówek i menu mobilne.
 2. Stopka.
@@ -847,7 +847,7 @@ Nie należy od razu przenosić niesprawdzonego systemu na wszystkie 30 stron. Na
 9. Galerie i podpisy.
 10. CTA mobilne.
 
-### Etap 3 — podstrony priorytetowe
+### Etap 3 - podstrony priorytetowe
 
 1. `/przeprowadzki/`;
 2. `/dla-firm/`;
@@ -858,11 +858,11 @@ Nie należy od razu przenosić niesprawdzonego systemu na wszystkie 30 stron. Na
 7. `/transport-pianin-i-fortepianow-kielce/`;
 8. `/magazyny-kielce/`.
 
-### Etap 4 — pozostałe strony
+### Etap 4 - pozostałe strony
 
 System należy przenieść na pozostałe usługi, informacje o firmie, kontakt, wycenę i poradniki bez tworzenia nowych wyjątków wizualnych.
 
-### Etap 5 — optymalizacja i testy
+### Etap 5 - optymalizacja i testy
 
 1. Warianty responsywnych obrazów.
 2. Testy wydajności.

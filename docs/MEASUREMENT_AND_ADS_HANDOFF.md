@@ -1,4 +1,4 @@
-# Pomiar i konfiguracja reklam — dokument przekazania
+# Pomiar i konfiguracja reklam - dokument przekazania
 
 ## Zmienne środowiskowe
 
@@ -12,7 +12,7 @@
 
 Pomiar (GTM, baner zgód, zdarzenia) aktywny wyłącznie gdy jednocześnie `PUBLIC_SITE_ENV=production` i `PUBLIC_GTM_ID` pasuje do wzorca `GTM-[A-Z0-9]+`.
 
-## Model zgód (Consent Mode v2 — Basic)
+## Model zgód (Consent Mode v2 - Basic)
 
 ### Trzy kategorie
 
@@ -24,7 +24,7 @@ Pomiar (GTM, baner zgód, zdarzenia) aktywny wyłącznie gdy jednocześnie `PUBL
 
 ### Przepływ
 
-1. Przed jakimkolwiek skryptem GTM: `dataLayer.push` z `consent default` — wszystkie sygnały `denied` poza `security_storage: granted`.
+1. Przed jakimkolwiek skryptem GTM: `dataLayer.push` z `consent default` - wszystkie sygnały `denied` poza `security_storage: granted`.
 2. Baner wyświetla się dopiero na produkcji z ustawionym GTM ID.
 3. Użytkownik klika: „Akceptuję wszystkie", „Odrzucam wszystkie" lub konfiguruje w panelu szczegółowym.
 4. Po decyzji: `consent update` z nowymi stanami → jeśli przynajmniej jedna kategoria opcjonalna `granted`, GTM ładowany (idempotentnie, raz).
@@ -35,7 +35,7 @@ Pomiar (GTM, baner zgód, zdarzenia) aktywny wyłącznie gdy jednocześnie `PUBL
 
 ## Kontrakt zdarzeń
 
-Wszystkie zdarzenia emitowane przez `pushEvent()` (wrapper na `dataLayer.push`) — zwraca `boolean` (`true` = wyemitowano, `false` = zablokowano brakiem zgody). Emitowane wyłącznie gdy przynajmniej jedna kategoria opcjonalna zaakceptowana.
+Wszystkie zdarzenia emitowane przez `pushEvent()` (wrapper na `dataLayer.push`) - zwraca `boolean` (`true` = wyemitowano, `false` = zablokowano brakiem zgody). Emitowane wyłącznie gdy przynajmniej jedna kategoria opcjonalna zaakceptowana.
 
 ### Zdarzenia formularza
 
@@ -82,7 +82,7 @@ Wartości walidowane: max 200 znaków, dozwolone `\w.~%+-`.
 
 Formularz wyceny zawiera ukryte pola `ft_*` (first touch) i `lt_*` (last touch) dla każdego parametru.
 
-## Konfiguracja GTM/GA4/Ads/Meta — odpowiedzialność właściciela
+## Konfiguracja GTM/GA4/Ads/Meta - odpowiedzialność właściciela
 
 Kod strony **nie** ładuje bezpośrednio GA4, Google Ads ani Meta Pixel. Wszystko odbywa się przez tagi GTM. Właściciel musi skonfigurować:
 
@@ -112,6 +112,6 @@ Kod strony **nie** ładuje bezpośrednio GA4, Google Ads ani Meta Pixel. Wszystk
 ## Zakazy
 
 - Żadne PII w zdarzeniach dataLayer.
-- Żadne `gtag('config', ...)` bezpośrednio w kodzie — wszystko przez GTM.
+- Żadne `gtag('config', ...)` bezpośrednio w kodzie - wszystko przez GTM.
 - Żaden skrypt pomiarowy poza GTM loader nie jest dodawany ręcznie.
 - Żadne zdarzenie emitowane bez zgody.

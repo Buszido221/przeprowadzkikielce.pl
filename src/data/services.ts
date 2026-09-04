@@ -344,7 +344,7 @@ export const transportSpecPage = {
     eyebrow: 'Sprzęt dobieramy do zadania',
     heading: 'Realne wyposażenie WHM',
     text: 'Koce i pokrowce ochronne, pasy transportowe, wózki, windy załadunkowe, schodołaz Escalera oraz zabezpieczenia przestrzeni ładunkowej - dobieramy je do konkretnego przedmiotu i warunków, z jakimi mamy do czynienia.',
-    notice: 'W realizacjach WHM były między innymi szafy serwerowe o wysokości ponad 2 m przenoszone przez okno, piece, serwery i wyposażenie laboratoryjne. Każde kolejne zadanie oceniamy jednak osobno — znaczenie mają masa, wymiary, konstrukcja i droga transportowa.',
+    notice: 'W realizacjach WHM były między innymi szafy serwerowe o wysokości ponad 2 m przenoszone przez okno, piece, serwery i wyposażenie laboratoryjne. Każde kolejne zadanie oceniamy jednak osobno - znaczenie mają masa, wymiary, konstrukcja i droga transportowa.',
   },
   gallery: {
     eyebrow: 'Galeria zakresu specjalistycznego',
@@ -784,7 +784,7 @@ export const standardPage = {
   breadcrumbs: [{ label: 'Standard WHM' }],
   hero: {
     heading: 'Standard WHM to sposób pracy, nie dodatkowy pakiet',
-    lead: 'Jakość przeprowadzki wynika z decyzji podejmowanych przed transportem i podczas każdego etapu realizacji - od oceny warunków po zabezpieczenie oraz stabilizację mienia. Te zasady pracy obowiązują w każdej realizacji WHM — od lokalnych zleceń w Kielcach po trasy w całym regionie i kraju.',
+    lead: 'Jakość przeprowadzki wynika z decyzji podejmowanych przed transportem i podczas każdego etapu realizacji - od oceny warunków po zabezpieczenie oraz stabilizację mienia. Te zasady pracy obowiązują w każdej realizacji WHM - od lokalnych zleceń w Kielcach po trasy w całym regionie i kraju.',
     ctaLabel: 'Poproś o wycenę',
     image: '/images/standard-whm/zabezpieczenia-1.webp',
     imageAlt: 'Pasy i zabezpieczenia stabilizujące ładunek',
@@ -1260,7 +1260,7 @@ export const poradnikPage = {
 export const oNasPage = {
   seo: {
     title: 'O WHM Przeprowadzki | Kielce i Masłów',
-    description: 'Poznaj WHM Przeprowadzki — zespół rozwijający od 2019 roku usługi przeprowadzkowe, transport specjalistyczny i przechowywanie mienia.',
+    description: 'Poznaj WHM Przeprowadzki - zespół rozwijający od 2019 roku usługi przeprowadzkowe, transport specjalistyczny i przechowywanie mienia.',
     canonical: `${site.domain}o-nas/`,
   },
   breadcrumbs: [{ label: 'O nas' }],
@@ -1408,7 +1408,7 @@ export const politykaPage = {
     },
     {
       heading: 'Dostawcy usług',
-      content: 'W celu świadczenia usług korzystamy z następujących dostawców: Google LLC (Google Tag Manager — warstwa zarządzania tagami, Google Analytics 4 — kategoria analityczna, Google Ads — kategoria marketingowa), Meta Platforms (Meta Pixel — kategoria marketingowa), EmailJS (przesyłanie formularzy kontaktowych — obsługa zapytań, nie narzędzie analityczne), hosting serwisu. Każdy z dostawców przetwarza dane wyłącznie w zakresie niezbędnym do realizacji usługi.',
+      content: 'W celu świadczenia usług korzystamy z następujących dostawców: Google LLC (Google Tag Manager - warstwa zarządzania tagami, Google Analytics 4 - kategoria analityczna, Google Ads - kategoria marketingowa), Meta Platforms (Meta Pixel - kategoria marketingowa), EmailJS (przesyłanie formularzy kontaktowych - obsługa zapytań, nie narzędzie analityczne), hosting serwisu. Każdy z dostawców przetwarza dane wyłącznie w zakresie niezbędnym do realizacji usługi.',
     },
     {
       heading: 'Aktualizacje polityki',

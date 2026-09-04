@@ -2,7 +2,7 @@ export const hero = {
   eyebrow: 'WHM Przeprowadzki \u2022 Kielce i województwo świętokrzyskie',
   heading: 'Firma przeprowadzkowa z Kielc, która odpowiada za cały proces',
   lead: 'Od zabezpieczenia pierwszego mebla po ustawienie ostatniego kartonu. Zajmiemy się organizacją, pakowaniem, transportem i wniesieniem, aby cała przeprowadzka przebiegła sprawnie, bezpiecznie i zgodnie z planem.',
-  contactNote: 'Zadzwoń, napisz SMS lub wyślij zdjęcia — odezwiemy się szybko.',
+  contactNote: 'Zadzwoń, napisz SMS lub wyślij zdjęcia - odezwiemy się szybko.',
   image: '/images/hero/hero-1.webp',
   imageAlt: 'Samochód WHM Przeprowadzki przy realizacji zlecenia w Kielcach',
 };
@@ -14,14 +14,14 @@ export const trustFacts = [
   },
   {
     title: 'Ochrona do 1 mln zł',
-    desc: 'Ochrona ubezpieczeniowa mienia — warunki potwierdzane dla zlecenia.',
+    desc: 'Ochrona ubezpieczeniowa mienia - warunki potwierdzane dla zlecenia.',
   },
   {
     title: 'Bezpłatne oględziny',
     desc: 'Przy większych projektach oględziny i plan realizacji bez opłat.',
   },
   {
-    title: 'Kielce — cała Polska',
+    title: 'Kielce - cała Polska',
     desc: 'Działamy w województwie świętokrzyskim i realizujemy trasy krajowe.',
   },
 ];
@@ -29,7 +29,7 @@ export const trustFacts = [
 export const introSection = {
   eyebrow: 'Więcej niż przewóz',
   heading: 'Dobra przeprowadzka zaczyna się od rozmowy, nie od pakowania.',
-  text: 'Zanim przyjadą samochody, poznajemy Twoją sytuację — co przewozisz, dokąd, jakie są warunki dostępu i na czym Ci najbardziej zależy. Dzięki temu w dniu przeprowadzki nie ma niespodzianek, a Ty możesz skupić się na nowym miejscu.',
+  text: 'Zanim przyjadą samochody, poznajemy Twoją sytuację - co przewozisz, dokąd, jakie są warunki dostępu i na czym Ci najbardziej zależy. Dzięki temu w dniu przeprowadzki nie ma niespodzianek, a Ty możesz skupić się na nowym miejscu.',
   points: [
     'Dokładne poznanie zakresu i warunków',
     'Plan kolejności prac dostosowany do sytuacji',
@@ -42,8 +42,8 @@ export const introSection = {
 
 export const servicesSection = {
   eyebrow: 'Oferta WHM',
-  heading: 'Jedna firma, cały proces — od początku do końca.',
-  intro: 'Niezależnie od tego, czy przenosisz mieszkanie, firmę czy pojedynczy ciężki przedmiot — dopasujemy zakres do Twojej sytuacji.',
+  heading: 'Jedna firma, cały proces - od początku do końca.',
+  intro: 'Niezależnie od tego, czy przenosisz mieszkanie, firmę czy pojedynczy ciężki przedmiot - dopasujemy zakres do Twojej sytuacji.',
   items: [
     {
       title: 'Przeprowadzki mieszkań i domów',
@@ -59,13 +59,13 @@ export const servicesSection = {
     },
     {
       title: 'Transport specjalistyczny',
-      desc: 'Pianina, sejfy, duże urządzenia — bezpiecznie przewieziemy to, czego inni się nie podejmują.',
+      desc: 'Pianina, sejfy, duże urządzenia - bezpiecznie przewieziemy to, czego inni się nie podejmują.',
       href: '/transport-specjalistyczny/',
       image: '/images/transport-gabarytow/transport-gabarytow-kielce-7.webp',
     },
     {
       title: 'Pakowanie i zabezpieczanie',
-      desc: 'Profesjonalne materiały i doświadczony zespół — Twoje rzeczy dotrą w takim stanie, w jakim nam je powierzysz.',
+      desc: 'Profesjonalne materiały i doświadczony zespół - Twoje rzeczy dotrą w takim stanie, w jakim nam je powierzysz.',
       href: '/pakowanie-i-zabezpieczanie/',
       image: '/images/packing-services/pakowanie-przeprowadzki-kielce-3.webp',
     },
@@ -75,8 +75,8 @@ export const servicesSection = {
 
 export const standardSection = {
   eyebrow: 'Standard WHM',
-  heading: 'Bezpieczeństwo Twojego mienia to nie opcja — to nasz standard.',
-  text: 'Każdą przeprowadzkę realizujemy z pełnym zabezpieczeniem. Pokrowce, koce, pasy, wózki i odpowiedni sprzęt — to dla nas norma, nie dodatek.',
+  heading: 'Bezpieczeństwo Twojego mienia to nie opcja - to nasz standard.',
+  text: 'Każdą przeprowadzkę realizujemy z pełnym zabezpieczeniem. Pokrowce, koce, pasy, wózki i odpowiedni sprzęt - to dla nas norma, nie dodatek.',
   equipmentModules: [
     {
       name: 'Dedykowane pokrowce',
@@ -110,12 +110,12 @@ export const standardSection = {
     },
     {
       name: 'Pojemniki',
-      benefit: 'Pojemniki około 70 l z możliwością plombowania — mienie zorganizowane i chronione.',
+      benefit: 'Pojemniki około 70 l z możliwością plombowania - mienie zorganizowane i chronione.',
       image: '/images/moving-boxes/pojemniki-przeprowadzkowe-1.webp',
     },
     {
       name: 'Zabudowa samochodów',
-      benefit: 'Samochody z zabudową i suchą przestrzenią ładunkową — mienie jedzie w odpowiednich warunkach.',
+      benefit: 'Samochody z zabudową i suchą przestrzenią ładunkową - mienie jedzie w odpowiednich warunkach.',
       image: '/images/standard-whm/sztywna-zabudowa-1.webp',
     },
   ],
@@ -198,7 +198,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     author: 'Wiola',
-    text: 'Panowie super, bardzo cierpliwi, spokojni, wszystko zorganizowane na czas. Pełen profesjonalizm i zrozumienie. Wszystko zabezpieczone — od mebli, przez szkło, a na kwiatach kończąc. Polecam z całego serca.',
+    text: 'Panowie super, bardzo cierpliwi, spokojni, wszystko zorganizowane na czas. Pełen profesjonalizm i zrozumienie. Wszystko zabezpieczone - od mebli, przez szkło, a na kwiatach kończąc. Polecam z całego serca.',
     source: 'Google',
   },
   {
@@ -210,7 +210,7 @@ export const testimonials: Testimonial[] = [
 
 export const ecosystemSection = {
   eyebrow: 'Cały ekosystem WHM',
-  heading: 'Przeprowadzka, przechowanie i materiały — wszystko w jednym miejscu.',
+  heading: 'Przeprowadzka, przechowanie i materiały - wszystko w jednym miejscu.',
   storage: {
     title: 'Magazyny WHM',
     text: 'Ogrzewane boksy od 2 do 9 m², miejsca paletowe oraz przechowywanie instrumentów. Szczelny, ogrzewany i zabezpieczony obiekt w Masłowie koło Kielc.',
@@ -219,7 +219,7 @@ export const ecosystemSection = {
   },
   shop: {
     title: 'WHM Shop',
-    text: 'Kartony, pokrowce, koce i materiały zabezpieczające — te same, których sami używamy podczas przeprowadzek. Dostępne dla każdego.',
+    text: 'Kartony, pokrowce, koce i materiały zabezpieczające - te same, których sami używamy podczas przeprowadzek. Dostępne dla każdego.',
     cta: { label: 'Przejdź do WHM Shop', href: '/whm-shop/' },
     image: '/images/moving-boxes/kartony-do-przeprowadzki-3.webp',
   },
@@ -244,7 +244,7 @@ export const processSteps = [
   {
     number: '04',
     title: 'Realizujemy przeprowadzkę',
-    desc: 'Zabezpieczamy, pakujemy, przewozimy i wnosimy — zgodnie z planem.',
+    desc: 'Zabezpieczamy, pakujemy, przewozimy i wnosimy - zgodnie z planem.',
   },
   {
     number: '05',
@@ -263,7 +263,7 @@ export const processSection = {
 export const guideSection = {
   eyebrow: 'Poradniki WHM',
   heading: 'Przygotuj się do przeprowadzki spokojnie i bez chaosu.',
-  text: 'Praktyczny poradnik pomoże Ci zaplanować przeprowadzkę krok po kroku — od pierwszych przygotowań po dzień transportu.',
+  text: 'Praktyczny poradnik pomoże Ci zaplanować przeprowadzkę krok po kroku - od pierwszych przygotowań po dzień transportu.',
   cta: { label: 'Przeczytaj poradnik', href: '/poradniki/' },
   image: '/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp',
 };
@@ -275,7 +275,7 @@ export const faqItems = [
   },
   {
     question: 'Czy WHM może spakować moje rzeczy?',
-    answer: 'Tak — możemy spakować całe mieszkanie lub tylko wybrane elementy. Materiały dobieramy do rodzaju Twoich rzeczy, żeby dotarły bezpiecznie.',
+    answer: 'Tak - możemy spakować całe mieszkanie lub tylko wybrane elementy. Materiały dobieramy do rodzaju Twoich rzeczy, żeby dotarły bezpiecznie.',
   },
   {
     question: 'Czy wykonujecie demontaż i montaż mebli?',
@@ -287,15 +287,15 @@ export const faqItems = [
   },
   {
     question: 'Czy obsługujecie firmy i instytucje?',
-    answer: 'Tak. Przenosimy biura, firmy i instytucje — również etapami, żeby ograniczyć przestoje w pracy organizacji.',
+    answer: 'Tak. Przenosimy biura, firmy i instytucje - również etapami, żeby ograniczyć przestoje w pracy organizacji.',
   },
   {
     question: 'Gdzie działa WHM?',
-    answer: 'Działamy w Kielcach i województwie świętokrzyskim. Realizujemy też przeprowadzki międzymiastowe — wystarczy, że opiszesz swoją sytuację.',
+    answer: 'Działamy w Kielcach i województwie świętokrzyskim. Realizujemy też przeprowadzki międzymiastowe - wystarczy, że opiszesz swoją sytuację.',
   },
 ];
 
 export const finalCta = {
   heading: 'Porozmawiajmy o Twojej przeprowadzce.',
-  text: 'Powiedz nam, co i dokąd przewozisz — resztą zajmiemy się my. Jeśli masz zdjęcia lub dodatkowe pytania, chętnie je przyjmiemy.',
+  text: 'Powiedz nam, co i dokąd przewozisz - resztą zajmiemy się my. Jeśli masz zdjęcia lub dodatkowe pytania, chętnie je przyjmiemy.',
 };

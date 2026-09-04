@@ -109,7 +109,7 @@ for (const path of htmlFiles) {
     const robots = robotsMatches[0].match(/content="([^"]*)"/)[1];
     const isStaging = robots === 'noindex, nofollow, noarchive';
     if (isStaging) {
-      // On staging all pages get the global override — acceptable for any page
+      // On staging all pages get the global override - acceptable for any page
     } else if (is404) {
       report(robots === 'noindex, nofollow', `${route}: 404 robots should be "noindex, nofollow", got "${robots}".`);
     } else if (isPrivacy) {

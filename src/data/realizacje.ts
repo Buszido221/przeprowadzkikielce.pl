@@ -104,7 +104,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: '/realizacje/relokacja-teatru-zeromskiego-kielce/',
     title: 'Relokacja Teatru Żeromskiego w Kielcach | WHM',
-    description: 'WHM zebrało zasoby Teatru im. Stefana Żeromskiego z kilku lokalizacji w Kielcach i przeniosło je do historycznej siedziby — niemal 50 transportów.',
+    description: 'WHM zebrało zasoby Teatru im. Stefana Żeromskiego z kilku lokalizacji w Kielcach i przeniosło je do historycznej siedziby - niemal 50 transportów.',
     eyebrow: 'Relokacja instytucji kultury',
     heading: 'Powrót Teatru im. Stefana Żeromskiego do historycznej siedziby',
     lead: 'Po wieloletnim remoncie zasoby teatru były rozproszone w kilku lokalizacjach na terenie Kielc. Zadaniem WHM było zebrać scenografię, kostiumy, wyposażenie techniczne, bibliotekę, dwa fortepiany i mienie poszczególnych działów, a następnie wprowadzić je do odnowionego budynku zgodnie z ustalonym harmonogramem.',
@@ -181,7 +181,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Relokacja TVP3 Kielce i archiwum | WHM',
     description: 'Relokacja TVP3 Kielce: niemal 8000 pozycji archiwum odtworzonych co do półki, wyposażenie studia i demontaż realizatorni z podłogą techniczną.',
     eyebrow: 'Archiwum i infrastruktura techniczna',
-    heading: 'Relokacja TVP3 Kielce — dwadzieścia lat materiałów odtworzone co do półki',
+    heading: 'Relokacja TVP3 Kielce - dwadzieścia lat materiałów odtworzone co do półki',
     lead: 'Przeprowadzka kieleckiego oddziału TVP3 obejmowała niemal osiem tysięcy pozycji archiwum, wyposażenie studia oraz demontaż realizatorni z podłogą techniczną. Każdy etap wymagał rozróżnienia tego, co należało zachować, przewieźć albo usunąć bez naruszenia czynnych instalacji.',
     heroImage: '/images/realizacje/tvp3-kielce/relokacja-tvp-kielce.webp',
     heroAlt: 'Relokacja wyposażenia i archiwum TVP3 Kielce przez WHM',
@@ -203,7 +203,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Archiwum, którego nie można było po prostu spakować',
         paragraphs: [
           'Największym wyzwaniem relokacji TVP3 Kielce nie była sama liczba przedmiotów. Była nim struktura archiwum obejmującego niemal osiem tysięcy pozycji.',
-          'Znaczną część stanowiły chronologicznie uporządkowane materiały z codziennych wydań wiadomości — ponad dwadzieścia lat historii działalności oddziału. Drugą część tworzyły programy produkowane przez kielecką filię, uporządkowane alfabetycznie.',
+          'Znaczną część stanowiły chronologicznie uporządkowane materiały z codziennych wydań wiadomości - ponad dwadzieścia lat historii działalności oddziału. Drugą część tworzyły programy produkowane przez kielecką filię, uporządkowane alfabetycznie.',
           'Pomieszanie tych dwóch systemów oznaczałoby, że po przeprowadzce klient otrzymałby zbiór tysięcy materiałów wymagających ponownego katalogowania. Dlatego celem WHM nie był wyłącznie transport archiwum. Należało odtworzyć jego logikę w nowej siedzibie.',
         ],
       },
@@ -225,7 +225,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Likwidacja studia i przygotowanie wyposażenia do dalszego transportu',
         paragraphs: [
           'Drugą częścią projektu była likwidacja starego studia znanego widzom lokalnych programów i wiadomości. Elementy przeznaczone do usunięcia trafiały między innymi do kontenerów wielkogabarytowych zamówionych przez klienta.',
-          'Nie wszystko miało jednak zostać zutylizowane. Duże szklane stoły ze studia należało zachować. WHM przygotowało je, zniosło, zabezpieczyło i przekazało do dalszego transportu do Olsztyna. Sam przejazd do Olsztyna wykonywał zewnętrzny przewoźnik klienta — rola WHM kończyła się na bezpiecznym przygotowaniu wyposażenia.',
+          'Nie wszystko miało jednak zostać zutylizowane. Duże szklane stoły ze studia należało zachować. WHM przygotowało je, zniosło, zabezpieczyło i przekazało do dalszego transportu do Olsztyna. Sam przejazd do Olsztyna wykonywał zewnętrzny przewoźnik klienta - rola WHM kończyła się na bezpiecznym przygotowaniu wyposażenia.',
         ],
       },
       {
@@ -300,7 +300,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Prawie 300 pojemników w ciągłej rotacji',
         paragraphs: [
-          'WHM dostarczyło wcześniej prawie 300 plastikowych pojemników — niemal cały ówczesny zapas firmy. Jednoczesne spakowanie około 40 tysięcy pozycji wymagałoby jednak tysięcy pojemników.',
+          'WHM dostarczyło wcześniej prawie 300 plastikowych pojemników - niemal cały ówczesny zapas firmy. Jednoczesne spakowanie około 40 tysięcy pozycji wymagałoby jednak tysięcy pojemników.',
           'Zamiast czekać na spakowanie całości, zastosowano rotacyjny model pracy. Dwa samochody kursowały każdego dnia zgodnie z tempem pakowania i rozkładania księgozbioru. Po opróżnieniu pojemniki wracały do lokalizacji początkowej i ponownie trafiały do obiegu.',
           'Takie rozwiązanie pozwoliło wykorzystać dostępne zasoby wielokrotnie w ramach jednego projektu. Wymagało jednak zsynchronizowania pakowania, transportu, rozładunku i powrotu pustych pojemników, aby żadna część procesu nie czekała na pozostałe.',
         ],
@@ -386,7 +386,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: 'Tylko 400 metrów transportu i kilka kolejnych przeszkód',
         paragraphs: [
-          'Po opuszczeniu obraz został bezpiecznie załadowany do samochodu WHM. Miejsce docelowe — Muzeum Instrumentów Ludowych — znajdowało się w odległości około 400 metrów.',
+          'Po opuszczeniu obraz został bezpiecznie załadowany do samochodu WHM. Miejsce docelowe - Muzeum Instrumentów Ludowych - znajdowało się w odległości około 400 metrów.',
           'Krótki przejazd nie oznaczał jednak prostego zakończenia realizacji. Kręgi ze sklejki miały większą średnicę niż sama tuba, dlatego w miejscu docelowym część zabezpieczeń należało zdemontować.',
           'Następnie zdemontowano okno prowadzące do piwnicy muzeum. Na trasie trzeba było również usunąć jedno przęsło ogrodzenia. Dopiero po przygotowaniu całej drogi możliwe było delikatne wprowadzenie obrazu przez otwór okienny bez zmiany jego położenia.',
         ],
@@ -423,7 +423,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: '/realizacje/transport-fortepianow-zamek-szydlowieckich/',
-    title: 'Transport fortepianów — Zamek Szydłowieckich | WHM',
+    title: 'Transport fortepianów - Zamek Szydłowieckich | WHM',
     description: 'Dwa fortepiany i ciasna winda wymagająca niestandardowej pozycji instrumentu. Zobacz realizację WHM przeprowadzoną w Zamku Szydłowieckich.',
     eyebrow: 'Instrumenty w obiekcie historycznym',
     heading: 'Dwa fortepiany i winda, która wymusiła niestandardowe rozwiązanie',
@@ -547,7 +547,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Rezultat: przejęcie nagłego zadania bez obniżenia standardu',
         paragraphs: [
           'Realizacja połączyła szybką zmianę planu, oczekiwanie na zakończenie wydarzenia, pracę w nietypowej przestrzeni, nocny przejazd oraz ręczne pokonanie ostatnich stopni przy scenie.',
-          'WHM nie dysponowało specjalistycznym pianoliftem opisywanym w późniejszej części materiału źródłowego — urządzenie należało do innego przewoźnika i nie może być przedstawiane jako zasób firmy. Atutem WHM w tej historii były dostępność, przygotowany zespół, odpowiednie zabezpieczenia, samochód z windą i zdolność bezpiecznego zakończenia pracy około drugiej w nocy.',
+          'WHM nie dysponowało specjalistycznym pianoliftem opisywanym w późniejszej części materiału źródłowego - urządzenie należało do innego przewoźnika i nie może być przedstawiane jako zasób firmy. Atutem WHM w tej historii były dostępność, przygotowany zespół, odpowiednie zabezpieczenia, samochód z windą i zdolność bezpiecznego zakończenia pracy około drugiej w nocy.',
         ],
       },
     ],
@@ -630,7 +630,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Sprzęt laboratoryjny ustawiany na docelowej wysokości',
         paragraphs: [
           'WHM transportowało również ciężki i wartościowy sprzęt laboratoryjny. Dodatkowe widły schodołazu pozwalają nie tylko przemieścić urządzenie, ale również podnieść je pionowo na wysokość niemal 1,5 m.',
-          'Rozwiązanie było wykorzystywane przy ustawianiu maszyn laboratoryjnych na podwyższonych stojakach. W takich realizacjach sukces nie kończy się na wniesieniu sprzętu do pomieszczenia. Urządzenie trzeba ustawić na właściwej wysokości i w odpowiednim położeniu — według doświadczenia WHM nawet z dokładnością określaną jako milimetrowa.',
+          'Rozwiązanie było wykorzystywane przy ustawianiu maszyn laboratoryjnych na podwyższonych stojakach. W takich realizacjach sukces nie kończy się na wniesieniu sprzętu do pomieszczenia. Urządzenie trzeba ustawić na właściwej wysokości i w odpowiednim położeniu - według doświadczenia WHM nawet z dokładnością określaną jako milimetrowa.',
         ],
       },
       {
@@ -650,7 +650,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
-    conclusionText: 'Zanim podamy sposób i cenę, musimy poznać drogę. Metoda zawsze wynika z masy, wymiarów, środka ciężkości, drogi i nośności podłoża — nie z wartości na tabliczce znamionowej.',
+    conclusionText: 'Zanim podamy sposób i cenę, musimy poznać drogę. Metoda zawsze wynika z masy, wymiarów, środka ciężkości, drogi i nośności podłoża - nie z wartości na tabliczce znamionowej.',
     relatedServices: [
       { label: 'Transport specjalistyczny', href: '/transport-specjalistyczny/', text: 'Dla ciężkich i nietypowych przedmiotów wymagających osobnej oceny.' },
       { label: 'Dla firm', href: '/dla-firm/', text: 'Planowanie i realizacja relokacji technicznych dla firm.' },

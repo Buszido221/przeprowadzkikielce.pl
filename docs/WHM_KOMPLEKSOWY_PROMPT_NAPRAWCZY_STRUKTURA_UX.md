@@ -1,4 +1,4 @@
-# KOMPLEKSOWY PROMPT NAPRAWCZY — WHM PRZEPROWADZKI
+# KOMPLEKSOWY PROMPT NAPRAWCZY - WHM PRZEPROWADZKI
 
 ## Rola i sposób pracy
 
@@ -43,7 +43,7 @@ Najważniejsze cele:
 
 ---
 
-# CZĘŚĆ I — NADRZĘDNE ZAŁOŻENIA MARKI
+# CZĘŚĆ I - NADRZĘDNE ZAŁOŻENIA MARKI
 
 ## 1. Marka i odbiorcy
 
@@ -102,7 +102,7 @@ Nie wolno:
 
 ---
 
-# CZĘŚĆ II — SCALENIE `/KONTAKT/` I `/WYCENA/`
+# CZĘŚĆ II - SCALENIE `/KONTAKT/` I `/WYCENA/`
 
 ## 4. Wiążąca decyzja strukturalna
 
@@ -194,9 +194,9 @@ Użyj istniejącego wspólnego komponentu `LeadForm.astro`. Nie twórz drugiej i
 
 Pola:
 
-- imię i nazwisko — wymagane;
-- telefon lub e-mail — wymagany co najmniej jeden kanał;
-- „W czym możemy pomóc?” — wymagane;
+- imię i nazwisko - wymagane;
+- telefon lub e-mail - wymagany co najmniej jeden kanał;
+- „W czym możemy pomóc?” - wymagane;
 - opcjonalna firma tylko w kontekście B2B;
 - zgoda i link do polityki prywatności.
 
@@ -263,7 +263,7 @@ Po zmianie w aktywnym `src/` nie powinien zostać żaden link użytkowy do `/wyc
 
 ---
 
-# CZĘŚĆ III — WYŚRODKOWANIE I GEOMETRIA TREŚCI
+# CZĘŚĆ III - WYŚRODKOWANIE I GEOMETRIA TREŚCI
 
 ## 10. Problem potwierdzony nagraniem
 
@@ -326,8 +326,8 @@ W takich przypadkach centruj cały kontener za pomocą `margin-inline: auto`, al
 Domyślny `SectionHeading` powinien umożliwiać warianty:
 
 ```text
-alignment="center" — domyślny dla marketingowych sekcji
-alignment="left" — dla artykułów, formularzy i treści technicznych
+alignment="center" - domyślny dla marketingowych sekcji
+alignment="left" - dla artykułów, formularzy i treści technicznych
 ```
 
 Jeżeli komponent nie obsługuje wariantu, rozszerz go zamiast tworzyć drugi komponent.
@@ -476,7 +476,7 @@ Dostosuj go do realnej treści, nie stosuj jednej wartości bez wyjątku.
 
 ---
 
-# CZĘŚĆ IV — STRONA GŁÓWNA
+# CZĘŚĆ IV - STRONA GŁÓWNA
 
 ## 21. Zachowaj wykonane zmiany
 
@@ -583,7 +583,7 @@ Jeżeli obecne fotografie w wyróżnionych case studies nie są potwierdzone, zm
 
 ---
 
-# CZĘŚĆ V — NAPRAWA `/REALIZACJE/`
+# CZĘŚĆ V - NAPRAWA `/REALIZACJE/`
 
 ## 28. Popraw język
 
@@ -660,7 +660,7 @@ Podpisy nie mogą sugerować, że ogólne zdjęcie przedstawia konkretną realiz
 
 ---
 
-# CZĘŚĆ VI — EMAILJS
+# CZĘŚĆ VI - EMAILJS
 
 ## 32. Nie wymyślaj danych
 
@@ -720,7 +720,7 @@ Nie twórz Netlify Function ani nowego backendu. Obecnym świadomym rozwiązanie
 
 ---
 
-# CZĘŚĆ VII — ANALITYKA, ZGODY I PRYWATNOŚĆ
+# CZĘŚĆ VII - ANALITYKA, ZGODY I PRYWATNOŚĆ
 
 ## 36. GA4 przez zmienną środowiskową
 
@@ -792,7 +792,7 @@ Nie wymyślaj szczegółów umów powierzenia ani lokalizacji przetwarzania, kt�
 
 ---
 
-# CZĘŚĆ VIII — OBRAZY I WYDAJNOŚĆ MOŻLIWA BEZ NOWYCH ZDJĘĆ
+# CZĘŚĆ VIII - OBRAZY I WYDAJNOŚĆ MOŻLIWA BEZ NOWYCH ZDJĘĆ
 
 ## 40. Popraw wymiary
 
@@ -837,7 +837,7 @@ Nie wykonuj agresywnej kompresji wszystkich materiałów bez kontroli wizualnej.
 
 ---
 
-# CZĘŚĆ IX — DOKUMENTACJA I PORZĄDKI TECHNICZNE
+# CZĘŚĆ IX - DOKUMENTACJA I PORZĄDKI TECHNICZNE
 
 ## 43. `AGENTS.md`
 
@@ -858,10 +858,10 @@ Aktualny `AGENTS.md` nie przekazuje realnych zasad projektu. Zastąp go krótką
 
 Zaktualizuj:
 
-- `docs/WHM_REBUILD_CONTEXT.md` — usuń aktywny podział `/kontakt/` i `/wycena/`;
-- `docs/URL_MIGRATION_MAP.md` — dodaj `/wycena/ → /kontakt/`;
-- `docs/PRODUCTION_LAUNCH_CHECKLIST.md` — jedna strona kontaktowa;
-- `docs/WHM_KIERUNEK_WIZUALNY_I_PLAN_POPRAWEK.md` — jeden kontakt i formularz;
+- `docs/WHM_REBUILD_CONTEXT.md` - usuń aktywny podział `/kontakt/` i `/wycena/`;
+- `docs/URL_MIGRATION_MAP.md` - dodaj `/wycena/ → /kontakt/`;
+- `docs/PRODUCTION_LAUNCH_CHECKLIST.md` - jedna strona kontaktowa;
+- `docs/WHM_KIERUNEK_WIZUALNY_I_PLAN_POPRAWEK.md` - jeden kontakt i formularz;
 - dokumentację QA;
 - README, jeżeli opisuje nieaktualny routing.
 
@@ -878,7 +878,7 @@ Nie przepisuj historycznych raportów tak, jakby nigdy nie istniały. Oznacz sta
 
 ---
 
-# CZĘŚĆ X — TESTY I KRYTERIA ODBIORU
+# CZĘŚĆ X - TESTY I KRYTERIA ODBIORU
 
 ## 46. Build
 
@@ -949,7 +949,7 @@ Sprawdź co najmniej:
 - 1440 × 900;
 - 1280 × 800;
 - 1024 × 768;
-- około 914 × 838 — problem pokazany przez użytkownika;
+- około 914 × 838 - problem pokazany przez użytkownika;
 - 768 × 1024;
 - 390 × 844;
 - 360 × 800;
@@ -1000,7 +1000,7 @@ Zadanie jest zakończone wyłącznie wtedy, gdy:
 
 ---
 
-# CZĘŚĆ XI — RAPORT KOŃCOWY
+# CZĘŚĆ XI - RAPORT KOŃCOWY
 
 Po zakończeniu nie odpowiadaj ogólnym „wszystko gotowe”. Przedstaw raport zawierający:
 

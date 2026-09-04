@@ -62,7 +62,7 @@ Przejrzano:
 7. W kodzie nie ma linków do usuniętego `whmtransport.eu`, starego adresu Sandomierska ani do strony WeNet. Domena występująca w adresie e-mail jest zgodna z zatwierdzonym NAP i nie jest błędem.
 8. Zdjęcia hero landingów są prawdziwymi zdjęciami WHM i zasadniczo odpowiadają intencjom kampanii.
 
-## Blokery P0 — przed publikacją i przed Google Ads
+## Blokery P0 - przed publikacją i przed Google Ads
 
 ### 1. Formularze nie działają
 
@@ -93,7 +93,7 @@ Minimalne wymagania endpointu:
 
 `src/components/Analytics.astro` wysyła zdarzenie `form_submit` na każdy event `submit`. Oznacza to, że konwersja może zostać zaliczona przed walidacją, przed wysłaniem i nawet po błędzie serwera.
 
-Jednocześnie w kodzie jest wyłącznie identyfikator GA4 `G-X0K3ND72TV`; nie ma identyfikatora `AW-...`, etykiety konwersji ani zdarzenia Google Ads. Google opisuje konwersję witryny jako połączenie Google tagu i event snippet uruchamianego w momencie właściwej konwersji, a nie przy samym kliknięciu przycisku: [Google Ads — użycie Google tagu do pomiaru konwersji](https://support.google.com/google-ads/answer/7548399?hl=en).
+Jednocześnie w kodzie jest wyłącznie identyfikator GA4 `G-X0K3ND72TV`; nie ma identyfikatora `AW-...`, etykiety konwersji ani zdarzenia Google Ads. Google opisuje konwersję witryny jako połączenie Google tagu i event snippet uruchamianego w momencie właściwej konwersji, a nie przy samym kliknięciu przycisku: [Google Ads - użycie Google tagu do pomiaru konwersji](https://support.google.com/google-ads/answer/7548399?hl=en).
 
 Docelowy model zdarzeń:
 
@@ -112,7 +112,7 @@ Do zdarzenia sukcesu należy przekazywać anonimowy `lead_id`/`event_id`, typ us
 
 Kod nie przechwytuje żadnego z parametrów: `gclid`, `gbraid`, `wbraid`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `campaignid`, `adgroupid`, `creative`, `device` i `network`.
 
-Google auto-tagging dopisuje `GCLID` do adresu docelowego i wymaga, aby serwis akceptował parametry URL oraz nie gubił ich w przekierowaniach: [Google Ads — auto-tagging](https://support.google.com/google-ads/answer/3095550?hl=en). Parametry kampanii można dodać przez Final URL suffix i ValueTrack: [Google Ads — ValueTrack](https://support.google.com/google-ads/answer/6305348?hl=en-GB).
+Google auto-tagging dopisuje `GCLID` do adresu docelowego i wymaga, aby serwis akceptował parametry URL oraz nie gubił ich w przekierowaniach: [Google Ads - auto-tagging](https://support.google.com/google-ads/answer/3095550?hl=en). Parametry kampanii można dodać przez Final URL suffix i ValueTrack: [Google Ads - ValueTrack](https://support.google.com/google-ads/answer/6305348?hl=en-GB).
 
 Formularz powinien zapisywać jako ukryte pola:
 
@@ -139,7 +139,7 @@ Takiej wersji nie należy publikować jako finalnego dokumentu przy działający
 
 ### 5. Nieaktywny landing utylizacji jest publikowany jako strona 200
 
-`/lp/utylizacja-mebli-kielce/` ma status `draft` i `campaignEnabled: false`, ale Astro nadal generuje publiczną stronę 200 z komunikatem „kampania nieaktywna”. Google Ads uznaje strony „under construction” lub zwracające komunikat o braku treści za niespełniające wymagań miejsca docelowego: [Google Ads — destination not working](https://support.google.com/adspolicy/answer/16428019?hl=en).
+`/lp/utylizacja-mebli-kielce/` ma status `draft` i `campaignEnabled: false`, ale Astro nadal generuje publiczną stronę 200 z komunikatem „kampania nieaktywna”. Google Ads uznaje strony „under construction” lub zwracające komunikat o braku treści za niespełniające wymagań miejsca docelowego: [Google Ads - destination not working](https://support.google.com/adspolicy/answer/16428019?hl=en).
 
 **Decyzja:** do czasu potwierdzenia zakresu usługi i legalnego sposobu obsługi odpadów nie kierować tam reklam i nie generować tej trasy w buildzie. Adres powinien zwracać 404 albo 410. Jeżeli kampania kiedyś wróci, landing należy zbudować od nowa na potwierdzonych informacjach.
 
@@ -203,7 +203,7 @@ Najważniejsze decyzje:
 - pozostawić landingi dostępne dla Googlebot i AdsBot;
 - po wdrożeniu zweryfikować każdy final URL jako Google AdsBot desktop i mobile.
 
-Google wyjaśnia, że strona z `noindex` musi pozostać crawlable, inaczej robot nie zobaczy dyrektywy: [Google Search Central — noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing). Google Ads wymaga równocześnie, aby AdsBot mógł pobrać stronę i otrzymywał stabilną odpowiedź 200: [Google Ads — strony niedostępne dla crawlera](https://support.google.com/google-ads/answer/9229701?hl=en).
+Google wyjaśnia, że strona z `noindex` musi pozostać crawlable, inaczej robot nie zobaczy dyrektywy: [Google Search Central - noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing). Google Ads wymaga równocześnie, aby AdsBot mógł pobrać stronę i otrzymywał stabilną odpowiedź 200: [Google Ads - strony niedostępne dla crawlera](https://support.google.com/google-ads/answer/9229701?hl=en).
 
 Nie ma technicznej potrzeby dodawania osobnych sekcji `AdsBot-Google`, dopóki reguła ogólna pozwala na wszystko. Jeżeli w przyszłości `robots.txt` zostanie zaostrzony, trzeba dodać jawne wyjątki dla `AdsBot-Google` i `AdsBot-Google-Mobile`.
 
@@ -219,7 +219,7 @@ Aktualna logika wyboru URL-i jest poprawna: tylko trasy `ready` oraz `index, fol
 
 Zmiany rekomendowane:
 
-1. Usunąć `changefreq` i `priority`. Google jawnie je ignoruje: [Google Search Central — budowanie sitemapy](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
+1. Usunąć `changefreq` i `priority`. Google jawnie je ignoruje: [Google Search Central - budowanie sitemapy](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 2. Dodać `lastmod` wyłącznie wtedy, gdy projekt będzie przechowywał prawdziwą datę istotnej zmiany treści. Nie ustawiać jej na datę każdego deployu.
 3. Zbudować jeden rejestr tras jako źródło dla:
    - sitemapy;
@@ -252,7 +252,7 @@ Zasada: jedna wyraźna intencja i jedna obietnica na grupę reklam. Ten sam fina
 
 | Intencja / grupa reklam | Final URL | Decyzja | Warunek uruchomienia |
 |---|---|---|---|
-| Przeprowadzki Kielce — ogólne B2C | `/lp/przeprowadzki-kielce/` | fala 1 | formularz, dowody, tracking; nie kierować tu zapytań firmowych |
+| Przeprowadzki Kielce - ogólne B2C | `/lp/przeprowadzki-kielce/` | fala 1 | formularz, dowody, tracking; nie kierować tu zapytań firmowych |
 | Cena / koszt przeprowadzki | `/lp/przeprowadzki-cena/` | fala 1 | potwierdzić bezpłatną wycenę i „bez ukrytych dodatków” |
 | Przeprowadzki firm / biur / instytucji | `/lp/przeprowadzki-firm-kielce/` | fala 1 | dowody B2B, potwierdzony harmonogram i zakres montażu |
 | Pianina / fortepiany | `/lp/transport-pianina-kielce/` | fala 1 | upload zdjęć, kwalifikacja schodów, dowody realizacji |
@@ -267,7 +267,7 @@ Zasada: jedna wyraźna intencja i jedna obietnica na grupę reklam. Ten sam fina
 
 **Specjalistyczny vs gabarytowy**
 
-- specjalistyczny: przedmioty o szczególnym ryzyku, masie lub wartości — sejfy, piece, serwery, maszyny, wyposażenie laboratoryjne;
+- specjalistyczny: przedmioty o szczególnym ryzyku, masie lub wartości - sejfy, piece, serwery, maszyny, wyposażenie laboratoryjne;
 - gabarytowy: duże meble i przedmioty, dla których głównym problemem są wymiary, schody, zakręty i wniesienie;
 - zastosować wzajemne wykluczenia słów w grupach, aby kampanie nie licytowały się między sobą.
 
@@ -275,7 +275,7 @@ Zasada: jedna wyraźna intencja i jedna obietnica na grupę reklam. Ten sam fina
 
 - osobny landing lodówki ma sens tylko wtedy, gdy istnieje osobna grupa reklam z wystarczającym ruchem;
 - jeżeli nie, używać `/lp/transport-agd-kielce/` i pozostawić landing lodówki nieaktywny kampanijnie;
-- jeśli oba są aktywne, grupa AGD powinna wykluczać frazy lodówkowe, a grupa lodówki — pralki, zmywarki, piekarniki itd.
+- jeśli oba są aktywne, grupa AGD powinna wykluczać frazy lodówkowe, a grupa lodówki - pralki, zmywarki, piekarniki itd.
 
 ### Rejestr final URL-i
 
@@ -355,9 +355,9 @@ Projekt poprawnie ustawia cztery sygnały Consent Mode v2 jako `denied` przed ko
 - zdecydować, czy używany jest advanced czy basic consent mode i wdrożyć to konsekwentnie;
 - rozważyć enhanced conversions dopiero po analizie prawnej, technicznej i potwierdzeniu zgód.
 
-Google zaleca weryfikację wszystkich czterech sygnałów (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`) i ich aktualizacji w Tag Assistant: [Google — debugowanie Consent Mode](https://developers.google.com/tag-platform/security/guides/consent-debugging).
+Google zaleca weryfikację wszystkich czterech sygnałów (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`) i ich aktualizacji w Tag Assistant: [Google - debugowanie Consent Mode](https://developers.google.com/tag-platform/security/guides/consent-debugging).
 
-## Dalsze poprawki SEO i wydajności — P1
+## Dalsze poprawki SEO i wydajności - P1
 
 ### Obrazy i Core Web Vitals
 
@@ -374,7 +374,7 @@ Plan:
 - wszystkie zdjęcia poniżej folda ładować `loading="lazy"`;
 - przetestować mobilny LCP, INP i CLS na 75. percentylu.
 
-Aktualne progi dobrego Core Web Vitals to LCP ≤ 2,5 s, INP ≤ 200 ms i CLS ≤ 0,1: [web.dev — Web Vitals](https://web.dev/articles/vitals).
+Aktualne progi dobrego Core Web Vitals to LCP ≤ 2,5 s, INP ≤ 200 ms i CLS ≤ 0,1: [web.dev - Web Vitals](https://web.dev/articles/vitals).
 
 ### Meta i udostępnianie
 
@@ -399,7 +399,7 @@ Podstrony używają danych `Service` i `BreadcrumbList`, ale strona główna nie
 - logo/zdjęciem;
 - profilem Google i `sameAs` tylko dla faktycznie potwierdzonych profili.
 
-Nie dodawać wymyślonych współrzędnych, przedziału cenowego, oceny ani profili społecznościowych. Wdrożenie przetestować Rich Results Test: [Google Search Central — LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business).
+Nie dodawać wymyślonych współrzędnych, przedziału cenowego, oceny ani profili społecznościowych. Wdrożenie przetestować Rich Results Test: [Google Search Central - LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business).
 
 ### Redirecty, host i nagłówki
 
@@ -423,7 +423,7 @@ Jeżeli `whmtransport.eu` nadal można kontrolować, stary URL należy przekiero
 - `/wycena/` może pozostać `noindex`, ale musi działać. Nie należy dodawać go do sitemapy tylko dlatego, że jest ważnym CTA.
 - polityka prywatności powinna pozostać `noindex`, ale musi być finalna i dostępna.
 
-## Możliwości organiczne — P2
+## Możliwości organiczne - P2
 
 Ads landingów nie należy indeksować ani dopisywać do sitemapy. Jeśli dane z Search Console i plan słów kluczowych potwierdzą potencjał, można stworzyć osobną, indeksowalną stronę informacyjną dla intencji „ile kosztuje przeprowadzka w Kielcach”. Powinna wyjaśniać czynniki kosztu i przykładowe zakresy wyłącznie na zatwierdzonych danych, a następnie kierować do `/wycena/`.
 
@@ -431,7 +431,7 @@ Nie należy po prostu zdjąć `noindex` z `/lp/przeprowadzki-cena/`, ponieważ l
 
 ## Kolejność wdrożenia
 
-### Etap 0 — decyzje biznesowe
+### Etap 0 - decyzje biznesowe
 
 - zatwierdzić listę aktywnych usług i grup reklam;
 - zamrozić final URL-e kampanii;
@@ -439,7 +439,7 @@ Nie należy po prostu zdjąć `noindex` z `/lp/przeprowadzki-cena/`, ponieważ l
 - potwierdzić hosting, odbiorców leadów, retencję i kanał zdjęć;
 - uzyskać prawdziwy identyfikator i etykietę konwersji Google Ads.
 
-### Etap 1 — lead i zgodność
+### Etap 1 - lead i zgodność
 
 - wdrożyć endpoint formularza;
 - podłączyć formularz `/wycena/` i wspólny formularz LP;
@@ -448,7 +448,7 @@ Nie należy po prostu zdjąć `noindex` z `/lp/przeprowadzki-cena/`, ponieważ l
 - wdrożyć stany sukces/błąd;
 - sfinalizować politykę i baner cookies.
 
-### Etap 2 — tracking
+### Etap 2 - tracking
 
 - usunąć konwersję na surowym `submit`;
 - uruchamiać `generate_lead` i event Ads dopiero po sukcesie endpointu;
@@ -457,7 +457,7 @@ Nie należy po prostu zdjąć `noindex` z `/lp/przeprowadzki-cena/`, ponieważ l
 - zweryfikować Consent Mode w Tag Assistant;
 - oznaczyć kliknięcia telefonu jako secondary do czasu wdrożenia wiarygodnego pomiaru połączeń.
 
-### Etap 3 — landingi
+### Etap 3 - landingi
 
 - rozbudować wspólny szablon o dowody i drugie CTA;
 - wprowadzić treści i pola warunkowe per usługa;
@@ -465,7 +465,7 @@ Nie należy po prostu zdjąć `noindex` z `/lp/przeprowadzki-cena/`, ponieważ l
 - wyłączyć z builda utylizację;
 - uruchomić falę 1, potem dopiero falę 2.
 
-### Etap 4 — techniczne SEO
+### Etap 4 - techniczne SEO
 
 - uprościć sitemapę i dodać testy spójności;
 - scentralizować rejestr tras;
@@ -474,7 +474,7 @@ Nie należy po prostu zdjąć `noindex` z `/lp/przeprowadzki-cena/`, ponieważ l
 - dodać Open Graph i zweryfikowane LocalBusiness;
 - zoptymalizować obrazy i logo.
 
-### Etap 5 — QA przedprodukcyjne
+### Etap 5 - QA przedprodukcyjne
 
 - build z czystej instalacji zależności;
 - crawl wygenerowanego `dist`;
@@ -487,7 +487,7 @@ Nie należy po prostu zdjąć `noindex` z `/lp/przeprowadzki-cena/`, ponieważ l
 - test polityki prywatności, zgód i odrzucenia cookies;
 - test 404 oraz kanonicznych przekierowań.
 
-### Etap 6 — publikacja i kontrola
+### Etap 6 - publikacja i kontrola
 
 - opublikować serwis bez uruchamiania reklam;
 - sprawdzić odpowiedzi 200/301/404 z produkcji;

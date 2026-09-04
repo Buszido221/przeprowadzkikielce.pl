@@ -116,7 +116,7 @@ const manifest: Record<string, ImageAsset> = {
   '/images/magazyny-kielce/ogrzewany-magazyn-kielce.webp': img('/images/magazyny-kielce/ogrzewany-magazyn-kielce.webp', 768, 1024, 'Ogrzewany i zabezpieczony magazyn WHM w Masłowie koło Kielc', 'magazyny', 'center top'),
 
   // Guides
-  '/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp': img('/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp', 627, 627, 'Poradnik WHM — jak przygotować się do przeprowadzki', 'guides'),
+  '/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp': img('/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp', 627, 627, 'Poradnik WHM - jak przygotować się do przeprowadzki', 'guides'),
 
   // Realizacje - Prokuratury
   '/images/realizacje/prokuratury-kielce/przeprowadzka-prokuratury-1.webp': img('/images/realizacje/prokuratury-kielce/przeprowadzka-prokuratury-1.webp', 768, 1024, 'Relokacja wyposażenia Prokuratury realizowana przez zespół WHM', 'realizacje', 'center top'),

@@ -9,7 +9,7 @@ export const site = {
   domain: 'https://przeprowadzkikielce.pl/',
   tagline: 'Przeprowadzki, którym możesz zaufać.',
   foundingDate: '2019',
-  insurance: 'Ochrona ubezpieczeniowa do 1 mln zł — zastosowanie i warunki potwierdzane dla konkretnego zlecenia.',
+  insurance: 'Ochrona ubezpieczeniowa do 1 mln zł - zastosowanie i warunki potwierdzane dla konkretnego zlecenia.',
   facebook: 'https://www.facebook.com/whmprzeprowadzki/',
   instagram: 'https://www.instagram.com/whm_przeprowadzki/',
   googleMaps: 'https://maps.app.goo.gl/G3BqHNabtfWtzAhk7',

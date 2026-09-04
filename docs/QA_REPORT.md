@@ -10,7 +10,7 @@ Zweryfikowano projekt po zsynchronizowaniu z bazą `8007f8f`, która dodała fin
 
 | Kontrola | Wynik |
 |---|---|
-| Build staging | PASS — 29 stron HTML |
+| Build staging | PASS - 29 stron HTML |
 | Aktywne katalogi `/lp/` | 0 |
 | Publiczne trasy w QA przeglądarkowym | 28 × desktop 1440 px × mobile 390 px |
 | H1 i canonical | dokładnie po 1 na każdej publicznej trasie |
@@ -22,8 +22,8 @@ Zweryfikowano projekt po zsynchronizowaniu z bazą `8007f8f`, która dodała fin
 | Błędy konsoli | 0 |
 | Przekierowania migracyjne | 32 poprawne reguły 301, cele istnieją w buildzie |
 | TypeScript | PASS po korekcie bezpiecznego indeksowania `CampaignRecord` |
-| Build production z testową konfiguracją | PASS — 29 stron HTML |
-| Consent Mode production | PASS — domyślne `denied`, zapis odrzucenia i pełnej zgody |
+| Build production z testową konfiguracją | PASS - 29 stron HTML |
+| Consent Mode production | PASS - domyślne `denied`, zapis odrzucenia i pełnej zgody |
 
 ## Kontrole interakcji
 

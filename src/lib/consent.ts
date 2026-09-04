@@ -42,7 +42,7 @@ function writeStorage(state: ConsentState): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
-    // storage full or blocked — memoryState is the fallback
+    // storage full or blocked - memoryState is the fallback
   }
 }
 

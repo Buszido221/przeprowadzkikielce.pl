@@ -1,4 +1,4 @@
-# SEO — źródło prawdy
+# SEO - źródło prawdy
 
 ## Dane firmy
 
@@ -86,9 +86,9 @@ Wszystkie metadane znajdują się w **`src/data/seo.ts`**. Funkcja `getSeo(slug)
 
 1. Wszystkie zmiany w `src/data/seo.ts`
 2. Nie dodawaj title/description w plikach .astro
-3. Nie dodawaj ręcznych canonicali — Layout generuje je automatycznie
-4. Nie dodawaj ręcznych skryptów JSON-LD — używaj `buildSchemaGraph()`
-5. FAQ schema przez `buildFaqSchema()` — tylko dla pytań widocznych na stronie
+3. Nie dodawaj ręcznych canonicali - Layout generuje je automatycznie
+4. Nie dodawaj ręcznych skryptów JSON-LD - używaj `buildSchemaGraph()`
+5. FAQ schema przez `buildFaqSchema()` - tylko dla pytań widocznych na stronie
 
 ## Dodawanie nowej usługi
 

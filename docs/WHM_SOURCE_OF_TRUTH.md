@@ -1,4 +1,4 @@
-<!-- ARCHIWALNY — Ten dokument zawiera nieaktualne informacje o osobnych landing page'ach,
+<!-- ARCHIWALNY - Ten dokument zawiera nieaktualne informacje o osobnych landing page'ach,
 magazynach w budowie i zdjęciach-placeholderach. Nie traktuj jako aktualnego źródła prawdy.
 Zachowano jako zapis historyczny. Aktualne źródła prawdy: AGENTS.md, docs/WHM_KIERUNEK_WIZUALNY_I_PLAN_POPRAWEK.md -->
 

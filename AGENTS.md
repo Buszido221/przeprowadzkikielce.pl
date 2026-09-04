@@ -1,4 +1,4 @@
-# WHM Przeprowadzki — instrukcje dla agentów
+# WHM Przeprowadzki - instrukcje dla agentów
 
 ## Stack
 - Astro 5 (statyczny output, bez SSR)
@@ -8,7 +8,7 @@
 - staging bez kodu pomiarowego i z `noindex, nofollow, noarchive`
 
 ## Strony
-- `/kontakt/` — wspólny kontakt i formularz; `/wycena/` przekierowuje tutaj 301
+- `/kontakt/` - wspólny kontakt i formularz; `/wycena/` przekierowuje tutaj 301
 - strony usług zawierają sekcje wspólnego formularza z `id="formularz"`
 - aktywne trasy i wewnętrzne linki `/lp/` są zabronione; historyczne adresy obsługuje `public/_redirects`
 

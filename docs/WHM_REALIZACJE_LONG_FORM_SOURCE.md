@@ -1,4 +1,4 @@
-# WHM — kompletna baza realizacji i long-form copy
+# WHM - kompletna baza realizacji i long-form copy
 
 > Status dokumentu: zatwierdzone źródło treści do rozbudowy sekcji `/realizacje/` na stronie `przeprowadzkikielce.pl`.
 >
@@ -73,7 +73,7 @@ Poniższe historie należy uwzględnić w hubie i w zbiorczym case study technic
 
 ### SEO
 
-**Title:** Realizacje WHM — przeprowadzki firm, instytucji i transport specjalistyczny
+**Title:** Realizacje WHM - przeprowadzki firm, instytucji i transport specjalistyczny
 
 **Meta description:** Zobacz prawdziwe realizacje WHM: relokacje instytucji, archiwów i teatrów, transport dzieł sztuki, fortepianów, serwerów oraz ciężkiego wyposażenia.
 
@@ -111,7 +111,7 @@ Przy większych relokacjach WHM może przeprowadzić bezpłatne oględziny, ocen
 
 ---
 
-# CASE STUDY 1 — relokacja Prokuratur Kielce-Wschód i Kielce-Zachód
+# CASE STUDY 1 - relokacja Prokuratur Kielce-Wschód i Kielce-Zachód
 
 ## Dane publikacyjne
 
@@ -181,7 +181,7 @@ Jeżeli projekt obejmuje wiele działów, archiwum, ciężkie wyposażenie lub p
 
 ---
 
-# CASE STUDY 2 — relokacja Teatru im. Stefana Żeromskiego w Kielcach
+# CASE STUDY 2 - relokacja Teatru im. Stefana Żeromskiego w Kielcach
 
 ## Dane publikacyjne
 
@@ -258,7 +258,7 @@ WHM może zaplanować projekt, w którym mienie trzeba zebrać z kilku punktów,
 
 ---
 
-# CASE STUDY 3 — relokacja TVP3 Kielce
+# CASE STUDY 3 - relokacja TVP3 Kielce
 
 ## Dane publikacyjne
 
@@ -274,7 +274,7 @@ WHM może zaplanować projekt, w którym mienie trzeba zebrać z kilku punktów,
 
 **Eyebrow:** Archiwum i infrastruktura techniczna
 
-**H1:** Relokacja TVP3 Kielce — dwadzieścia lat materiałów odtworzone co do półki
+**H1:** Relokacja TVP3 Kielce - dwadzieścia lat materiałów odtworzone co do półki
 
 **Lead:** Przeprowadzka kieleckiego oddziału TVP3 obejmowała niemal osiem tysięcy pozycji archiwum, wyposażenie studia oraz demontaż realizatorni z podłogą techniczną. Każdy etap wymagał rozróżnienia tego, co należało zachować, przewieźć albo usunąć bez naruszenia czynnych instalacji.
 
@@ -284,7 +284,7 @@ WHM może zaplanować projekt, w którym mienie trzeba zebrać z kilku punktów,
 
 Największym wyzwaniem relokacji TVP3 Kielce nie była sama liczba przedmiotów. Była nim struktura archiwum obejmującego niemal osiem tysięcy pozycji.
 
-Znaczną część stanowiły chronologicznie uporządkowane materiały z codziennych wydań wiadomości — ponad dwadzieścia lat historii działalności oddziału. Drugą część tworzyły programy produkowane przez kielecką filię, uporządkowane alfabetycznie.
+Znaczną część stanowiły chronologicznie uporządkowane materiały z codziennych wydań wiadomości - ponad dwadzieścia lat historii działalności oddziału. Drugą część tworzyły programy produkowane przez kielecką filię, uporządkowane alfabetycznie.
 
 Pomieszanie tych dwóch systemów oznaczałoby, że po przeprowadzce klient otrzymałby zbiór tysięcy materiałów wymagających ponownego katalogowania. Dlatego celem WHM nie był wyłącznie transport archiwum. Należało odtworzyć jego logikę w nowej siedzibie.
 
@@ -304,7 +304,7 @@ Obliczenia sprawdziły się z dokładnością do półki. To szczegół, który 
 
 Drugą częścią projektu była likwidacja starego studia znanego widzom lokalnych programów i wiadomości. Elementy przeznaczone do usunięcia trafiały między innymi do kontenerów wielkogabarytowych zamówionych przez klienta.
 
-Nie wszystko miało jednak zostać zutylizowane. Duże szklane stoły ze studia należało zachować. WHM przygotowało je, zniosło, zabezpieczyło i przekazało do dalszego transportu do Olsztyna. Sam przejazd do Olsztyna wykonywał zewnętrzny przewoźnik klienta — rola WHM kończyła się na bezpiecznym przygotowaniu wyposażenia.
+Nie wszystko miało jednak zostać zutylizowane. Duże szklane stoły ze studia należało zachować. WHM przygotowało je, zniosło, zabezpieczyło i przekazało do dalszego transportu do Olsztyna. Sam przejazd do Olsztyna wykonywał zewnętrzny przewoźnik klienta - rola WHM kończyła się na bezpiecznym przygotowaniu wyposażenia.
 
 ### Realizatornia, podłoga techniczna i około 12 kilometrów przewodów
 
@@ -341,13 +341,13 @@ WHM udostępnia firmom i instytucjom plombowane pojemniki transportowe, przygoto
 
 ---
 
-# CASE STUDY 4 — relokacja Pedagogicznej Biblioteki Wojewódzkiej w Busku-Zdroju
+# CASE STUDY 4 - relokacja Pedagogicznej Biblioteki Wojewódzkiej w Busku-Zdroju
 
 ## Dane publikacyjne
 
 **URL:** `/realizacje/relokacja-biblioteki-busko-zdroj/`
 
-**Title:** Relokacja biblioteki w Busku-Zdroju — 40 000 pozycji | WHM
+**Title:** Relokacja biblioteki w Busku-Zdroju - 40 000 pozycji | WHM
 
 **Meta description:** WHM przeniosło około 40 000 pozycji bibliotecznych pomiędzy dwiema lokalizacjami w Busku-Zdroju, zachowując kolejność księgozbioru w niespełna pięć dni.
 
@@ -379,7 +379,7 @@ Finalnie relokację trzeba było przeprowadzić w niespełna pięć dni. Presja 
 
 ### Prawie 300 pojemników w ciągłej rotacji
 
-WHM dostarczyło wcześniej prawie 300 plastikowych pojemników — niemal cały ówczesny zapas firmy. Jednoczesne spakowanie około 40 tysięcy pozycji wymagałoby jednak tysięcy pojemników.
+WHM dostarczyło wcześniej prawie 300 plastikowych pojemników - niemal cały ówczesny zapas firmy. Jednoczesne spakowanie około 40 tysięcy pozycji wymagałoby jednak tysięcy pojemników.
 
 Zamiast czekać na spakowanie całości, zastosowano rotacyjny model pracy. Dwa samochody kursowały każdego dnia zgodnie z tempem pakowania i rozkładania księgozbioru. Po opróżnieniu pojemniki wracały do lokalizacji początkowej i ponownie trafiały do obiegu.
 
@@ -424,7 +424,7 @@ W relokacjach lokalnych WHM może udostępnić pojemniki wielokrotnego użytku i
 
 ---
 
-# CASE STUDY 5 — transport zabytkowego obrazu z Zamku Szydłowieckich
+# CASE STUDY 5 - transport zabytkowego obrazu z Zamku Szydłowieckich
 
 ## Dane publikacyjne
 
@@ -466,7 +466,7 @@ W tej realizacji sprzęt nie zastępował doświadczenia ludzi. Podnośnik umoż
 
 ### Tylko 400 metrów transportu i kilka kolejnych przeszkód
 
-Po opuszczeniu obraz został bezpiecznie załadowany do samochodu WHM. Miejsce docelowe — Muzeum Instrumentów Ludowych — znajdowało się w odległości około 400 metrów.
+Po opuszczeniu obraz został bezpiecznie załadowany do samochodu WHM. Miejsce docelowe - Muzeum Instrumentów Ludowych - znajdowało się w odległości około 400 metrów.
 
 Krótki przejazd nie oznaczał jednak prostego zakończenia realizacji. Kręgi ze sklejki miały większą średnicę niż sama tuba, dlatego w miejscu docelowym część zabezpieczeń należało zdemontować.
 
@@ -506,7 +506,7 @@ Przed transportem dzieła sztuki, urządzenia lub dużego gabarytu WHM może oce
 
 ---
 
-# CASE STUDY 6 — relokacja dwóch fortepianów w Zamku Szydłowieckich
+# CASE STUDY 6 - relokacja dwóch fortepianów w Zamku Szydłowieckich
 
 ## Dane publikacyjne
 
@@ -575,7 +575,7 @@ Przed transportem pianina lub fortepianu potrzebujemy informacji o instrumencie,
 
 ---
 
-# CASE STUDY 7 — nocny transport fortepianu Fazioli
+# CASE STUDY 7 - nocny transport fortepianu Fazioli
 
 ## Dane publikacyjne
 
@@ -631,7 +631,7 @@ Do pokonania pozostało około sześciu stopni. Zespół wniósł instrument i u
 
 Realizacja połączyła szybką zmianę planu, oczekiwanie na zakończenie wydarzenia, pracę w nietypowej przestrzeni, nocny przejazd oraz ręczne pokonanie ostatnich stopni przy scenie.
 
-WHM nie dysponowało specjalistycznym pianoliftem opisywanym w późniejszej części materiału źródłowego — urządzenie należało do innego przewoźnika i nie może być przedstawiane jako zasób firmy. Atutem WHM w tej historii były dostępność, przygotowany zespół, odpowiednie zabezpieczenia, samochód z windą i zdolność bezpiecznego zakończenia pracy około drugiej w nocy.
+WHM nie dysponowało specjalistycznym pianoliftem opisywanym w późniejszej części materiału źródłowego - urządzenie należało do innego przewoźnika i nie może być przedstawiane jako zasób firmy. Atutem WHM w tej historii były dostępność, przygotowany zespół, odpowiednie zabezpieczenia, samochód z windą i zdolność bezpiecznego zakończenia pracy około drugiej w nocy.
 
 ## Najważniejsze fakty
 
@@ -656,7 +656,7 @@ WHM obsługuje transporty pianin i fortepianów po wcześniejszej ocenie instrum
 
 ---
 
-# CASE STUDY 8 — relokacje techniczne i ciężkie ładunki
+# CASE STUDY 8 - relokacje techniczne i ciężkie ładunki
 
 ## Dane publikacyjne
 
@@ -714,7 +714,7 @@ W publicznym copy nie należy dopisywać liczby zbiorników, ich parametrów tec
 
 WHM transportowało również ciężki i wartościowy sprzęt laboratoryjny. Dodatkowe widły schodołazu pozwalają nie tylko przemieścić urządzenie, ale również podnieść je pionowo na wysokość niemal 1,5 m.
 
-Rozwiązanie było wykorzystywane przy ustawianiu maszyn laboratoryjnych na podwyższonych stojakach. W takich realizacjach sukces nie kończy się na wniesieniu sprzętu do pomieszczenia. Urządzenie trzeba ustawić na właściwej wysokości i w odpowiednim położeniu — według doświadczenia WHM nawet z dokładnością określaną jako milimetrowa.
+Rozwiązanie było wykorzystywane przy ustawianiu maszyn laboratoryjnych na podwyższonych stojakach. W takich realizacjach sukces nie kończy się na wniesieniu sprzętu do pomieszczenia. Urządzenie trzeba ustawić na właściwej wysokości i w odpowiednim położeniu - według doświadczenia WHM nawet z dokładnością określaną jako milimetrowa.
 
 ### Sprzęt ma pomagać zespołowi, a nie zastępować ocenę ryzyka
 
@@ -753,7 +753,7 @@ Prześlij wymiary, masę, zdjęcia przedmiotu, schodów, drzwi i miejsca docelow
 
 ---
 
-# ARCHIWALNE REALIZACJE TECHNICZNE — treści uzupełniające
+# ARCHIWALNE REALIZACJE TECHNICZNE - treści uzupełniające
 
 Poniższe materiały są prawdziwe, ale mają mniej szczegółów niż osiem głównych case studies. Mogą otrzymać własne podstrony dopiero po zachowaniu przedstawionych niżej ograniczeń. Nie wolno rozbudowywać ich fikcyjnymi nazwami klientów, lokalizacjami, datami ani przebiegiem.
 
@@ -779,14 +779,14 @@ Problem nie mógł zostać rozwiązany przez mocniejsze przechylenie urządzenia
 
 Zespół przygotował alternatywną trasę przez okno. Taka operacja wymaga wcześniejszego sprawdzenia wymiarów otworu, przestrzeni po obu stronach, sposobu podparcia oraz miejsca, w którym urządzenie zostanie przejęte przez kolejne osoby. Ważna jest nie tylko chwila przekroczenia okna, ale cały proces doprowadzenia szafy do otworu i ustawienia jej po drugiej stronie.
 
-Szafy zostały wprowadzone do budynku drogą, która odpowiadała ich rzeczywistym wymiarom. Realizacja potwierdza, że przy sprzęcie technicznym WHM nie próbuje za wszelką cenę wykorzystać standardowego wejścia. Jeżeli standardowa droga jest niewykonalna, trzeba przygotować inną — po sprawdzeniu, czy można nią bezpiecznie poprowadzić cały ładunek.
+Szafy zostały wprowadzone do budynku drogą, która odpowiadała ich rzeczywistym wymiarom. Realizacja potwierdza, że przy sprzęcie technicznym WHM nie próbuje za wszelką cenę wykorzystać standardowego wejścia. Jeżeli standardowa droga jest niewykonalna, trzeba przygotować inną - po sprawdzeniu, czy można nią bezpiecznie poprowadzić cały ładunek.
 
 ### Twarde fakty
 
 - szafy serwerowe miały ponad 2 m wysokości;
 - nie mieściły się w żadnych drzwiach budynku;
 - zostały wprowadzone przez okno;
-- brak potwierdzonej nazwy klienta, lokalizacji, liczby szaf i dokładnej masy — nie dopisywać.
+- brak potwierdzonej nazwy klienta, lokalizacji, liczby szaf i dokładnej masy - nie dopisywać.
 
 ---
 
@@ -802,7 +802,7 @@ Szafy zostały wprowadzone do budynku drogą, która odpowiadała ich rzeczywist
 
 ### Copy
 
-**H1:** Piece na pellet o masie 350–450 kg — ciężar, schody i niewielki zapas miejsca
+**H1:** Piece na pellet o masie 350–450 kg - ciężar, schody i niewielki zapas miejsca
 
 WHM wielokrotnie realizowało transporty domowych pieców na pellet ważących około 350–450 kg. Część zadań obejmowała wniesienie albo wyniesienie urządzenia z piwnicy.
 
@@ -818,7 +818,7 @@ Doświadczenie z wieloma piecami ma znaczenie, ponieważ każdy budynek tworzy i
 - piece na pellet o masie około 350–450 kg;
 - transporty obejmowały również piwnice;
 - użycie schodołazu i asekuracji zespołu zależnie od warunków;
-- brak nazw klientów, dokładnych adresów i liczby realizacji — nie dopisywać.
+- brak nazw klientów, dokładnych adresów i liczby realizacji - nie dopisywać.
 
 ---
 
@@ -864,7 +864,7 @@ Właściwa liczba osób nie wynika wyłącznie z masy. Wysokość szafy, środek
 
 **Proponowany URL:** `/realizacje/zbiorniki-azotu-centrum-onkologii-kielce/`
 
-**Title:** Transport zbiorników azotu — Centrum Onkologii Kielce | WHM
+**Title:** Transport zbiorników azotu - Centrum Onkologii Kielce | WHM
 
 **Meta description:** Przykład wykorzystania schodołazu WHM przy ciężkim wyposażeniu związanym ze zbiornikami azotu w Centrum Onkologii w Kielcach na Czarnowie.
 
@@ -885,7 +885,7 @@ Strona powinna koncentrować się na tym, co potwierdzone: miejscu realizacji, w
 - Centrum Onkologii w Kielcach na Czarnowie;
 - prace związane ze zbiornikami azotu;
 - wykorzystanie elektrycznego schodołazu;
-- brak potwierdzonych parametrów technicznych — nie dopisywać;
+- brak potwierdzonych parametrów technicznych - nie dopisywać;
 - nie używać logotypu placówki bez zgody.
 
 ---
@@ -919,7 +919,7 @@ Wartość sprzętu laboratoryjnego zwiększa znaczenie zabezpieczenia i kontroli
 - możliwość podnoszenia na wysokość niemal 1,5 m;
 - precyzyjne ustawianie urządzeń na podwyższonych stojakach;
 - nie przedstawiać WHM jako instalatora technologicznego bez osobnego potwierdzenia;
-- brak nazw laboratoriów i modeli urządzeń — nie dopisywać.
+- brak nazw laboratoriów i modeli urządzeń - nie dopisywać.
 
 ---
 
@@ -931,7 +931,7 @@ Wartość sprzętu laboratoryjnego zwiększa znaczenie zabezpieczenia i kontroli
 
 ### Bezpieczne copy
 
-**Nagłówek:** Duże balie ogrodowe — gabaryt, który wymaga zaplanowania całej drogi
+**Nagłówek:** Duże balie ogrodowe - gabaryt, który wymaga zaplanowania całej drogi
 
 WHM realizowało również transporty dużych balii ogrodowych. W przypadku takiego ładunku ograniczeniem jest przede wszystkim gabaryt, możliwość prowadzenia przez posesję oraz dostęp samochodu do miejsca odbioru i ustawienia.
 
@@ -1036,7 +1036,7 @@ Każda pełna podstrona powinna zawierać:
 
 ---
 
-# 18. Granice faktograficzne — bezwzględny zakaz dopisywania
+# 18. Granice faktograficzne - bezwzględny zakaz dopisywania
 
 Nie wolno dopisywać:
 
@@ -1048,7 +1048,7 @@ Nie wolno dopisywać:
 - informacji o wygranych przetargach;
 - liczby pracowników przy realizacji, jeśli nie podano jej w tym dokumencie;
 - twierdzenia, że wszystkie przedstawione instytucje są stałymi klientami;
-- informacji, że WHM używa pianoliftu — urządzenie opisane przy Fazioli należało do innego przewoźnika;
+- informacji, że WHM używa pianoliftu - urządzenie opisane przy Fazioli należało do innego przewoźnika;
 - informacji, że dalszy transport szklanych stołów TVP3 do Olsztyna wykonało WHM;
 - informacji, że WHM instalowało lub uruchamiało urządzenia laboratoryjne;
 - parametrów zbiorników azotu;

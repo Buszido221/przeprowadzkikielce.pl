@@ -1,13 +1,13 @@
 <!-- AKTUALIZACJA 2026-09: /kontakt/ i /wycena/ zostały scalone w jedną stronę /kontakt/.
 Stara /wycena/ przekierowuje 301 do /kontakt/. Poniższe odniesienia do osobnej strony wyceny są nieaktualne. -->
 
-# WHM Przeprowadzki Kielce — główne źródło prawdy przebudowy
+# WHM Przeprowadzki Kielce - główne źródło prawdy przebudowy
 
 **Status dokumentu:** wiążący kontekst projektu  
 **Data aktualizacji:** 30 sierpnia 2026  
 **Repozytorium:** `Buszido221/przeprowadzkikielce`  
 **Gałąź robocza:** `main`  
-**Produkcja:** `https://przeprowadzkikielce.pl` — nie przepinać ani nie wdrażać bez osobnego polecenia
+**Produkcja:** `https://przeprowadzkikielce.pl` - nie przepinać ani nie wdrażać bez osobnego polecenia
 
 ## 1. Po co istnieje ten dokument
 
@@ -95,7 +95,7 @@ Główna konwersja B2C to telefon: **720 719 022**. Każda konwersja jest cenna,
 
 ### Realny standard odpowiedzi
 
-Telefon obecnie odbiera Mateusz, lecz strona nie ma tego personalizować. Jeżeli połączenie nie zostanie odebrane, realny standard oddzwonienia to zwykle 1–2 godziny; po późnym telefonie — rano następnego dnia. Nie obiecywać „oddzwonimy w 15 minut”.
+Telefon obecnie odbiera Mateusz, lecz strona nie ma tego personalizować. Jeżeli połączenie nie zostanie odebrane, realny standard oddzwonienia to zwykle 1–2 godziny; po późnym telefonie - rano następnego dnia. Nie obiecywać „oddzwonimy w 15 minut”.
 
 Zdjęcia klient może dosłać po kontakcie SMS-em lub e-mailem.
 
@@ -103,15 +103,15 @@ Zdjęcia klient może dosłać po kontakcie SMS-em lub e-mailem.
 
 Widoczne pola:
 
-- imię i nazwisko — wymagane;
-- numer telefonu lub e-mail — wymagany co najmniej jeden kanał;
-- „W czym możemy pomóc?” — wymagane;
-- zgoda na przetwarzanie danych — wymagana;
-- firma/instytucja — opcjonalne wyłącznie w kontekście B2B.
+- imię i nazwisko - wymagane;
+- numer telefonu lub e-mail - wymagany co najmniej jeden kanał;
+- „W czym możemy pomóc?” - wymagane;
+- zgoda na przetwarzanie danych - wymagana;
+- firma/instytucja - opcjonalne wyłącznie w kontekście B2B.
 
 Formularz ma być jednym komponentem i jednym źródłem logiki dla stron usług, wyceny i B2B. Nie powielamy implementacji.
 
-## 6. Fakty o firmie — dozwolone źródła treści
+## 6. Fakty o firmie - dozwolone źródła treści
 
 ### Dane podstawowe
 
@@ -136,7 +136,7 @@ Można komunikować następujące fakty:
 - pasy i uprzęże transportowe; przy sześciu osobach i sześciu uprzężach możliwe było przenoszenie ładunku do około 600 kg;
 - dwa schodołazy;
 - koce, gumy i dedykowane pokrowce szyte pod konkretne meble lub przedmioty;
-- WHM nie zabezpiecza mebli folią stretch — używa realnie chroniących rozwiązań wielorazowych;
+- WHM nie zabezpiecza mebli folią stretch - używa realnie chroniących rozwiązań wielorazowych;
 - setki plombowanych pojemników o pojemności około 70 l, dostępnych w najmie dla firm i instytucji przy relokacjach lokalnych;
 - wielorazowe kartony o jednolitych wymiarach, pomagające zabezpieczyć mienie i wykorzystać kubaturę auta;
 - materiały pakowe wysokiej klasy, w tym papier pakowy;
@@ -166,7 +166,7 @@ Kompletna relokacja obu prokuratur na czas remontu:
 
 ### Zamek Szydłowieckich
 
-Relokacja pojemnika z wiekowym obrazem. Obraz musiał być stale utrzymywany w poziomie, więc został wyprowadzony przez okno — pionowe ustawienie mogło uszkodzić dzieło.
+Relokacja pojemnika z wiekowym obrazem. Obraz musiał być stale utrzymywany w poziomie, więc został wyprowadzony przez okno - pionowe ustawienie mogło uszkodzić dzieło.
 
 ### Transporty specjalistyczne
 
@@ -453,9 +453,9 @@ Poniższe elementy zostały według raportów Bolta wdrożone przed rozpoczęcie
 
 ### Formularz
 
-- `src/components/forms/LeadForm.astro` — wspólny markup;
-- `src/scripts/lead-form.ts` — jedna bundlowana logika klientowa;
-- `src/components/LandingLeadForm.astro` — cienki wrapper kompatybilności;
+- `src/components/forms/LeadForm.astro` - wspólny markup;
+- `src/scripts/lead-form.ts` - jedna bundlowana logika klientowa;
+- `src/components/LandingLeadForm.astro` - cienki wrapper kompatybilności;
 - `/wycena/` używa tego samego komponentu;
 - EmailJS wywoływany w jednym miejscu;
 - walidacja: imię, wiadomość, zgoda oraz telefon lub e-mail;
@@ -487,9 +487,9 @@ Dane są łączone i przechowywane w `sessionStorage` pod `whm_campaign`; formul
 
 Raportowana architektura:
 
-- `src/components/GoogleTagHead.astro` — jedno źródło bootstrapa GA4 i Consent Mode dla obu layoutów;
-- `src/components/CampaignAttribution.astro` — capture kampanii na wszystkich stronach;
-- `src/components/Analytics.astro` — jedyne mapowanie lokalnych eventów do GA4;
+- `src/components/GoogleTagHead.astro` - jedno źródło bootstrapa GA4 i Consent Mode dla obu layoutów;
+- `src/components/CampaignAttribution.astro` - capture kampanii na wszystkich stronach;
+- `src/components/Analytics.astro` - jedyne mapowanie lokalnych eventów do GA4;
 - staging nie renderuje GoogleTagHead/Analytics;
 - formularz i warstwa prezentacji nie wywołują bezpośrednio `gtag()`.
 
@@ -558,7 +558,7 @@ Użytkownik ma dostęp do wszystkich narzędzi, ale pełny audyt zewnętrzny nie
 
 ## 18. Kolejność właściwej przebudowy
 
-### Etap A — bezpieczny baseline
+### Etap A - bezpieczny baseline
 
 - sprawdzić branch, status i istniejące zmiany;
 - uruchomić build staging;
@@ -566,7 +566,7 @@ Użytkownik ma dostęp do wszystkich narzędzi, ale pełny audyt zewnętrzny nie
 - wykonać tylko diagnostykę potrzebną do bezpiecznej implementacji;
 - nie tworzyć kolejnego wielkiego raportu zamiast zmian.
 
-### Etap B — `/przeprowadzki/` i pierwsza migracja
+### Etap B - `/przeprowadzki/` i pierwsza migracja
 
 - przebudować `/przeprowadzki/` jako główną, kompletną stronę sprzedażową B2C;
 - przenieść najlepsze treści, zdjęcia i funkcje z odpowiednich stron/LP;
@@ -576,7 +576,7 @@ Użytkownik ma dostęp do wszystkich narzędzi, ale pełny audyt zewnętrzny nie
 - sprawdzić desktop/mobile, SEO, formularz, obrazy i redirecty;
 - commit.
 
-### Etap C — pozostałe B2C
+### Etap C - pozostałe B2C
 
 Kolejno przebudować i migrować:
 
@@ -588,7 +588,7 @@ Kolejno przebudować i migrować:
 
 Po każdej gotowej stronie przenieść właściwe LP i dodać indywidualne 301.
 
-### Etap D — usunięcie systemu `/lp/`
+### Etap D - usunięcie systemu `/lp/`
 
 Gdy zero aktywnych tras korzysta z `/lp/`:
 
@@ -598,14 +598,14 @@ Gdy zero aktywnych tras korzysta z `/lp/`:
 - potwierdzić brak linków `/lp/` w całym `src`, buildzie i sitemap;
 - potwierdzić wszystkie redirecty.
 
-### Etap E — wspólna rama i strona główna
+### Etap E - wspólna rama i strona główna
 
 - uporządkować źródło nawigacji, header i footer;
 - przebudować homepage zgodnie z sekcją 10;
 - zachować oddech i rozpoznawalność obecnej strony;
 - wprowadzić B2B jako wyraźny drugi tor.
 
-### Etap F — wiarygodność marki
+### Etap F - wiarygodność marki
 
 - `/standard-whm/`;
 - `/realizacje/` i pierwsze pełne case studies;
@@ -614,7 +614,7 @@ Gdy zero aktywnych tras korzysta z `/lp/`:
 - `/kontakt/`;
 - opinie, baza, sprzęt, ubezpieczenie i proces.
 
-### Etap G — B2B
+### Etap G - B2B
 
 - `/dla-firm/`;
 - przebudowa `/przeprowadzki-firm-i-instytucji/`;
@@ -623,7 +623,7 @@ Gdy zero aktywnych tras korzysta z `/lp/`:
 - bezpłatne oględziny, plan i etapowanie;
 - magazynowanie, pojemniki i ograniczenie przestoju.
 
-### Etap H — magazyny
+### Etap H - magazyny
 
 - docelowa strona magazynów Kielce;
 - komunikat: ogrzewane boksy od 2 do 9 m²;
@@ -631,7 +631,7 @@ Gdy zero aktywnych tras korzysta z `/lp/`:
 - nie podawać wymiarów pojedynczych boksów bez potwierdzenia;
 - uwzględnić powiązanie z przeprowadzkami i B2B.
 
-### Etap I — finalne SEO i jakość
+### Etap I - finalne SEO i jakość
 
 - title, meta, H1, canonical, schema, breadcrumbs;
 - linkowanie wewnętrzne;
@@ -641,7 +641,7 @@ Gdy zero aktywnych tras korzysta z `/lp/`:
 - 404 i przekierowania;
 - spójność komponentów i tokenów designu.
 
-### Etap J — pełne QA
+### Etap J - pełne QA
 
 - build staging;
 - symulacja production bez wdrożenia;
@@ -654,7 +654,7 @@ Gdy zero aktywnych tras korzysta z `/lp/`:
 - poprawność wszystkich 301;
 - regresja analityki bez PII.
 
-### Etap K — pakiet uruchomieniowy
+### Etap K - pakiet uruchomieniowy
 
 Przygotować, ale nie wykonywać bez zgody:
 

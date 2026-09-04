@@ -1,4 +1,4 @@
-# SEO — checklist wdrożeniowy
+# SEO - checklist wdrożeniowy
 
 ## Automatycznie wykonane w kodzie
 

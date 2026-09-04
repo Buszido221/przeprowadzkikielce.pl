@@ -1,4 +1,4 @@
-# Mapa zdjęć — WHM Przeprowadzki
+# Mapa zdjęć - WHM Przeprowadzki
 
 Aktualizacja: 2 września 2026
 

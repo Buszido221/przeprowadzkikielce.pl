@@ -101,7 +101,7 @@ const selectedTestimonials = testimonials.filter((testimonial) => page.testimoni
           {selectedTestimonials.map((testimonial) => (
             <figure class="proof-quote">
               <blockquote>{testimonial.text}</blockquote>
-              <figcaption>— {testimonial.author}{testimonial.source ? `, ${testimonial.source}` : ''}</figcaption>
+              <figcaption>- {testimonial.author}{testimonial.source ? `, ${testimonial.source}` : ''}</figcaption>
             </figure>
           ))}
         </div>
