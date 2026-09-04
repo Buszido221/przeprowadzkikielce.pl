@@ -133,7 +133,7 @@ export const oproznianiePage: ConsolidatedServicePage = {
   title: 'Opróżnianie mieszkań i wywóz mebli Kielce | WHM',
   description: 'Opróżnianie mieszkań w Kielcach: wyniesienie i wywóz uzgodnionych starych mebli oraz wyposażenia do PSZOK. Bez gruzu i odpadów budowlanych.',
   eyebrow: 'Opróżnianie mieszkań • Kielce i okolice',
-  heading: 'Opróżnianie mieszkań i wywóz starych mebli',
+  heading: 'Opróżnianie mieszkań i wywóz starych mebli w Kielcach',
   lead: 'Wynosimy uzgodnione meble i wyposażenie, ładujemy je i przewozimy do PSZOK. Przed terminem jasno potwierdzamy zakres oraz rzeczy, których usługa nie obejmuje.',
   heroImage: '/images/kielce-moving/przeprowadzki-kielce-5.webp',
   heroAlt: 'Zespół WHM podczas wynoszenia wyposażenia z mieszkania',
