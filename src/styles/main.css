@@ -1609,13 +1609,17 @@ main {
 }
 
 .final-cta .btn--secondary {
-  border-color: rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
   color: #fff;
+  box-shadow: none;
 }
 
 .final-cta .btn--secondary:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .final-cta__hours {
