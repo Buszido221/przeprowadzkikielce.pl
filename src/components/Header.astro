@@ -64,41 +64,42 @@ const secondaryNav = utilityNavigation;
     </div>
   </div>
 
-  <nav id="mobile-nav" class="mobile-nav" data-open="false" aria-label="Menu mobilne">
-    <div class="mobile-nav__section">
-      <p class="mobile-nav__section-title">Główne</p>
-      {mainNav.map((item) => (
-        <a
-          href={item.slug}
-          class="mobile-nav__link"
-          aria-current={currentPath === item.slug ? 'page' : undefined}
-        >
-          {item.name}
-        </a>
-      ))}
-    </div>
-
-    <div class="mobile-nav__section">
-      <p class="mobile-nav__section-title">Więcej</p>
-      {secondaryNav.map((item) => (
-        <a
-          href={item.slug}
-          class="mobile-nav__link"
-          aria-current={currentPath === item.slug ? 'page' : undefined}
-        >
-          {item.name}
-        </a>
-      ))}
-    </div>
-
-    <div class="mobile-nav__cta">
-      <a href="/kontakt/#formularz" class="btn btn--primary btn--lg" data-cta-click data-cta-location="header-mobile" style="width: 100%;">Napisz do nas</a>
-      <a href={`tel:${site.phoneRaw}`} class="btn btn--secondary btn--lg" data-cta-click data-cta-location="header-mobile" style="width: 100%; margin-top: 0.5rem;">
-        Zadzwoń: {site.phone}
-      </a>
-    </div>
-  </nav>
 </header>
+
+<nav id="mobile-nav" class="mobile-nav" data-open="false" aria-label="Menu mobilne">
+  <div class="mobile-nav__section">
+    <p class="mobile-nav__section-title">Główne</p>
+    {mainNav.map((item) => (
+      <a
+        href={item.slug}
+        class="mobile-nav__link"
+        aria-current={currentPath === item.slug ? 'page' : undefined}
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+
+  <div class="mobile-nav__section">
+    <p class="mobile-nav__section-title">Więcej</p>
+    {secondaryNav.map((item) => (
+      <a
+        href={item.slug}
+        class="mobile-nav__link"
+        aria-current={currentPath === item.slug ? 'page' : undefined}
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+
+  <div class="mobile-nav__cta">
+    <a href="/kontakt/#formularz" class="btn btn--primary btn--lg" data-cta-click data-cta-location="header-mobile" style="width: 100%;">Napisz do nas</a>
+    <a href={`tel:${site.phoneRaw}`} class="btn btn--secondary btn--lg" data-cta-click data-cta-location="header-mobile" style="width: 100%; margin-top: 0.5rem;">
+      Zadzwoń: {site.phone}
+    </a>
+  </div>
+</nav>
 
 <script>
   const toggle = document.getElementById('mobile-nav-toggle') as HTMLButtonElement | null;
