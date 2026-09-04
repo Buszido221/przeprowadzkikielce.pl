@@ -3616,23 +3616,17 @@ main {
 }
 
 .featured-realization__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   background: var(--color-bg-alt, #f3f3f1);
 }
 
-.featured-realization__media:has(img[data-orientation="portrait"]) {
-  aspect-ratio: 4 / 5;
-}
-
 .featured-realization__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.featured-realization__media img[data-orientation="portrait"] {
   object-fit: contain;
 }
 
@@ -3654,15 +3648,16 @@ main {
   opacity: 1;
 }
 
-.featured-realization:hover .featured-realization__media img {
-  transform: scale(1.06);
-}
-
 .featured-realization__body {
+  flex: 1 1 auto;
   padding: var(--space-5) var(--space-6) var(--space-6);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+}
+
+.featured-realization__body .arrow-link {
+  margin-top: auto;
 }
 
 .featured-realization__label {
