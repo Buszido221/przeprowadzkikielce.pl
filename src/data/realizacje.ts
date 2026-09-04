@@ -28,6 +28,8 @@ export interface CaseStudy {
   relatedRealizacje: { label: string; href: string }[];
   salesHeading: string;
   salesText: string;
+  datePublished?: string;
+  dateModified?: string;
 }
 
 export const caseStudies: CaseStudy[] = [

@@ -4,7 +4,7 @@ import ServiceHero from '../../components/ServiceHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import MobileStickyCta from '../../components/MobileStickyCta.astro';
 import SafeImage from '../../components/SafeImage.astro';
-import { getRoute, serviceNavigation } from '../../data/routes';
+import { getRoute, publicRoutes } from '../../data/routes';
 import { getSeo } from '../../data/seo';
 import { buildSchemaGraph } from '../../lib/schema';
 
@@ -15,9 +15,11 @@ const cards = [
   { slug: '/pakowanie-i-zabezpieczanie/', image: '/images/packing-services/pakowanie-przeprowadzki-kielce-3.webp', text: 'Pełne lub częściowe pakowanie z materiałami i oznaczeniem mienia.' },
   { slug: '/transport-pianin-i-fortepianow-kielce/', image: '/images/transport-pianin-i-fortepianow/transport-pianin-i-fortepianow-kielce-3.webp', text: 'Transport instrumentów po wcześniejszej ocenie trasy i warunków.' },
   { slug: '/transport-specjalistyczny/', image: '/images/transport-gabarytow/transport-gabarytow-kielce-7.webp', text: 'Ciężkie i nietypowe elementy wymagające indywidualnej technologii pracy.' },
+  { slug: '/przeprowadzki-firm-i-instytucji/', image: '/images/office-moving/przeprowadzki-biura-1.webp', text: 'Relokacje biur, firm i instytucji z planem etapów i ciągłości działania.' },
   { slug: '/oproznianie-mieszkan-i-wywoz-mebli/', image: '/images/furniture-assembly/montaz-demontaz-mebli-1.webp', text: 'Wyniesienie i wywóz starych mebli oraz wyposażenia do PSZOK, z jasnym zakresem wyłączeń.' },
+  { slug: '/magazyny-kielce/', image: '/images/magazyny-kielce/ogrzewany-magazyn-kielce.webp', text: 'Ogrzewane boksy od 2 do 9 m² jako uzupełnienie relokacji lub przechowanie pomostowe.' },
 ];
-const cardData = cards.map((card) => ({ ...card, route: serviceNavigation.find((item) => item.slug === card.slug)! }));
+const cardData = cards.map((card) => ({ ...card, route: publicRoutes.find((item) => item.slug === card.slug)! }));
 const seo = getSeo('/uslugi/');
 const schemaGraph = buildSchemaGraph({
   slug: '/uslugi/',
@@ -27,10 +29,10 @@ const schemaGraph = buildSchemaGraph({
 ---
 
 <Layout seo={seo} schemaGraph={schemaGraph}>
-  <ServiceHero eyebrow="Usługi WHM" heading="Przeprowadzka i transport dopasowane do jednej rzeczywistej potrzeby" lead="Zamiast mnożyć podobne podstrony, porządkujemy ofertę w sześć czytelnych ścieżek. Jeśli zakres łączy kilka usług, koordynujemy je jako jeden proces." breadcrumbs={[{ label: route.name }]} heroImage="/images/kielce-moving/przeprowadzki-kielce-1.webp" heroAlt="Samochód i zespół WHM podczas realizacji przeprowadzki" secondaryCtaLabel="Przejdź do wyceny" secondaryCtaHref="/kontakt/#formularz" />
+  <ServiceHero eyebrow="Usługi WHM" heading="Usługi przeprowadzkowe w Kielcach dopasowane do rzeczywistej potrzeby" lead="Zamiast mnożyć podobne podstrony, porządkujemy ofertę w sześć czytelnych ścieżek. Jeśli zakres łączy kilka usług, koordynujemy je jako jeden proces." breadcrumbs={[{ label: route.name }]} heroImage="/images/kielce-moving/przeprowadzki-kielce-1.webp" heroAlt="Samochód i zespół WHM podczas realizacji przeprowadzki" secondaryCtaLabel="Przejdź do wyceny" secondaryCtaHref="/kontakt/#formularz" />
   <section class="section section--alt">
     <div class="container">
-      <SectionHeading label="Oferta B2C" title="Wybierz zakres, który najlepiej opisuje zadanie" />
+      <SectionHeading label="Oferta WHM" title="Wybierz zakres, który najlepiej opisuje zadanie" description="Nie tworzymy osobnych podstron dla lodówki, AGD czy pakowania mebli — te potrzeby mieszczą się w jednej z ośmiu ścieżek poniżej. Jeśli Twoje zlecenie łączy kilka zakresów, koordynujemy je jako jeden proces." />
       <div class="services-grid services-grid--3col">
         {cardData.map((card) => <a class="service-card" href={card.slug}><div class="service-card__media"><SafeImage src={card.image} alt="" role="presentation" loading="lazy" decoding="async" /></div><div class="service-card__body"><h2 class="service-card__title">{card.route.name}</h2><p class="service-card__desc">{card.text}</p><span class="service-card__link">Poznaj zakres</span></div></a>)}
       </div>

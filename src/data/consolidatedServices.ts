@@ -45,7 +45,7 @@ export const transportMebliPage: ConsolidatedServicePage = {
   title: 'Transport mebli Kielce z wniesieniem i montażem | WHM',
   description: 'Transport mebli w Kielcach z zabezpieczeniem, wyniesieniem, wniesieniem oraz uzgodnionym demontażem i ponownym montażem przez jeden zespół.',
   eyebrow: 'Transport mebli • Kielce i województwo świętokrzyskie',
-  heading: 'Mebel bezpiecznie od miejsca odbioru do właściwego pomieszczenia',
+  heading: 'Transport mebli w Kielcach — od odbioru do ustawienia',
   lead: 'Kanapa, szafa, stół lub większy zestaw — zabezpieczamy, wynosimy, przewozimy i wnosimy. Gdy droga tego wymaga, uzgadniamy demontaż i ponowny montaż.',
   heroImage: '/images/transport-mebli/transport-mebli-kielce-1.webp',
   heroAlt: 'Zabezpieczony mebel przygotowany do transportu przez zespół WHM',

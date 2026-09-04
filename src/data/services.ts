@@ -133,7 +133,7 @@ export const firmaPage = {
     { label: 'Firmy i instytucje' },
   ],
   hero: {
-    heading: 'Przeprowadzki firm i instytucji zaplanowane wokół działania organizacji',
+    heading: 'Przeprowadzki firm i instytucji w Kielcach, zaplanowane etap po etapie',
     lead: 'Przeniesienie biura, placówki czy archiwum wymaga czegoś więcej niż transportu. Zanim cokolwiek ruszymy, razem ustalimy kolejność, oznaczenie mienia i sposób, w jaki Twoja organizacja będzie mogła działać dalej.',
     ctaLabel: 'Omów przeprowadzkę',
     note: 'Plan i kolejność prac przygotowujemy wspólnie przed realizacją.',
@@ -285,7 +285,7 @@ export const transportSpecPage = {
     { label: 'Transport specjalistyczny' },
   ],
   hero: {
-    heading: 'Transport specjalistyczny zaczyna się od oceny, nie od podnoszenia',
+    heading: 'Transport specjalistyczny w Kielcach zaczyna się od oceny',
     lead: 'Masa przedmiotu to tylko jeden z elementów. Sprawdzamy również jego wymiary, sposób zabezpieczenia, drogę transportową i warunki w obu lokalizacjach.',
     ctaLabel: 'Opisz przedmiot',
     note: 'Masz do przewiezienia coś ciężkiego lub nietypowego? Pokaż nam przedmiot i miejsce - znajdziemy najlepszy sposób.',
@@ -415,7 +415,7 @@ export const pianinaPage = {
     { label: 'Pianina i fortepiany' },
   ],
   hero: {
-    heading: 'Transport pianina lub fortepianu wymaga planu dla całej drogi',
+    heading: 'Transport pianin i fortepianów w Kielcach wymaga planu całej drogi',
     lead: 'Instrument trzeba nie tylko podnieść. Zanim ruszymy, oceniamy jego konstrukcję, wymiary, schody, zakręty, miejsce podjazdu i warunki w lokalizacji docelowej - żeby zaplanować wszystko od A do Z.',
     ctaLabel: 'Wyceń transport instrumentu',
     image: '/images/hero/hero-2.webp',
@@ -784,7 +784,7 @@ export const standardPage = {
   breadcrumbs: [{ label: 'Standard WHM' }],
   hero: {
     heading: 'Standard WHM to sposób pracy, nie dodatkowy pakiet',
-    lead: 'Jakość przeprowadzki wynika z decyzji podejmowanych przed transportem i podczas każdego etapu realizacji - od oceny warunków po zabezpieczenie oraz stabilizację mienia.',
+    lead: 'Jakość przeprowadzki wynika z decyzji podejmowanych przed transportem i podczas każdego etapu realizacji - od oceny warunków po zabezpieczenie oraz stabilizację mienia. Te zasady pracy obowiązują w każdej realizacji WHM — od lokalnych zleceń w Kielcach po trasy w całym regionie i kraju.',
     ctaLabel: 'Poproś o wycenę',
     image: '/images/standard-whm/zabezpieczenia-1.webp',
     imageAlt: 'Pasy i zabezpieczenia stabilizujące ładunek',
@@ -1054,7 +1054,7 @@ export const jakToDzialaPage = {
   breadcrumbs: [{ label: 'Jak to działa' }],
   hero: {
     heading: 'Od pierwszego kontaktu do zakończenia przeprowadzki',
-    lead: 'Im więcej istotnych informacji ustalimy przed realizacją, tym mniej decyzji trzeba podejmować w jej trakcie. Dlatego zaczynamy od rozmowy.',
+    lead: 'Im więcej istotnych informacji ustalimy przed realizacją, tym mniej decyzji trzeba podejmować w jej trakcie. Dlatego zaczynamy od rozmowy. Proces dotyczy realizacji w Kielcach, województwie świętokrzyskim i na trasach krajowych.',
     image: '/images/hero/hero-4.webp',
   },
   process: [
@@ -1428,7 +1428,7 @@ export const pakowanePage = {
     { label: 'Pakowanie i zabezpieczanie' },
   ],
   hero: {
-    heading: 'Pakowanie i zabezpieczanie mienia przed przeprowadzką',
+    heading: 'Pakowanie i zabezpieczanie mienia do przeprowadzki w Kielcach',
     lead: 'Odpowiednie zabezpieczenie ogranicza przypadkowe uszkodzenia, usprawnia wynoszenie i pozwala lepiej wykorzystać przestrzeń w samochodzie. Możesz się o to zatroszczyć samodzielnie albo powierzyć to nam.',
     ctaLabel: 'Zapytaj o pakowanie',
   },

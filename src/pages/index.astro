@@ -37,9 +37,10 @@ import {
       <SafeImage
         src={hero.image}
         alt={hero.imageAlt}
-        class="hero__img"
+        loading="eager"
         fetchpriority="high"
         decoding="async"
+        class="hero__img"
         displayMode="hero"
       />
       <div class="hero__overlay"></div>
@@ -416,7 +417,7 @@ import {
   <!-- QUICK VALUATION HUB -->
   <section class="section section--sm">
     <div class="container">
-      <SectionHeading label="Szybka wycena" title="Wyceń konkretną usługę" />
+      <SectionHeading label="Szybka wycena" title="Wyceń konkretną usługę" tag="h3" />
       <div class="related-links">
         <a href="/przeprowadzki/" class="arrow-link">Wyceń przeprowadzkę w Kielcach</a>
         <a href="/przeprowadzki/" class="arrow-link">Sprawdź, co wpływa na cenę przeprowadzki</a>

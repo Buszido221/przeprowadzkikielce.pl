@@ -45,6 +45,8 @@ function postalAddress(useRegistered = false) {
 }
 
 export function businessEntity() {
+  const logoUrl = imageUrl('/LOGO_WHM.svg');
+  const heroImageUrl = imageUrl('/images/hero/hero-1.webp');
   return {
     '@type': 'MovingCompany',
     '@id': BUSINESS_ID,
@@ -59,6 +61,8 @@ export function businessEntity() {
     areaServed: areaServed(),
     sameAs: [site.facebook, site.instagram],
     hasMap: site.googleMaps,
+    ...(logoUrl ? { logo: { '@type': 'ImageObject', url: logoUrl } } : {}),
+    ...(heroImageUrl ? { image: imageObject('/images/hero/hero-1.webp', 'Samochód WHM Przeprowadzki przy realizacji zlecenia w Kielcach') } : {}),
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: site.phoneRaw,
@@ -130,7 +134,7 @@ function serviceEntity(seo: SeoPage) {
   };
 }
 
-function articleEntity(seo: SeoPage) {
+function articleEntity(seo: SeoPage, datePublished?: string, dateModified?: string) {
   const canonical = getCanonicalUrl(seo.slug);
   return {
     '@type': 'Article',
@@ -143,6 +147,8 @@ function articleEntity(seo: SeoPage) {
     publisher: { '@id': BUSINESS_ID },
     mainEntityOfPage: canonical,
     about: { '@id': BUSINESS_ID },
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ? { dateModified } : {}),
     ...(seo.ogImage ? { image: imageObject(seo.ogImage, seo.ogImageAlt) } : {}),
   };
 }
@@ -184,6 +190,8 @@ interface BuildSchemaOptions {
   slug: string;
   breadcrumbs?: { name: string; url?: string }[];
   itemList?: { name: string; url: string }[];
+  datePublished?: string;
+  dateModified?: string;
 }
 
 export function buildSchemaGraph(opts: BuildSchemaOptions): object {
@@ -199,7 +207,7 @@ export function buildSchemaGraph(opts: BuildSchemaOptions): object {
       graph.push(serviceEntity(seo));
       break;
     case 'Article':
-      graph.push(articleEntity(seo));
+      graph.push(articleEntity(seo, opts.datePublished, opts.dateModified));
       break;
     case 'SelfStorage':
       graph.push(selfStorageEntity(seo));

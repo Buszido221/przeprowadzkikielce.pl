@@ -16,7 +16,7 @@ const { facts } = Astro.props;
     <div class="trust-bar__grid">
       {facts.map((fact) => (
         <div class="trust-bar__item">
-          <h3 class="trust-bar__title">{fact.title}</h3>
+          <p class="trust-bar__title">{fact.title}</p>
           <p class="trust-bar__desc">{fact.desc}</p>
         </div>
       ))}
