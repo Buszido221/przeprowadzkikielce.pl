@@ -151,7 +151,7 @@ export const featuredRealizations = [
     challenge: 'Opuszczony z drugiego piętra obraz, którego nie wolno ustawić pionowo.',
     result: 'Dzieło trafiło do muzeum bez naruszenia wymaganej pozycji.',
     href: '/realizacje/transport-zabytkowego-obrazu-zamek-szydlowieckich/',
-    image: '/images/transport-gabarytow/transport-gabarytow-kielce-6.webp',
+    image: '/images/realizacje/zamek-szydlowieckich/zamek-szydlowieckich-1.webp',
   },
 ];
 
