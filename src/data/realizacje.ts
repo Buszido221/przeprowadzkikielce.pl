@@ -3,11 +3,6 @@ export interface CaseStudySection {
   paragraphs: string[];
 }
 
-export interface CaseStudyGalleryImage {
-  src: string;
-  alt: string;
-  caption: string;
-}
 
 export interface CaseStudyRelatedLink {
   label: string;
@@ -29,7 +24,6 @@ export interface CaseStudy {
   sections: CaseStudySection[];
   conclusionHeading: string;
   conclusionText: string;
-  gallery: CaseStudyGalleryImage[];
   relatedServices: CaseStudyRelatedLink[];
   relatedRealizacje: { label: string; href: string }[];
   salesHeading: string;
@@ -92,11 +86,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Duża relokacja instytucji nie jest sumą pojedynczych transportów. Jest projektem operacyjnym, w którym trzeba połączyć ludzi, dokumentację, sprzęt, harmonogram i odpowiedzialność za działalność klienta.',
-    gallery: [
-      { src: '/images/realizacje/prokuratury-kielce/przeprowadzka-prokuratury-1.webp', alt: 'Zabezpieczone wyposażenie instytucji podczas relokacji WHM', caption: 'Zabezpieczenie i organizacja wyposażenia na czas relokacji' },
-      { src: '/images/institution-moving/przeprowadzki-instytucji-5.webp', alt: 'Transport szaf i wyposażenia biurowego przez zespół WHM', caption: 'Przenoszenie szaf i wyposażenia między kondygnacjami' },
-      { src: '/images/institution-moving/przeprowadzki-instytucji-6.webp', alt: 'Zabezpieczone archiwa i dokumentacja podczas transportu', caption: 'Archiwum liczone w kilometrach bieżących akt' },
-    ],
     relatedServices: [
       { label: 'Przeprowadzki firm i instytucji', href: '/przeprowadzki-firm-i-instytucji/', text: 'Pełny proces relokacji biur, urzędów i instytucji.' },
       { label: 'Dla firm', href: '/dla-firm/', text: 'Planowanie i realizacja relokacji dla firm i instytucji.' },
@@ -172,11 +161,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Skala relokacji nie zawsze wynika z jednego ciężkiego przedmiotu. Czasem polega na połączeniu dziesiątek transportów, kilku lokalizacji początkowych i różnorodnych kategorii mienia w jednym precyzyjnie organizowanym miejscu docelowym.',
-    gallery: [
-      { src: '/images/realizacje/teatr-zeromskiego/relokacja-teatru-2.webp', alt: 'Transport wyposażenia instytucji kultury przez WHM', caption: 'Transport wyposażenia instytucji kultury' },
-      { src: '/images/institution-moving/przeprowadzki-instytucji-3.webp', alt: 'Zabezpieczone elementy scenografii i wyposażenia', caption: 'Różne kategorie mienia wymagały różnych metod zabezpieczenia' },
-      { src: '/images/transport-pianin-i-fortepianow/transport-pianin-i-fortepianow-kielce-3.webp', alt: 'Zabezpieczony fortepian podczas transportu WHM', caption: 'Dwa fortepiany wśród przewożonego mienia' },
-    ],
     relatedServices: [
       { label: 'Przeprowadzki firm i instytucji', href: '/przeprowadzki-firm-i-instytucji/', text: 'Pełny proces relokacji instytucji i obiektów kultury.' },
       { label: 'Dla firm', href: '/dla-firm/', text: 'Planowanie i realizacja relokacji dla firm i instytucji.' },
@@ -260,11 +244,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Archiwum po przeprowadzce nadal musi być archiwum. Sukces nie polega na przewiezieniu pudeł, lecz na odtworzeniu uporządkowanego zasobu gotowego do dalszej pracy.',
-    gallery: [
-      { src: '/images/realizacje/tvp3-kielce/relokacja-tvp-kielce.webp', alt: 'Relokacja wyposażenia TVP3 Kielce przez WHM', caption: 'Pojemniki opisane datami i literami' },
-      { src: '/images/office-moving/przeprowadzki-biura-3.webp', alt: 'Zabezpieczone wyposażenie techniczne studia', caption: 'Likwidacja studia i zabezpieczenie stołów' },
-      { src: '/images/moving-boxes/kartony-do-przeprowadzki-1.webp', alt: 'Plastikowe pojemniki transportowe WHM', caption: 'Prawie cały zapas pojemników w użyciu' },
-    ],
     relatedServices: [
       { label: 'Przeprowadzki firm i instytucji', href: '/przeprowadzki-firm-i-instytucji/', text: 'Relokacje archiwów, biur i instytucji z zachowaniem porządku.' },
       { label: 'Dla firm', href: '/dla-firm/', text: 'Planowanie i realizacja relokacji dla firm i instytucji.' },
@@ -348,11 +327,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Duży księgozbiór wymaga systemu, nie tysięcy jednorazowych kartonów. Rotacyjny model pracy z pojemnikami wielokrotnego użytku pozwala prowadzić pakowanie równolegle z transportem i odtwarzaniem układu.',
-    gallery: [
-      { src: '/images/realizacje/biblioteka-busko/biblioteka-busko-1.webp', alt: 'Pojemniki transportowe WHM podczas relokacji biblioteki', caption: 'Prawie 300 pojemników w ciągłej rotacji' },
-      { src: '/images/moving-boxes/kartony-do-przeprowadzki-2.webp', alt: 'Pakowanie książek do pojemników transportowych', caption: 'Księgozbiór pakowany z zachowaniem kolejności' },
-      { src: '/images/packing-services/pakowanie-przeprowadzki-kielce-2.webp', alt: 'Zabezpieczone regały i wyposażenie biblioteki', caption: 'Ponad trzymetrowe regały dostosowane do nowej przestrzeni' },
-    ],
     relatedServices: [
       { label: 'Przeprowadzki firm i instytucji', href: '/przeprowadzki-firm-i-instytucji/', text: 'Relokacje bibliotek, archiwów i instytucji z zachowaniem porządku.' },
       { label: 'Dla firm', href: '/dla-firm/', text: 'Planowanie i realizacja relokacji dla instytucji.' },
@@ -432,11 +406,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Gdy standardowa droga nie istnieje, trzeba zaplanować nową. Najpierw rozpoznać warunek, którego nie wolno złamać, następnie zaplanować wokół niego sprzęt, ludzi i drogę, a dopiero później rozpocząć przenoszenie.',
-    gallery: [
-      { src: '/images/transport-gabarytow/transport-gabarytow-kielce-6.webp', alt: 'Transport specjalistyczny realizowany przez zespół WHM', caption: 'Podnośnik koszowy i kontrolowane opuszczanie' },
-      { src: '/images/transport-gabarytow/transport-gabarytow-kielce-5.webp', alt: 'Zabezpieczony gabaryt podczas transportu WHM', caption: 'Konstrukcja długości około 4,3 m w pozycji poziomej' },
-      { src: '/images/transport-gabarytow/transport-gabarytow-kielce-4.webp', alt: 'Przygotowanie drogi transportu przez zespół WHM', caption: 'Demontaż okna i przęsła ogrodzenia' },
-    ],
     relatedServices: [
       { label: 'Transport specjalistyczny', href: '/transport-specjalistyczny/', text: 'Dla dzieł sztuki, urządzeń i gabarytów wymagających osobnej oceny.' },
       { label: 'Dla firm', href: '/dla-firm/', text: 'Planowanie i realizacja transportu w obiektach instytucjonalnych.' },
@@ -504,11 +473,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Każdy instrument i każdą drogę oceniamy osobno. Ten sam sposób, który jest dopuszczalny dla eksponatu oczekującego na renowację, nie musi być bezpieczny dla instrumentu koncertowego.',
-    gallery: [
-      { src: '/images/transport-pianin-i-fortepianow/transport-pianin-i-fortepianow-kielce-3.webp', alt: 'Zabezpieczony fortepian podczas transportu WHM', caption: 'Transport w obiekcie historycznym z ciasną windą' },
-      { src: '/images/transport-pianin-i-fortepianow/transport-pianin-i-fortepianow-kielce-2.webp', alt: 'Przygotowanie fortepianu do transportu przez zespół WHM', caption: 'Niestandardowa pozycja wymuszona architekturą' },
-      { src: '/images/transport-pianin-i-fortepianow/transport-pianin-i-fortepianow-kielce-4.webp', alt: 'Zabezpieczony instrument po transporcie', caption: 'Eksponat oczekujący na renowację' },
-    ],
     relatedServices: [
       { label: 'Transport pianin i fortepianów', href: '/transport-pianin-i-fortepianow-kielce/', text: 'Transport instrumentów po ocenie instrumentu i drogi.' },
       { label: 'Transport specjalistyczny', href: '/transport-specjalistyczny/', text: 'Dla instrumentów i gabarytów wymagających osobnej oceny.' },
@@ -587,11 +551,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Koncert się kończy. Odpowiedzialność za instrument nie kończy się. WHM obsługuje transporty pianin i fortepianów po wcześniejszej ocenie instrumentu oraz drogi, aby organizator wiedział, jak będzie wyglądał odbiór po wydarzeniu.',
-    gallery: [
-      { src: '/images/realizacje/fortepian-fazioli/fortepian-fazioli.webp', alt: 'Fortepian koncertowy Fazioli po transporcie nocnym', caption: 'Samochód z windą samozaładowczą' },
-      { src: '/images/transport-pianin-i-fortepianow/transport-pianin-i-fortepianow-kielce-4.webp', alt: 'Zabezpieczony fortepian po transporcie nocnym', caption: 'Ustawienie na scenie około 2:00 w nocy' },
-      { src: '/images/transport-pianin-i-fortepianow/transport-pianin-i-fortepianow-kielce-2.webp', alt: 'Przygotowanie instrumentu do transportu przez WHM', caption: 'Dedykowany pokrowiec, sanie i wózki transportowe' },
-    ],
     relatedServices: [
       { label: 'Transport pianin i fortepianów', href: '/transport-pianin-i-fortepianow-kielce/', text: 'Transport instrumentów po ocenie instrumentu i drogi.' },
       { label: 'Transport specjalistyczny', href: '/transport-specjalistyczny/', text: 'Dla instrumentów koncertowych i gabarytów wymagających osobnej oceny.' },
@@ -690,11 +649,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     conclusionHeading: 'Co ta realizacja pokazuje?',
     conclusionText: 'Zanim podamy sposób i cenę, musimy poznać drogę. Metoda zawsze wynika z masy, wymiarów, środka ciężkości, drogi i nośności podłoża — nie z wartości na tabliczce znamionowej.',
-    gallery: [
-      { src: '/images/transport-gabarytow/transport-gabarytow-kielce-7.webp', alt: 'Transport ciężkiego ładunku przez zespół WHM', caption: 'Szafy pancerne, piece i serwery — metoda dobierana do ładunku' },
-      { src: '/images/transport-sejfu/transport-sejfu-kielce-1.webp', alt: 'Transport sejfu i szafy pancernej przez WHM', caption: 'Szafy pancerne i sejfy od około 200 do około 880 kg' },
-      { src: '/images/transport-pieca/transport-pieca-kielce-1.webp', alt: 'Transport pieca na pellet przez zespół WHM', caption: 'Piece na pellet o masie około 350–450 kg' },
-    ],
     relatedServices: [
       { label: 'Transport specjalistyczny', href: '/transport-specjalistyczny/', text: 'Dla ciężkich i nietypowych przedmiotów wymagających osobnej oceny.' },
       { label: 'Dla firm', href: '/dla-firm/', text: 'Planowanie i realizacja relokacji technicznych dla firm.' },

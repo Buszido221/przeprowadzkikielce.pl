@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import ServiceHero from './ServiceHero.astro';
 import SectionHeading from './SectionHeading.astro';
 import MobileStickyCta from './MobileStickyCta.astro';
-import SafeImage from './SafeImage.astro';
 import { site } from '../data/site';
 import { getSeo } from '../data/seo';
 import { buildSchemaGraph } from '../lib/schema';
@@ -62,21 +61,6 @@ const schemaGraph = buildSchemaGraph({
     </div>
   </section>
 
-  {study.gallery.length > 0 && (
-  <section class="case-study__gallery section--alt" aria-label="Zdjęcia przedstawiające sposób pracy WHM">
-    <div class="container">
-      <SectionHeading label="Zdjęcia z pracy WHM" title="Sposób pracy i zabezpieczenia" />
-      <div class={`photo-grid photo-grid--${Math.min(study.gallery.length, 3)}`}>
-        {study.gallery.map((image) => (
-          <figure class="photo-grid__item case-study__gallery-item">
-            <SafeImage src={image.src} alt={image.alt} loading="lazy" decoding="async" displayMode="natural" />
-            <figcaption>{image.caption}</figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
-  </section>
-  )}
 
   <section class="case-study__related-services" aria-label="Powiązane usługi">
     <div class="container">
