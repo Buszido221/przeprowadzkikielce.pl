@@ -10,7 +10,7 @@ const { heading, text } = Astro.props;
 ---
 
 <section class="final-cta" aria-label={heading}>
-  <div class="container">
+  <div class="container final-cta__inner">
     <h2 class="final-cta__heading">{heading}</h2>
     <p class="final-cta__text">{text}</p>
     <a href={`tel:${site.phoneRaw}`} class="btn btn--primary btn--lg" data-cta-click data-cta-location="final-cta">
