@@ -223,52 +223,48 @@ import {
   <!-- SPECIAL TRANSPORT -->
   <section class="section section--alt">
     <div class="container">
-      <div class="split-section">
-        <div class="split-section__content">
-          <SectionHeading
-            label={specialTransportSection.eyebrow}
-            title={specialTransportSection.heading}
-            description={specialTransportSection.text}
-          />
-          <ul class="tag-list">
-            {specialTransportSection.categories.map((cat) => (
-              <li class="tag-list__item">{cat}</li>
-            ))}
-          </ul>
-          <div class="notice-box">
-            <p>{specialTransportSection.notice}</p>
-          </div>
-          <div class="section-cta" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
-            <a href={specialTransportSection.cta.href} class="btn btn--primary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.cta.label}</a>
-            <a href={specialTransportSection.ctaSecondary.href} class="btn btn--secondary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.ctaSecondary.label}</a>
-          </div>
-        </div>
-        <div class="split-section__media split-section__media--stack">
-          <SafeImage
-            src={specialTransportSection.images[0]}
-            alt="Wykorzystanie schodołazu przy transporcie ciężkiego ładunku"
-            loading="lazy"
-            decoding="async"
-            class="section-img"
-            displayMode="section"
-          />
-          <SafeImage
-            src={specialTransportSection.images[1]}
-            alt="Transport instrumentu muzycznego przez zespół WHM"
-            loading="lazy"
-            decoding="async"
-            class="section-img"
-            displayMode="section"
-          />
-          <SafeImage
-            src={specialTransportSection.images[2]}
-            alt="Praca z dużym wyposażeniem biurowym"
-            loading="lazy"
-            decoding="async"
-            class="section-img"
-            displayMode="section"
-          />
-        </div>
+      <SectionHeading
+        label={specialTransportSection.eyebrow}
+        title={specialTransportSection.heading}
+        description={specialTransportSection.text}
+      />
+      <ul class="tag-list">
+        {specialTransportSection.categories.map((cat) => (
+          <li class="tag-list__item">{cat}</li>
+        ))}
+      </ul>
+      <div class="notice-box">
+        <p>{specialTransportSection.notice}</p>
+      </div>
+      <div class="section-cta" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
+        <a href={specialTransportSection.cta.href} class="btn btn--primary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.cta.label}</a>
+        <a href={specialTransportSection.ctaSecondary.href} class="btn btn--secondary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.ctaSecondary.label}</a>
+      </div>
+      <div class="image-row">
+        <SafeImage
+          src={specialTransportSection.images[0]}
+          alt="Wykorzystanie schodołazu przy transporcie ciężkiego ładunku"
+          loading="lazy"
+          decoding="async"
+          class="section-img"
+          displayMode="section"
+        />
+        <SafeImage
+          src={specialTransportSection.images[1]}
+          alt="Transport instrumentu muzycznego przez zespół WHM"
+          loading="lazy"
+          decoding="async"
+          class="section-img"
+          displayMode="section"
+        />
+        <SafeImage
+          src={specialTransportSection.images[2]}
+          alt="Praca z dużym wyposażeniem biurowym"
+          loading="lazy"
+          decoding="async"
+          class="section-img"
+          displayMode="section"
+        />
       </div>
     </div>
   </section>

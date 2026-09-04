@@ -1076,9 +1076,29 @@ main {
   text-align: center;
 }
 
-.split-section__media--stack {
+.image-row {
   display: grid;
   gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .image-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.image-row .section-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 1024px) {
+  .image-row .section-img {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 
