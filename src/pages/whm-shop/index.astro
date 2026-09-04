@@ -140,8 +140,8 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
       <div class="final-cta__inner">
         <h2 class="final-cta__heading">{page.finalCta.heading}</h2>
         <div class="dual-cta">
-          <a href={page.finalCta.primaryCta.href} class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer">{page.finalCta.primaryCta.label}</a>
-          <a href={page.finalCta.secondaryCta.href} class="btn btn--secondary btn--lg">{page.finalCta.secondaryCta.label}</a>
+          <a href={page.finalCta.primaryCta.href} class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer" data-cta-click data-cta-location="shop-final">{page.finalCta.primaryCta.label}</a>
+          <a href={page.finalCta.secondaryCta.href} class="btn btn--secondary btn--lg" data-cta-click data-cta-location="shop-final">{page.finalCta.secondaryCta.label}</a>
         </div>
         <p class="final-cta__hours">Pn–Pt: {site.hours.weekdays} &middot; Sob: {site.hours.saturday}</p>
       </div>

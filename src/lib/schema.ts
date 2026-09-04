@@ -33,7 +33,7 @@ function areaServed() {
 }
 
 function postalAddress(useRegistered = false) {
-  const a = useRegistered ? site.registerredAddress : site.address;
+  const a = useRegistered ? site.registeredAddress : site.address;
   return {
     '@type': 'PostalAddress',
     streetAddress: a.street,

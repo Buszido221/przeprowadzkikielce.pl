@@ -29,13 +29,13 @@ Pomiar (GTM, baner zgód, zdarzenia) aktywny wyłącznie gdy jednocześnie `PUBL
 3. Użytkownik klika: „Akceptuję wszystkie", „Odrzucam wszystkie" lub konfiguruje w panelu szczegółowym.
 4. Po decyzji: `consent update` z nowymi stanami → jeśli przynajmniej jedna kategoria opcjonalna `granted`, GTM ładowany (idempotentnie, raz).
 5. Decyzja zapisana w `localStorage` pod kluczem `whm_consent_v3` (wersja 3).
-6. Cofnięcie wszystkich zgód po wcześniejszym załadowaniu GTM: aktualizacja na `denied`, przeładowanie strony.
+6. **Każda** zmiana kategorii po załadowaniu GTM: aktualizacja consent + `window.location.reload()`. Pierwsza decyzja (brak GTM w DOM) nigdy nie przeładowuje.
 7. Zmiana zgód z poziomu stopki: przycisk „Ustawienia cookies" → event `whm:open-cookie-settings`.
 8. Na stagingu: brak banera, brak GTM, brak zdarzeń, brak linku w stopce.
 
 ## Kontrakt zdarzeń
 
-Wszystkie zdarzenia emitowane przez `dataLayer.push()` — wyłącznie gdy przynajmniej jedna kategoria opcjonalna zaakceptowana.
+Wszystkie zdarzenia emitowane przez `pushEvent()` (wrapper na `dataLayer.push`) — zwraca `boolean` (`true` = wyemitowano, `false` = zablokowano brakiem zgody). Emitowane wyłącznie gdy przynajmniej jedna kategoria opcjonalna zaakceptowana.
 
 ### Zdarzenia formularza
 
@@ -60,8 +60,8 @@ Wszystkie zdarzenia emitowane przez `dataLayer.push()` — wyłącznie gdy przyn
 
 | Zdarzenie | Wyzwalacz | Parametry |
 |---|---|---|
-| `scroll_depth` | Progi: 25%, 50%, 75%, 100% (raz na załadowanie) | `percent`, `page_path` |
-| `engaged_time` | Progi: 15s, 30s, 60s aktywnego czasu (okno widoczne + fokus) | `seconds`, `page_path` |
+| `scroll_depth` | Progi: 25%, 50%, 75% (raz na załadowanie); próg dodany do `fired` wyłącznie gdy `pushEvent` zwraca `true` | `percent`, `page_path` |
+| `engaged_time` | Progi: 15s, 30s, 60s aktywnego czasu (okno widoczne + fokus); timer startuje dopiero po zgodzie | `seconds`, `page_path` |
 
 ### Zasady
 

@@ -62,7 +62,6 @@ const enabled = isProduction && validGtm;
       getSavedConsent,
       hasDecision,
       applyConsent,
-      revokeAllConsent,
       restoreConsent,
     } from '../lib/consent';
 
@@ -80,6 +79,8 @@ const enabled = isProduction && validGtm;
       const chkAnalytics = document.getElementById('consent-analytics') as HTMLInputElement;
       const chkMarketing = document.getElementById('consent-marketing') as HTMLInputElement;
 
+      let openedBy: HTMLElement | null = null;
+
       function hideBanner() {
         banner.classList.remove('cookie-consent--visible');
         banner.setAttribute('aria-hidden', 'true');
@@ -90,39 +91,45 @@ const enabled = isProduction && validGtm;
         banner.removeAttribute('aria-hidden');
       }
 
-      function openSettings() {
+      function focusStable() {
+        const target = document.getElementById('main-content') || document.body;
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+
+      function openSettings(trigger: HTMLElement | null) {
+        openedBy = trigger;
         const saved = getSavedConsent();
         chkAnalytics.checked = saved?.analytics ?? false;
         chkMarketing.checked = saved?.marketing ?? false;
         panel.hidden = false;
         btnOpen.setAttribute('aria-expanded', 'true');
-        panel.focus();
+        chkAnalytics.focus();
       }
 
       function closeSettings() {
         panel.hidden = true;
         btnOpen.setAttribute('aria-expanded', 'false');
-        btnOpen.focus();
+        if (openedBy && openedBy.isConnected && openedBy.offsetParent !== null) {
+          openedBy.focus();
+        } else {
+          btnOpen.focus();
+        }
+        openedBy = null;
       }
 
       function save(analytics: boolean, marketing: boolean) {
-        const prev = getSavedConsent();
-        const hadOptional = prev && (prev.analytics || prev.marketing);
-        const hasOptional = analytics || marketing;
-
-        if (hadOptional && !hasOptional) {
-          revokeAllConsent();
-          return;
-        }
-
         applyConsent(analytics, marketing, gtmId);
         hideBanner();
-        closeSettings();
+        panel.hidden = true;
+        btnOpen.setAttribute('aria-expanded', 'false');
+        openedBy = null;
+        focusStable();
       }
 
       btnAccept.addEventListener('click', () => save(true, true));
       btnReject.addEventListener('click', () => save(false, false));
-      btnOpen.addEventListener('click', () => openSettings());
+      btnOpen.addEventListener('click', () => openSettings(btnOpen));
       btnClose.addEventListener('click', () => closeSettings());
       btnSave.addEventListener('click', () => save(chkAnalytics.checked, chkMarketing.checked));
 
@@ -142,8 +149,9 @@ const enabled = isProduction && validGtm;
       }
 
       window.addEventListener('whm:open-cookie-settings', () => {
+        const footerBtn = document.getElementById('cookie-settings-link');
         showBanner();
-        openSettings();
+        openSettings(footerBtn);
       });
     })();
   </script>
@@ -217,9 +225,6 @@ const enabled = isProduction && validGtm;
     margin-top: var(--space-4, 1rem);
     padding-top: var(--space-4, 1rem);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .cookie-consent__settings:focus {
-    outline: none;
   }
   .cookie-consent__fieldset {
     border: none;

@@ -1,5 +1,6 @@
 const STORAGE_KEY = 'whm_consent_v3';
 const CURRENT_VERSION = 3;
+const GTM_SCRIPT_ATTR = 'data-whm-gtm';
 
 export type ConsentState = {
   version: 3;
@@ -9,68 +10,53 @@ export type ConsentState = {
   updatedAt: string;
 };
 
-let gtmLoaded = false;
+let memoryState: ConsentState | null = null;
 
-function read(): ConsentState | null {
+function validate(parsed: unknown): ConsentState | null {
+  if (
+    parsed &&
+    typeof parsed === 'object' &&
+    (parsed as any).version === CURRENT_VERSION &&
+    (parsed as any).necessary === true &&
+    typeof (parsed as any).analytics === 'boolean' &&
+    typeof (parsed as any).marketing === 'boolean' &&
+    typeof (parsed as any).updatedAt === 'string'
+  ) {
+    return parsed as ConsentState;
+  }
+  return null;
+}
+
+function readStorage(): ConsentState | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (
-      parsed &&
-      typeof parsed === 'object' &&
-      parsed.version === CURRENT_VERSION &&
-      parsed.necessary === true &&
-      typeof parsed.analytics === 'boolean' &&
-      typeof parsed.marketing === 'boolean' &&
-      typeof parsed.updatedAt === 'string'
-    ) {
-      return parsed as ConsentState;
-    }
-    return null;
+    return validate(JSON.parse(raw));
   } catch {
     return null;
   }
 }
 
-function write(analytics: boolean, marketing: boolean): ConsentState {
-  const state: ConsentState = {
+function writeStorage(state: ConsentState): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // storage full or blocked — memoryState is the fallback
+  }
+}
+
+function makeState(analytics: boolean, marketing: boolean): ConsentState {
+  return {
     version: CURRENT_VERSION,
     necessary: true,
     analytics,
     marketing,
     updatedAt: new Date().toISOString(),
   };
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // storage full or blocked — state lives only in memory this session
-  }
-  return state;
-}
-
-function clear(): void {
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch {
-    // ignore
-  }
 }
 
 export function getSavedConsent(): ConsentState | null {
-  return read();
-}
-
-export function hasAnyOptionalConsent(state: ConsentState | null): boolean {
-  return state !== null && (state.analytics || state.marketing);
-}
-
-export function hasAnalyticsConsent(state: ConsentState | null): boolean {
-  return state !== null && state.analytics;
-}
-
-export function hasMarketingConsent(state: ConsentState | null): boolean {
-  return state !== null && state.marketing;
+  return readStorage() ?? memoryState;
 }
 
 export function hasDecision(state: ConsentState | null): boolean {
@@ -79,9 +65,7 @@ export function hasDecision(state: ConsentState | null): boolean {
 
 function consentUpdate(analytics: boolean, marketing: boolean): void {
   const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
-  function gtag(..._args: any[]) {
-    dl.push(arguments);
-  }
+  function gtag(..._args: any[]) { dl.push(arguments); }
   gtag('consent', 'update', {
     analytics_storage: analytics ? 'granted' : 'denied',
     ad_storage: marketing ? 'granted' : 'denied',
@@ -90,29 +74,19 @@ function consentUpdate(analytics: boolean, marketing: boolean): void {
   });
 }
 
+function isGtmInDom(): boolean {
+  return document.querySelector(`script[${GTM_SCRIPT_ATTR}]`) !== null;
+}
+
 function loadGtm(gtmId: string): void {
-  if (gtmLoaded) return;
-  gtmLoaded = true;
+  if (isGtmInDom()) return;
+  const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
+  dl.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
   const s = document.createElement('script');
   s.async = true;
   s.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`;
+  s.setAttribute(GTM_SCRIPT_ATTR, '');
   document.head.appendChild(s);
-  const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
-  dl.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-}
-
-export function initConsentDefaults(): void {
-  const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
-  function gtag(..._args: any[]) {
-    dl.push(arguments);
-  }
-  gtag('consent', 'default', {
-    analytics_storage: 'denied',
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    security_storage: 'granted',
-  });
 }
 
 export function applyConsent(
@@ -120,53 +94,57 @@ export function applyConsent(
   marketing: boolean,
   gtmId: string,
 ): ConsentState {
-  const state = write(analytics, marketing);
+  const prev = getSavedConsent();
+  const state = makeState(analytics, marketing);
+  memoryState = state;
+  writeStorage(state);
   consentUpdate(analytics, marketing);
-  if (analytics || marketing) {
+
+  if (!analytics && !marketing) {
+    try { sessionStorage.removeItem('whm_campaign_v3'); } catch { /* */ }
+  }
+
+  const gtmAlreadyLoaded = isGtmInDom();
+
+  if (!gtmAlreadyLoaded && (analytics || marketing)) {
     loadGtm(gtmId);
   }
+
   window.dispatchEvent(new CustomEvent('whm:consent-changed', { detail: state }));
+
+  const changed = prev !== null && (
+    prev.analytics !== analytics || prev.marketing !== marketing
+  );
+  if (changed && gtmAlreadyLoaded) {
+    window.location.reload();
+  }
+
   return state;
 }
 
-export function revokeAllConsent(): void {
-  consentUpdate(false, false);
-  write(false, false);
-  try {
-    sessionStorage.removeItem('whm_campaign_v3');
-  } catch {
-    // ignore
-  }
-  window.dispatchEvent(
-    new CustomEvent('whm:consent-changed', {
-      detail: { version: CURRENT_VERSION, necessary: true, analytics: false, marketing: false, updatedAt: new Date().toISOString() },
-    }),
-  );
-  if (gtmLoaded) {
-    window.location.reload();
-  }
-}
-
 export function restoreConsent(gtmId: string): void {
-  const saved = read();
-  if (saved && (saved.analytics || saved.marketing)) {
-    consentUpdate(saved.analytics, saved.marketing);
+  const saved = getSavedConsent();
+  if (!saved) return;
+  memoryState = saved;
+  consentUpdate(saved.analytics, saved.marketing);
+  if (saved.analytics || saved.marketing) {
     loadGtm(gtmId);
   }
 }
 
 export function isGtmLoaded(): boolean {
-  return gtmLoaded;
+  return isGtmInDom();
 }
 
 export function pushEvent(
   eventName: string,
   params: Record<string, string | number | boolean>,
-): void {
-  const state = read();
-  if (!state || (!state.analytics && !state.marketing)) return;
+): boolean {
+  const state = getSavedConsent();
+  if (!state || (!state.analytics && !state.marketing)) return false;
   const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
   dl.push({ event: eventName, ...params });
+  return true;
 }
 
 export function getPagePath(): string {

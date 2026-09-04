@@ -8,10 +8,15 @@ const enabled = isProduction && validGtm;
 
 {enabled && (
   <script>
-    import { pushEvent, getPagePath } from '../lib/consent';
+    import { pushEvent, getPagePath, getSavedConsent } from '../lib/consent';
 
     (function initClientEvents() {
       const pagePath = getPagePath();
+
+      function hasOptional(): boolean {
+        const s = getSavedConsent();
+        return s !== null && (s.analytics || s.marketing);
+      }
 
       // --- Delegated click tracking ---
       document.addEventListener('click', (e: MouseEvent) => {
@@ -70,18 +75,20 @@ const enabled = isProduction && validGtm;
         }
       }
 
-      // --- Scroll depth ---
+      // --- Scroll depth (consent-gated) ---
       const scrollThresholds = [25, 50, 75, 100];
       const scrollFired = new Set<number>();
 
       function checkScroll() {
+        if (!hasOptional()) return;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         if (docHeight <= 0) return;
         const percent = Math.min(100, Math.round((window.scrollY / docHeight) * 100));
         for (const threshold of scrollThresholds) {
           if (percent >= threshold && !scrollFired.has(threshold)) {
-            scrollFired.add(threshold);
-            pushEvent('scroll_depth', { percent: threshold, page_path: pagePath });
+            if (pushEvent('scroll_depth', { percent: threshold, page_path: pagePath })) {
+              scrollFired.add(threshold);
+            }
           }
         }
       }
@@ -96,57 +103,61 @@ const enabled = isProduction && validGtm;
         }
       }, { passive: true });
 
-      // --- Engaged time ---
+      // --- Engaged time (consent-gated) ---
       const timeThresholds = [15, 30, 60];
       const timeFired = new Set<number>();
       let activeSeconds = 0;
       let lastTick = 0;
-      let timerActive = false;
+      let timerRunning = false;
 
       function startTimer() {
-        if (timerActive) return;
-        timerActive = true;
+        if (timerRunning || !hasOptional()) return;
+        timerRunning = true;
         lastTick = Date.now();
       }
 
       function stopTimer() {
-        if (!timerActive) return;
-        timerActive = false;
+        if (!timerRunning) return;
+        timerRunning = false;
         activeSeconds += (Date.now() - lastTick) / 1000;
-        checkTime();
       }
 
       function checkTime() {
-        const current = timerActive
+        if (!hasOptional()) return;
+        const current = timerRunning
           ? activeSeconds + (Date.now() - lastTick) / 1000
           : activeSeconds;
         for (const threshold of timeThresholds) {
           if (current >= threshold && !timeFired.has(threshold)) {
-            timeFired.add(threshold);
-            pushEvent('engaged_time', { seconds: threshold, page_path: pagePath });
+            if (pushEvent('engaged_time', { seconds: threshold, page_path: pagePath })) {
+              timeFired.add(threshold);
+            }
           }
         }
       }
 
-      function onVisibilityChange() {
-        if (document.hidden) {
-          stopTimer();
-        } else {
-          startTimer();
-        }
+      function onVisChange() {
+        document.hidden ? stopTimer() : startTimer();
       }
+      function onBlur() { stopTimer(); }
+      function onFocus() { if (!document.hidden) startTimer(); }
 
-      function onWindowBlur() { stopTimer(); }
-      function onWindowFocus() {
-        if (!document.hidden) startTimer();
-      }
+      document.addEventListener('visibilitychange', onVisChange);
+      window.addEventListener('blur', onBlur);
+      window.addEventListener('focus', onFocus);
 
-      document.addEventListener('visibilitychange', onVisibilityChange);
-      window.addEventListener('blur', onWindowBlur);
-      window.addEventListener('focus', onWindowFocus);
-      if (!document.hidden) startTimer();
+      if (!document.hidden && hasOptional()) startTimer();
 
       setInterval(checkTime, 1000);
+
+      window.addEventListener('whm:consent-changed', () => {
+        if (hasOptional()) {
+          checkScroll();
+          if (!document.hidden) startTimer();
+        } else {
+          stopTimer();
+        }
+      });
     })();
   </script>
 )}

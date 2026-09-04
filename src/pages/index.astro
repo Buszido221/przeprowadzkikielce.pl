@@ -84,7 +84,7 @@ import {
             <li class="check-list__item">serwery, laboratoria i wyposażenie specjalistyczne,</li>
             <li class="check-list__item">ochrona ubezpieczeniowa do 1 mln zł — warunki potwierdzane dla zlecenia.</li>
           </ul>
-          <div class="section-cta"><a href="/dla-firm/" class="btn btn--primary">Zobacz ofertę B2B</a></div>
+          <div class="section-cta"><a href="/dla-firm/" class="btn btn--primary" data-cta-click data-cta-location="home-b2b">Zobacz ofertę B2B</a></div>
         </div>
         <div class="split-section__media"><SafeImage src="/images/institution-moving/przeprowadzki-instytucji-4.webp" alt="Zespół WHM podczas relokacji instytucji" loading="lazy" decoding="async" class="section-img" displayMode="section" /></div>
       </div>
@@ -239,8 +239,8 @@ import {
             <p>{specialTransportSection.notice}</p>
           </div>
           <div class="section-cta" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
-            <a href={specialTransportSection.cta.href} class="btn btn--primary">{specialTransportSection.cta.label}</a>
-            <a href={specialTransportSection.ctaSecondary.href} class="btn btn--secondary">{specialTransportSection.ctaSecondary.label}</a>
+            <a href={specialTransportSection.cta.href} class="btn btn--primary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.cta.label}</a>
+            <a href={specialTransportSection.ctaSecondary.href} class="btn btn--secondary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.ctaSecondary.label}</a>
           </div>
         </div>
         <div class="split-section__media split-section__media--stack">
@@ -449,7 +449,7 @@ import {
         <div class="final-cta__actions">
           <a href={`tel:${site.phoneRaw}`} class="btn btn--primary btn--lg" data-cta-click data-cta-location="home-final">Zadzwoń: {site.phone}</a>
           <a href="/kontakt/#formularz" class="btn btn--secondary btn--lg" data-cta-click data-cta-location="home-final">Poproś o wycenę</a>
-          <a href={`sms:${site.phoneRaw}`} class="btn btn--secondary btn--lg">Wyślij SMS</a>
+          <a href={`sms:${site.phoneRaw}`} class="btn btn--secondary btn--lg" data-cta-click data-cta-location="home-final">Wyślij SMS</a>
         </div>
         <p class="final-cta__hours">
           Pn–Pt: {site.hours.weekdays} · Sob: {site.hours.saturday}
