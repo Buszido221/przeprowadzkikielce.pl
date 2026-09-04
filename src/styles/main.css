@@ -3281,21 +3281,16 @@ main {
   background: var(--color-bg-alt, #f3f3f1);
 }
 
-.realizacje-hub__card-media:has(img[data-orientation="portrait"]) {
-  aspect-ratio: 4 / 5;
-}
-
 .realizacje-hub__card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.realizacje-hub__card-media img[data-orientation="portrait"] {
-  object-fit: contain;
-}
-
 .realizacje-hub__card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
   padding: var(--space-5) var(--space-6) var(--space-6);
   text-align: center;
 }
@@ -3317,6 +3312,10 @@ main {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.realizacje-hub__card-body .arrow-link {
+  margin-top: auto;
 }
 
 .realizacje-hub__technical-grid {
