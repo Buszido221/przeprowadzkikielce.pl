@@ -1644,14 +1644,14 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 380px;
+  min-height: 280px;
   overflow: hidden;
   background: var(--color-surface-dark);
 }
 
 @media (min-width: 768px) {
   .subpage-hero {
-    min-height: 420px;
+    min-height: 380px;
   }
 }
 
@@ -1720,14 +1720,14 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   flex: 1;
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-6);
 }
 
 @media (min-width: 768px) {
   .subpage-hero__container {
-    padding-top: var(--space-10);
-    padding-bottom: var(--space-10);
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
   }
 }
 
