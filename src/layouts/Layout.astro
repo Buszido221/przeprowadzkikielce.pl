@@ -81,6 +81,6 @@ const ogImageType = ogImage?.endsWith('.webp') ? 'image/webp' : ogImage?.endsWit
       <slot />
     </main>
     <Footer />
-    {isStaging ? null : <Analytics />}
+    <Analytics />
   </body>
 </html>

@@ -201,8 +201,8 @@ try {
     const defaultSignal = defaults.find((entry) => entry[0] === 'consent' && entry[1] === 'default');
     report(defaultSignal?.[2]?.analytics_storage === 'denied' && defaultSignal?.[2]?.ad_storage === 'denied' && defaultSignal?.[2]?.ad_user_data === 'denied' && defaultSignal?.[2]?.ad_personalization === 'denied', 'Domyślne sygnały Consent Mode nie są denied.');
     await consentPage.click('#cookie-reject');
-    const rejected = await consentPage.evaluate(() => JSON.parse(localStorage.getItem('whm_consent_v2')));
-    report(rejected?.version === 2 && rejected.analytics === false && rejected.ads === false, 'Odrzucenie nie zapisuje obu zgód jako false.');
+    const rejected = await consentPage.evaluate(() => JSON.parse(localStorage.getItem('whm_consent_v3')));
+    report(rejected?.version === 3 && rejected.analytics === false && rejected.marketing === false, 'Odrzucenie nie zapisuje obu zgód jako false.');
     await consentContext.close();
 
     const acceptContext = await browser.newContext();
@@ -210,8 +210,8 @@ try {
     const acceptPage = await acceptContext.newPage();
     await acceptPage.goto(baseUrl, { waitUntil: 'domcontentloaded' });
     await acceptPage.click('#cookie-accept');
-    const accepted = await acceptPage.evaluate(() => JSON.parse(localStorage.getItem('whm_consent_v2')));
-    report(accepted?.version === 2 && accepted.analytics === true && accepted.ads === true, 'Pełna zgoda nie zapisuje obu kategorii jako true.');
+    const accepted = await acceptPage.evaluate(() => JSON.parse(localStorage.getItem('whm_consent_v3')));
+    report(accepted?.version === 3 && accepted.analytics === true && accepted.marketing === true, 'Pełna zgoda nie zapisuje obu kategorii jako true.');
     await acceptContext.close();
   } else {
     report(!builtHtml.includes('id="cookie-consent"'), 'Staging renderuje produkcyjny banner zgód.');

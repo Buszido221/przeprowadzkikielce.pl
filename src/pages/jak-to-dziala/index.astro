@@ -53,7 +53,7 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
         ))}
       </ul>
       <div class="section-cta">
-        <a href="/kontakt/#formularz" class="btn btn--primary">Przejdź do wyceny</a>
+        <a href="/kontakt/#formularz" class="btn btn--primary" data-cta-click data-cta-location="how-it-works">Przejdź do wyceny</a>
       </div>
     </div>
   </section>
@@ -80,7 +80,7 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
         <h2 class="final-cta__heading">Gotowy, żeby zacząć od właściwych informacji?</h2>
         <p class="final-cta__text">Opisz zlecenie, a my ustalimy zakres, sprzęt i sposób realizacji.</p>
         <div class="final-cta__actions">
-          <a href="/kontakt/#formularz" class="btn btn--primary btn--lg">Poproś o wycenę</a>
+          <a href="/kontakt/#formularz" class="btn btn--primary btn--lg" data-cta-click data-cta-location="how-it-works">Poproś o wycenę</a>
           <a href={`tel:${site.phoneRaw}`} class="btn btn--secondary btn--lg">Zadzwoń: 720 719 022</a>
         </div>
         <p class="final-cta__hours">Pn–Pt: {site.hours.weekdays} &middot; Sob: {site.hours.saturday}</p>

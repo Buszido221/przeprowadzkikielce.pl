@@ -1,48 +1,152 @@
-<script is:inline>
-  (function () {
-    if (window.__whmLocalEventsReady) return;
-    window.__whmLocalEventsReady = true;
+---
+import { isProduction } from '../lib/environment';
 
-    function locationFor(element) {
-      if (element.closest('.mobile-sticky-cta')) return 'sticky';
-      if (element.closest('.service-hero, .subpage-hero, .hero')) return 'hero';
-      if (element.closest('.lead-form')) return 'form';
-      if (element.closest('.header-cta, .site-header')) return 'header';
-      if (element.closest('.top-bar')) return 'top-bar';
-      if (element.closest('.site-footer')) return 'footer';
-      if (element.closest('.final-cta')) return 'final';
-      return element.dataset.ctaLocation || 'content';
-    }
+const gtmId = import.meta.env.PUBLIC_GTM_ID || '';
+const validGtm = /^GTM-[A-Z0-9]+$/i.test(gtmId);
+const enabled = isProduction && validGtm;
+---
 
-    document.addEventListener('click', function (event) {
-      var target = event.target instanceof Element ? event.target : null;
-      if (!target) return;
-      var link = target.closest('a, button');
-      if (!link) return;
+{enabled && (
+  <script>
+    import { pushEvent, getPagePath } from '../lib/consent';
 
-      var eventName = '';
-      if (link.matches('a[href^="tel:"]')) {
-        eventName = 'phone_click';
-      } else if (link.matches('a[href^="sms:"]')) {
-        eventName = 'sms_click';
-      } else if (link.matches('a[href^="mailto:"]')) {
-        eventName = 'email_click';
-      } else if (link.matches('a[href*="whmshop.pl"]')) {
-        eventName = 'whm_shop_click';
-      } else if (link.matches('[data-cta-click]')) {
-        eventName = 'cta_click';
-      }
-      if (!eventName) return;
+    (function initClientEvents() {
+      const pagePath = getPagePath();
 
-      var clickLocation = locationFor(link);
-      document.dispatchEvent(new CustomEvent('whm:analytics', {
-        detail: {
-          event: eventName,
-          link_location: clickLocation,
-          cta_location: clickLocation,
-          page_path: window.location.pathname
+      // --- Delegated click tracking ---
+      document.addEventListener('click', (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        const anchor = target.closest('a[href]') as HTMLAnchorElement | null;
+        const button = target.closest('[data-cta-click]') as HTMLElement | null;
+
+        if (anchor) {
+          const href = anchor.getAttribute('href') || '';
+          const location = resolveLocation(anchor);
+
+          if (href.startsWith('tel:')) {
+            pushEvent('phone_click', { link_location: location, page_path: pagePath });
+            return;
+          }
+          if (href.startsWith('sms:')) {
+            pushEvent('sms_click', { link_location: location, page_path: pagePath });
+            return;
+          }
+          if (href.startsWith('mailto:')) {
+            pushEvent('email_click', { link_location: location, page_path: pagePath });
+            return;
+          }
+          if (anchor.hostname && /whmshop\.pl$/i.test(anchor.hostname)) {
+            pushEvent('whm_shop_click', { link_location: location, page_path: pagePath });
+            return;
+          }
         }
-      }));
-    });
-  })();
-</script>
+
+        const ctaEl = anchor?.closest('[data-cta-click]') || button;
+        if (ctaEl) {
+          const ctaLocation = ctaEl.getAttribute('data-cta-location') || resolveLocation(ctaEl);
+          const ctaTarget = safePath(ctaEl.getAttribute('data-cta-target') || (anchor ? anchor.pathname : ''));
+          pushEvent('cta_click', { cta_location: ctaLocation, cta_target: ctaTarget, page_path: pagePath });
+        }
+      });
+
+      function resolveLocation(el: HTMLElement): string {
+        const explicit = el.closest('[data-cta-location]');
+        if (explicit) return explicit.getAttribute('data-cta-location')!;
+        if (el.closest('header, [data-location="header"]')) return 'header';
+        if (el.closest('[data-location="hero"]')) return 'hero';
+        if (el.closest('[data-location="mobile_sticky"]')) return 'mobile_sticky';
+        if (el.closest('footer')) return 'footer';
+        if (el.closest('.lead-form')) return 'form';
+        return 'service_body';
+      }
+
+      function safePath(raw: string): string {
+        try {
+          const url = new URL(raw, window.location.origin);
+          if (url.origin === window.location.origin) return url.pathname;
+          return url.hostname;
+        } catch {
+          return raw.replace(/\?.*$/, '').replace(/#.*$/, '').slice(0, 200);
+        }
+      }
+
+      // --- Scroll depth ---
+      const scrollThresholds = [25, 50, 75, 100];
+      const scrollFired = new Set<number>();
+
+      function checkScroll() {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight <= 0) return;
+        const percent = Math.min(100, Math.round((window.scrollY / docHeight) * 100));
+        for (const threshold of scrollThresholds) {
+          if (percent >= threshold && !scrollFired.has(threshold)) {
+            scrollFired.add(threshold);
+            pushEvent('scroll_depth', { percent: threshold, page_path: pagePath });
+          }
+        }
+      }
+
+      let scrollRaf = 0;
+      window.addEventListener('scroll', () => {
+        if (!scrollRaf) {
+          scrollRaf = requestAnimationFrame(() => {
+            checkScroll();
+            scrollRaf = 0;
+          });
+        }
+      }, { passive: true });
+
+      // --- Engaged time ---
+      const timeThresholds = [15, 30, 60];
+      const timeFired = new Set<number>();
+      let activeSeconds = 0;
+      let lastTick = 0;
+      let timerActive = false;
+
+      function startTimer() {
+        if (timerActive) return;
+        timerActive = true;
+        lastTick = Date.now();
+      }
+
+      function stopTimer() {
+        if (!timerActive) return;
+        timerActive = false;
+        activeSeconds += (Date.now() - lastTick) / 1000;
+        checkTime();
+      }
+
+      function checkTime() {
+        const current = timerActive
+          ? activeSeconds + (Date.now() - lastTick) / 1000
+          : activeSeconds;
+        for (const threshold of timeThresholds) {
+          if (current >= threshold && !timeFired.has(threshold)) {
+            timeFired.add(threshold);
+            pushEvent('engaged_time', { seconds: threshold, page_path: pagePath });
+          }
+        }
+      }
+
+      function onVisibilityChange() {
+        if (document.hidden) {
+          stopTimer();
+        } else {
+          startTimer();
+        }
+      }
+
+      function onWindowBlur() { stopTimer(); }
+      function onWindowFocus() {
+        if (!document.hidden) startTimer();
+      }
+
+      document.addEventListener('visibilitychange', onVisibilityChange);
+      window.addEventListener('blur', onWindowBlur);
+      window.addEventListener('focus', onWindowFocus);
+      if (!document.hidden) startTimer();
+
+      setInterval(checkTime, 1000);
+    })();
+  </script>
+)}

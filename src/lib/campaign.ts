@@ -1,133 +1,102 @@
-const STORAGE_KEY = 'whm_campaign_v2';
-const MAX_VALUE_LENGTH = 250;
+import { getSavedConsent } from './consent';
 
-export const CAMPAIGN_KEYS = [
-  'utm_source',
-  'utm_medium',
-  'utm_campaign',
-  'utm_term',
-  'utm_content',
-  'gclid',
-  'gbraid',
-  'wbraid',
-  'fbclid',
-  'campaignid',
-  'adgroupid',
-  'creative',
-  'device',
-  'network',
-  'matchtype',
-  'keyword',
+const STORAGE_KEY = 'whm_campaign_v3';
+const MAX_VALUE_LENGTH = 200;
+const SAFE_CHARS = /^[\w.~%+-]*$/;
+
+const ALLOWED_PARAMS = [
+  'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+  'gclid', 'gbraid', 'wbraid', 'fbclid',
+  'campaignid', 'adgroupid', 'creative', 'device', 'network', 'matchtype', 'keyword',
 ] as const;
 
-export type CampaignParam = (typeof CAMPAIGN_KEYS)[number];
+export type CampaignParams = Partial<Record<(typeof ALLOWED_PARAMS)[number], string>>;
 
-export interface CampaignRecord {
-  captured_at: string;
-  landing_page: string;
-  referrer: string;
-  utm_source?: string;
-  utm_medium?: string;
-  utm_campaign?: string;
-  utm_term?: string;
-  utm_content?: string;
-  gclid?: string;
-  gbraid?: string;
-  wbraid?: string;
-  fbclid?: string;
-  campaignid?: string;
-  adgroupid?: string;
-  creative?: string;
-  device?: string;
-  network?: string;
-  matchtype?: string;
-  keyword?: string;
+type CampaignStore = {
+  firstTouch: CampaignParams;
+  lastTouch: CampaignParams;
+};
+
+let inMemoryParams: CampaignParams | null = null;
+
+function sanitize(value: string): string {
+  const trimmed = value.trim().slice(0, MAX_VALUE_LENGTH);
+  return SAFE_CHARS.test(trimmed) ? trimmed : encodeURIComponent(trimmed).slice(0, MAX_VALUE_LENGTH);
 }
 
-export interface CampaignData {
-  first_touch: CampaignRecord | null;
-  last_touch: CampaignRecord | null;
-}
-
-function sanitize(val: string): string {
-  return val.slice(0, MAX_VALUE_LENGTH);
-}
-
-function hasMarketingParams(search: URLSearchParams): boolean {
-  for (const key of CAMPAIGN_KEYS) {
-    if (search.get(key)) return true;
-  }
-  return false;
-}
-
-function buildRecord(search: URLSearchParams): CampaignRecord {
-  const record: CampaignRecord = {
-    captured_at: new Date().toISOString(),
-    landing_page: window.location.pathname,
-    referrer: document.referrer || '',
-  };
-
-  for (const key of CAMPAIGN_KEYS) {
-    const val = search.get(key);
-    if (val) record[key] = sanitize(val);
-  }
-
-  return record;
-}
-
-export function captureCampaignParams(): CampaignData {
-  const search = new URLSearchParams(window.location.search);
-  const stored = getCampaignFromStorage();
-
-  if (hasMarketingParams(search)) {
-    const record = buildRecord(search);
-    const updated: CampaignData = {
-      first_touch: stored.first_touch || record,
-      last_touch: record,
-    };
-    try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-    } catch {
-      // storage unavailable
+export function captureFromUrl(): CampaignParams {
+  const params = new URLSearchParams(window.location.search);
+  const captured: CampaignParams = {};
+  let found = false;
+  for (const key of ALLOWED_PARAMS) {
+    const val = params.get(key);
+    if (val) {
+      captured[key] = sanitize(val);
+      found = true;
     }
-    return updated;
   }
-
-  return stored;
+  if (found) {
+    inMemoryParams = captured;
+    persistIfConsented(captured);
+  }
+  return captured;
 }
 
-export function getCampaignFromStorage(): CampaignData {
+function persistIfConsented(params: CampaignParams): void {
+  const consent = getSavedConsent();
+  if (!consent || (!consent.analytics && !consent.marketing)) return;
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
-    if (!raw) return { first_touch: null, last_touch: null };
-    const parsed = JSON.parse(raw);
-    if (typeof parsed !== 'object' || parsed === null) return { first_touch: null, last_touch: null };
-    return {
-      first_touch: parsed.first_touch || null,
-      last_touch: parsed.last_touch || null,
-    };
+    let store: CampaignStore;
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      store = { firstTouch: parsed.firstTouch || {}, lastTouch: params };
+    } else {
+      store = { firstTouch: params, lastTouch: params };
+    }
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(store));
   } catch {
-    return { first_touch: null, last_touch: null };
+    // storage blocked
   }
 }
 
-export function getCampaignForForm(): Record<string, string> {
-  const data = getCampaignFromStorage();
-  const result: Record<string, string> = {};
+export function flushToStorage(): void {
+  if (!inMemoryParams) return;
+  persistIfConsented(inMemoryParams);
+}
 
-  if (data.first_touch) {
-    for (const key of CAMPAIGN_KEYS) {
-      const val = data.first_touch[key];
-      if (val) result[`ft_${key}`] = val;
-    }
+export function getCampaignStore(): CampaignStore {
+  const consent = getSavedConsent();
+  if (!consent || (!consent.analytics && !consent.marketing)) {
+    return { firstTouch: {}, lastTouch: {} };
   }
-
-  if (data.last_touch) {
-    for (const key of CAMPAIGN_KEYS) {
-      const val = data.last_touch[key];
-      if (val) result[`lt_${key}`] = val;
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return { firstTouch: parsed.firstTouch || {}, lastTouch: parsed.lastTouch || {} };
     }
+  } catch {
+    // ignore
   }
+  return { firstTouch: {}, lastTouch: {} };
+}
 
-  return result;
+export function clearCampaignData(): void {
+  inMemoryParams = null;
+  try {
+    sessionStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // ignore
+  }
+}
+
+export function populateFormFields(form: HTMLFormElement): void {
+  const store = getCampaignStore();
+  for (const key of ALLOWED_PARAMS) {
+    const ftField = form.querySelector<HTMLInputElement>(`input[name="ft_${key}"]`);
+    const ltField = form.querySelector<HTMLInputElement>(`input[name="lt_${key}"]`);
+    if (ftField) ftField.value = store.firstTouch[key] || '';
+    if (ltField) ltField.value = store.lastTouch[key] || '';
+  }
 }

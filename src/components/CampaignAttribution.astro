@@ -1,8 +1,19 @@
 ---
-import { captureCampaignParams } from '../lib/campaign';
+import { isProduction } from '../lib/environment';
+
+const gtmId = import.meta.env.PUBLIC_GTM_ID || '';
+const validGtm = /^GTM-[A-Z0-9]+$/i.test(gtmId);
+const enabled = isProduction && validGtm;
 ---
 
-<script>
-  import { captureCampaignParams } from '../lib/campaign';
-  captureCampaignParams();
-</script>
+{enabled && (
+  <script>
+    import { captureFromUrl, flushToStorage } from '../lib/campaign';
+
+    captureFromUrl();
+
+    window.addEventListener('whm:consent-changed', () => {
+      flushToStorage();
+    });
+  </script>
+)}

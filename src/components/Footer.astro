@@ -1,6 +1,11 @@
 ---
 import { site } from '../data/site';
 import { brandNavigation, businessNavigation, serviceNavigation } from '../data/routes';
+import { isProduction } from '../lib/environment';
+
+const gtmId = import.meta.env.PUBLIC_GTM_ID || '';
+const validGtm = /^GTM-[A-Z0-9]+$/i.test(gtmId);
+const showCookieLink = isProduction && validGtm;
 ---
 
 <footer class="site-footer">
@@ -69,8 +74,38 @@ import { brandNavigation, businessNavigation, serviceNavigation } from '../data/
     </div>
 
     <div class="footer-bottom">
-    <p><a href="#" id="cookie-settings-link" onclick="if(window._whm_open_consent){window._whm_open_consent();}return false;">Ustawienia cookies</a></p>
+      {showCookieLink && (
+        <p><button type="button" id="cookie-settings-link" class="footer-cookie-btn">Ustawienia cookies</button></p>
+      )}
       <p>{site.legalName} &middot; NIP: {site.nip}</p>
     </div>
   </div>
 </footer>
+
+{showCookieLink && (
+  <script>
+    document.getElementById('cookie-settings-link')?.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('whm:open-cookie-settings'));
+    });
+  </script>
+)}
+
+<style>
+  .footer-cookie-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .footer-cookie-btn:hover {
+    color: var(--color-red, #c0392b);
+  }
+  .footer-cookie-btn:focus-visible {
+    outline: 2px solid var(--color-red, #c0392b);
+    outline-offset: 2px;
+  }
+</style>

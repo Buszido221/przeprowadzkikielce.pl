@@ -1350,7 +1350,7 @@ export const kontaktPage = {
    /polityka-prywatnosci/
    =================================================== */
 
-export const privacyPolicyFinalized = true;
+export const privacyPolicyFinalized = false;
 
 export const politykaPage = {
   seo: {
@@ -1400,11 +1400,15 @@ export const politykaPage = {
     },
     {
       heading: 'Analityka, pomiar reklam i pliki cookies',
-      content: 'Strona korzysta z Google Tag Manager do zarządzania skryptami śledzącymi. Działają trzy kategorie plików cookie: niezbędne (zawsze aktywne), analityczne (Google Analytics 4) oraz pomiar reklam (Google Ads, Meta Pixel). Skrypty analityczne i reklamowe ładują się dopiero po udzieleniu odpowiedniej zgody w banerze cookies. Po odrzuceniu zgody skrypty nie są uruchamiane. Użytkownik może zmienić decyzję w dowolnym momencie, korzystając z linku „Ustawienia cookies” w stopce. Dane analityczne są zbierane w celu agregacyjnym i służą do ulepszania treści oraz nawigacji. Pomiar reklam służy do mierzenia skuteczności kampanii reklamowych.',
+      content: 'Strona korzysta z Google Tag Manager (GTM) jako warstwy zarządzania tagami. Opcjonalne skrypty pomiarowe nie są ładowane przed udzieleniem zgody. Baner prywatności wyświetla trzy kategorie: niezbędne (zawsze aktywne), analityczne (Google Analytics 4) oraz marketingowe (Google Ads, Meta Pixel). Skrypty analityczne i marketingowe ładują się wyłącznie po udzieleniu odpowiedniej zgody. Po odrzuceniu wszystkich opcjonalnych kategorii żadne zewnętrzne skrypty pomiarowe nie są pobierane. Użytkownik może zmienić swoją decyzję w dowolnym momencie, korzystając z przycisku „Ustawienia cookies” w stopce strony. Decyzja użytkownika jest przechowywana w pamięci przeglądarki (localStorage) pod kluczem whm_consent_v3. Dane analityczne służą do ulepszania treści i nawigacji. Pomiar marketingowy służy do mierzenia skuteczności kampanii reklamowych.',
+    },
+    {
+      heading: 'Atrybucja kampanii',
+      content: 'Jeśli użytkownik wyrazi zgodę analityczną lub marketingową, parametry kampanii reklamowej obecne w adresie strony (np. utm_source, gclid, fbclid) mogą być tymczasowo przechowywane w pamięci sesji przeglądarki (sessionStorage) pod kluczem whm_campaign_v3. Dane te służą wyłącznie do powiązania zapytania z kanałem, z którego użytkownik trafił na stronę, i są przesyłane razem z formularzem wyceny. Bez udzielonej zgody dane kampanii nie są zapisywane.',
     },
     {
       heading: 'Dostawcy usług',
-      content: 'W celu świadczenia usług korzystamy z następujących dostawców: Google LLC (Google Tag Manager, Google Analytics 4, Google Ads - analityka i pomiar reklam), Meta Platforms (Meta Pixel - pomiar reklam), EmailJS (przesyłanie formularzy kontaktowych), hosting serwisu. Każdy z dostawców przetwarza dane wyłącznie w zakresie niezbędnym do realizacji usługi.',
+      content: 'W celu świadczenia usług korzystamy z następujących dostawców: Google LLC (Google Tag Manager — warstwa zarządzania tagami, Google Analytics 4 — kategoria analityczna, Google Ads — kategoria marketingowa), Meta Platforms (Meta Pixel — kategoria marketingowa), EmailJS (przesyłanie formularzy kontaktowych — obsługa zapytań, nie narzędzie analityczne), hosting serwisu. Każdy z dostawców przetwarza dane wyłącznie w zakresie niezbędnym do realizacji usługi.',
     },
     {
       heading: 'Aktualizacje polityki',

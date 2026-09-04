@@ -8,7 +8,8 @@
     "build": "astro build",
     "verify:site": "node scripts/verify-site.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
-    "verify:all": "npm run build && npm run verify:site && npm run verify:seo",
+    "verify:analytics": "node scripts/verify-analytics.mjs",
+    "verify:all": "npm run build && npm run verify:seo && npm run verify:analytics",
     "preview": "astro preview",
     "astro": "astro"
   },

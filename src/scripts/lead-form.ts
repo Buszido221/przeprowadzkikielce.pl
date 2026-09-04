@@ -1,4 +1,5 @@
-import { getCampaignForForm, captureCampaignParams } from '../lib/campaign';
+import { pushEvent, getPagePath } from '../lib/consent';
+import { populateFormFields } from '../lib/campaign';
 
 function validatePhone(val: string): boolean {
   const cleaned = val.replace(/[\s\-()]/g, '');
@@ -109,9 +110,10 @@ export function initLeadForms(): void {
 
     const formId = form.id;
     const serviceType = form.dataset.serviceType || '';
-    const formLocation = form.dataset.location || '';
     const formContext = form.dataset.context || 'consumer';
     const leadContext = formContext === 'business' ? 'b2b' : 'b2c';
+    const pagePath = getPagePath();
+    const formLocation = pagePath;
 
     const statusEl = form.querySelector('.lead-form__status') as HTMLElement;
     const submitBtn = form.querySelector('.lead-form__submit') as HTMLButtonElement;
@@ -126,28 +128,26 @@ export function initLeadForms(): void {
     const pageTitleInput = form.querySelector('input[name="page_title"]') as HTMLInputElement;
     if (pageTitleInput) pageTitleInput.value = document.title;
     const slugInput = form.querySelector('input[name="landing_slug"]') as HTMLInputElement;
-    if (slugInput) slugInput.value = window.location.pathname;
+    if (slugInput) slugInput.value = pagePath;
     const referrerInput = form.querySelector('input[name="referrer"]') as HTMLInputElement;
     if (referrerInput) referrerInput.value = document.referrer;
     const submittedAtInput = form.querySelector('input[name="submitted_at"]') as HTMLInputElement;
     const submittedReadableInput = form.querySelector('input[name="submitted_at_readable"]') as HTMLInputElement;
 
-    captureCampaignParams();
-    const campaignFields = getCampaignForForm();
-    Object.entries(campaignFields).forEach(([key, value]) => {
-      const input = form.querySelector(`input[name="${key}"]`) as HTMLInputElement;
-      if (input) input.value = value;
-    });
+    populateFormFields(form);
 
-    function trackEvent(eventName: string, params: Record<string, string> = {}): void {
-      const detail = { event: eventName, formId, serviceType, formLocation, leadContext, ...params };
-      document.dispatchEvent(new CustomEvent('whm:analytics', { detail }));
-    }
+    const baseParams = {
+      form_id: formId,
+      service_type: serviceType,
+      form_location: formLocation,
+      form_context: leadContext,
+      page_path: pagePath,
+    };
 
     form.addEventListener('input', () => {
       if (!formStarted) {
         formStarted = true;
-        trackEvent('lead_form_start');
+        pushEvent('form_start', baseParams);
       }
     });
 
@@ -160,7 +160,7 @@ export function initLeadForms(): void {
 
       const validation = validateForm(form);
       if (!validation.valid) {
-        trackEvent('lead_form_validation_error', { errorType: validation.errorType });
+        pushEvent('form_validation_error', { ...baseParams, error_type: validation.errorType });
         return;
       }
 
@@ -185,6 +185,8 @@ export function initLeadForms(): void {
       if (submittedAtInput) submittedAtInput.value = now.toISOString();
       if (submittedReadableInput) submittedReadableInput.value = now.toLocaleString('pl-PL');
 
+      populateFormFields(form);
+
       try {
         const emailjs = (await import('@emailjs/browser')).default;
         await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY);
@@ -193,9 +195,7 @@ export function initLeadForms(): void {
         statusEl.className = 'lead-form__status is-success';
         submitBtn.textContent = 'Wysłano';
 
-        document.dispatchEvent(new CustomEvent('whm:form_success', {
-          detail: { formId, serviceType, formLocation, leadContext, leadId }
-        }));
+        pushEvent('generate_lead', { ...baseParams, lead_id: leadId });
       } catch {
         statusEl.textContent = 'Nie udało się wysłać zgłoszenia. Zadzwoń pod numer ' + (document.querySelector('[data-phone]')?.getAttribute('data-phone') || '720 719 022') + ' albo spróbuj ponownie za chwilę.';
         statusEl.className = 'lead-form__status is-error';
@@ -204,7 +204,7 @@ export function initLeadForms(): void {
         submitBtn.removeAttribute('aria-busy');
         submitBtn.textContent = submitLabel;
 
-        trackEvent('lead_form_submit_error', { errorType: 'emailjs' });
+        pushEvent('form_submit_error', { ...baseParams, error_type: 'emailjs' });
       }
     });
   });

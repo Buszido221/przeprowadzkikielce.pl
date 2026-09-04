@@ -107,15 +107,14 @@ for (const path of htmlFiles) {
   // Robots directives
   if (robotsMatches?.length === 1) {
     const robots = robotsMatches[0].match(/content="([^"]*)"/)[1];
-    if (is404) {
+    const isStaging = robots === 'noindex, nofollow, noarchive';
+    if (isStaging) {
+      // On staging all pages get the global override — acceptable for any page
+    } else if (is404) {
       report(robots === 'noindex, nofollow', `${route}: 404 robots should be "noindex, nofollow", got "${robots}".`);
     } else if (isPrivacy) {
       report(robots === 'noindex, follow', `${route}: privacy robots should be "noindex, follow", got "${robots}".`);
-    }
-    // For indexable pages, check production robots only if this is a production build
-    if (!is404 && !isPrivacy && robots === 'noindex, nofollow, noarchive') {
-      // staging build - OK
-    } else if (!is404 && !isPrivacy && robots !== 'index, follow') {
+    } else if (robots !== 'index, follow') {
       warn(false, `${route}: robots is "${robots}" for an indexable page.`);
     }
   }

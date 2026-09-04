@@ -15,7 +15,7 @@ const secondaryNav = utilityNavigation;
         <a href={item.slug}>{item.name}</a>
       ))}
     </div>
-    <a href={`tel:${site.phoneRaw}`} class="top-bar__phone">{site.phone}</a>
+    <a href={`tel:${site.phoneRaw}`} class="top-bar__phone" data-cta-location="top-bar">{site.phone}</a>
   </div>
 </div>
 
@@ -92,8 +92,8 @@ const secondaryNav = utilityNavigation;
     </div>
 
     <div class="mobile-nav__cta">
-      <a href="/kontakt/#formularz" class="btn btn--primary btn--lg" style="width: 100%;">Napisz do nas</a>
-      <a href={`tel:${site.phoneRaw}`} class="btn btn--secondary btn--lg" style="width: 100%; margin-top: 0.5rem;">
+      <a href="/kontakt/#formularz" class="btn btn--primary btn--lg" data-cta-click data-cta-location="header-mobile" style="width: 100%;">Napisz do nas</a>
+      <a href={`tel:${site.phoneRaw}`} class="btn btn--secondary btn--lg" data-cta-click data-cta-location="header-mobile" style="width: 100%; margin-top: 0.5rem;">
         Zadzwoń: {site.phone}
       </a>
     </div>
