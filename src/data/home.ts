@@ -213,8 +213,9 @@ export const ecosystemSection = {
   heading: 'Przeprowadzka, przechowanie i materiały — wszystko w jednym miejscu.',
   storage: {
     title: 'Magazyny WHM',
-    text: 'Ogrzewane boksy od 2 do 9 m² wspierają przeprowadzki, remonty i relokacje etapowe. Obiekt jest gotowy i częściowo zajęty.',
+    text: 'Ogrzewane boksy od 2 do 9 m², miejsca paletowe oraz przechowywanie instrumentów. Szczelny, ogrzewany i zabezpieczony obiekt w Masłowie koło Kielc.',
     cta: { label: 'Poznaj Magazyny WHM', href: '/magazyny-kielce/' },
+    image: '/images/magazyny-kielce/ogrzewany-magazyn-kielce.webp',
   },
   shop: {
     title: 'WHM Shop',

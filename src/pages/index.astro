@@ -304,21 +304,17 @@ import {
       />
       <div class="ecosystem-grid">
         <div class="ecosystem-card ecosystem-card--storage">
+          <div class="ecosystem-card__media">
+            <SafeImage
+              src={ecosystemSection.storage.image}
+              alt="Ogrzewany i zabezpieczony magazyn WHM w Masłowie koło Kielc"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div class="ecosystem-card__body">
-            <div class="ecosystem-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="14" width="40" height="26" rx="2" />
-                <path d="M4 22h40" />
-                <path d="M4 30h40" />
-                <path d="M16 14V8h16v6" />
-                <circle cx="24" cy="18" r="1.5" fill="currentColor" stroke="none" />
-                <circle cx="24" cy="26" r="1.5" fill="currentColor" stroke="none" />
-                <circle cx="24" cy="34" r="1.5" fill="currentColor" stroke="none" />
-              </svg>
-            </div>
             <h3>{ecosystemSection.storage.title}</h3>
             <p>{ecosystemSection.storage.text}</p>
-            <p class="ecosystem-card__note">Ogrzewane boksy od 2 do 9 m² są gotowe i częściowo zajęte. Dostępność potwierdzamy na bieżąco.</p>
             <div class="section-cta">
               <a href={ecosystemSection.storage.cta.href} class="arrow-link">{ecosystemSection.storage.cta.label}</a>
             </div>

@@ -112,6 +112,9 @@ const manifest: Record<string, ImageAsset> = {
   // Shop materials
   '/images/shop-materials/sklep-z-materialami-1.webp': img('/images/shop-materials/sklep-z-materialami-1.webp', 768, 1024, 'Materiały i akcesoria transportowe wykorzystywane podczas realizacji WHM', 'shop-materials', 'center top'),
 
+  // Magazyny
+  '/images/magazyny-kielce/ogrzewany-magazyn-kielce.webp': img('/images/magazyny-kielce/ogrzewany-magazyn-kielce.webp', 768, 1024, 'Ogrzewany i zabezpieczony magazyn WHM w Masłowie koło Kielc', 'magazyny', 'center top'),
+
   // Guides
   '/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp': img('/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp', 627, 627, 'Poradnik WHM — jak przygotować się do przeprowadzki', 'guides'),
 
