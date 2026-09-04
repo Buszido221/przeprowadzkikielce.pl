@@ -749,13 +749,7 @@ strong {
 }
 
 .section-heading__label::after {
-  content: '';
-  display: inline-block;
-  width: 2.5rem;
-  height: 2px;
-  background: var(--gradient-red);
-  border-radius: var(--radius-full);
-  opacity: 0.6;
+  display: none;
 }
 
 .section-heading__title {
@@ -767,22 +761,6 @@ strong {
   letter-spacing: -0.03em;
 }
 
-.section-heading--center .section-heading__title {
-  position: relative;
-  padding-bottom: var(--space-4);
-}
-
-.section-heading--center .section-heading__title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 3px;
-  background: var(--gradient-red);
-  border-radius: var(--radius-full);
-}
 
 .section-heading__desc {
   font-size: 1rem;
@@ -1712,33 +1690,7 @@ strong {
   }
 }
 
-/* === Section visual divider (use class on sections needing it) === */
-.section--divider-top {
-  position: relative;
-}
 
-.section--divider-top::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(90%, 64rem);
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--color-border) 30%, var(--color-border) 70%, transparent 100%);
-}
-
-.section--divider-top::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 7px;
-  height: 7px;
-  background: var(--color-red);
-  border-radius: 1px;
-}
 
 /* === Mobile sticky CTA pulse === */
 @media (prefers-reduced-motion: no-preference) and (max-width: 767px) {

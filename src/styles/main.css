@@ -1580,18 +1580,7 @@ main {
   display: inline-block;
 }
 
-.final-cta__heading::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 48px;
-  height: 3px;
-  background: var(--gradient-red);
-  border-radius: var(--radius-full);
-  box-shadow: 0 0 12px rgba(191, 36, 47, 0.3);
-}
+
 
 .final-cta__text {
   font-size: var(--text-sm);
