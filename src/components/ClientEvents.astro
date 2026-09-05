@@ -18,6 +18,17 @@ const enabled = isProduction && validGtm;
         return s !== null && (s.analytics || s.marketing);
       }
 
+      function gtagSendEvent(url: string) {
+        let navigated = false;
+        const navigate = () => {
+          if (!navigated) { navigated = true; window.location.href = url; }
+        };
+        const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
+        function gtag(..._args: any[]) { dl.push(arguments); }
+        gtag('event', 'phone_click', { event_callback: navigate });
+        setTimeout(navigate, 2000);
+      }
+
       // --- Delegated click tracking ---
       document.addEventListener('click', (e: MouseEvent) => {
         const target = e.target as HTMLElement;
@@ -29,7 +40,13 @@ const enabled = isProduction && validGtm;
           const location = resolveLocation(anchor);
 
           if (href.startsWith('tel:')) {
-            pushEvent('phone_click', { link_location: location, page_path: pagePath });
+            e.preventDefault();
+            const sent = pushEvent('phone_click', { link_location: location, page_path: pagePath });
+            if (sent) {
+              gtagSendEvent(href);
+            } else {
+              window.location.href = href;
+            }
             return;
           }
           if (href.startsWith('sms:')) {
