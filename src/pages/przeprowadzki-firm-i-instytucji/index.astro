@@ -21,11 +21,10 @@ const process = [
 ];
 
 const faq = [
-  ['Czy wizja lokalna jest płatna?', 'Nie. Dla relokacji firm i instytucji oferujemy bezpłatne oględziny przed przygotowaniem planu i wyceny.'],
-  ['Czy przeprowadzka może odbywać się etapami?', 'Tak. Etapowanie ustalamy po rozpoznaniu zależności między działami, lokalizacjami i terminami, aby ograniczyć przestój.'],
-  ['Jak organizujecie dokumenty i archiwa?', 'Ustalamy system oznaczeń i kolejność. Możemy wykorzystać setki zamykanych pojemników o pojemności około 70 litrów, co ułatwia kontrolowany transport archiwów.'],
-  ['Czy możliwe jest czasowe magazynowanie?', 'Tak. Ogrzewane boksy WHM od 2 do 9 m² mogą wspierać relokację etapową albo przechowanie wyposażenia pomiędzy terminami.'],
-  ['Czy mienie jest ubezpieczone?', 'Zakres odpowiedzialności i dokumenty ustalamy przed realizacją. WHM posiada ochronę ubezpieczeniową do 1 mln zł; zastosowanie i warunki potwierdzamy dla konkretnego zlecenia.'],
+  ['Czy możecie przeprowadzić firmę w weekend?', 'Tak. Dopasowujemy termin do trybu pracy firmy - weekendy i godziny pozabiurowe są standardową opcją.'],
+  ['Jak pakujecie dokumenty i archiwa?', 'Segregatory i teczki trafiają do kartonów z opisem zawartości. Kolejność regałów odtwarzamy w nowym miejscu.'],
+  ['Czy ubezpieczacie mienie firmowe?', 'Tak - każde zlecenie jest objęte ubezpieczeniem. Zakres ustalamy przed startem.'],
+  ['Ile trwa przeprowadzka biura?', 'Zależy od metrażu i ilości sprzętu. Małe biuro - jeden dzień. Większa instytucja - plan rozłożony na etapy.'],
 ];
 ---
 
@@ -33,8 +32,8 @@ const faq = [
 
   <ServiceHero
     eyebrow="Relokacje B2B"
-    heading="Przeprowadzki firm i instytucji w Kielcach, zaplanowane etap po etapie"
-    lead="Zaczynamy od bezpłatnych oględzin, a potem przygotowujemy plan obejmujący ludzi, wyposażenie, dokumenty, terminy i ciągłość pracy organizacji."
+    heading="Przeprowadzki firm i instytucji"
+    lead="Biura, archiwa, magazyny, hale produkcyjne. Organizujemy przeprowadzki, w których liczy się termin, skala i odpowiedzialność za mienie."
     breadcrumbs={[{ label: 'Dla firm', href: '/dla-firm/' }, { label: route.name }]}
     heroImage="/images/institution-moving/przeprowadzki-instytucji-4.webp"
     heroAlt="Zespół WHM podczas relokacji instytucji"
@@ -87,7 +86,7 @@ const faq = [
     <div class="container">
       <SectionHeading label="Studium przypadku" title="Relokacja Prokuratury Kielce-Wschód i Kielce-Zachód" />
       <div class="case-proof__grid">
-        <div class="case-proof__summary"><p>Zakres obejmował pięć kondygnacji oraz piwnicę z archiwami, wyposażenie ponad stu pracowników i dziesiątki szaf i komputerów. Prace zaplanowano tak, aby instytucja mogła działać bez przerwy.</p><a class="arrow-link" href="/realizacje/">Zobacz pozostałe realizacje</a></div>
+        <div class="case-proof__summary"><p>Zakres obejmował pięć kondygnacji oraz piwnicę z archiwami, wyposażenie ponad stu pracowników i dziesiątki szaf i komputerów. Prace zaplanowano tak, aby instytucja mogła działać bez przerwy.</p><p><strong>Czas realizacji:</strong> Około 2 miesięcy prac</p><a class="arrow-link" href="/realizacje/">Zobacz pozostałe realizacje</a></div>
         <dl class="case-proof__facts">
           <div><dt>Skala</dt><dd>5 kondygnacji i piwnica z archiwami</dd></div>
           <div><dt>Mienie</dt><dd>duże archiwum, szafy i komputery</dd></div>
@@ -112,7 +111,7 @@ const faq = [
 
   <section id="kontakt-b2b" class="form-section" aria-label="Formularz kontaktowy dla firm i instytucji">
     <div class="container">
-      <SectionHeading title="Umów bezpłatne oględziny" description="Podaj lokalizacje, przybliżony zakres i oczekiwany termin. Firma lub instytucja jest polem opcjonalnym." />
+      <SectionHeading title="Opisz potrzeby swojej firmy" description="Zakres, termin, lokalizacja - na tej podstawie przygotujemy wycenę." />
       <div class="form-section__grid">
         <div class="form-section__phone-card"><p class="section-heading__label">Kontakt bezpośredni</p><h3>Omów relokację</h3><a href={`tel:${site.phoneRaw}`} data-cta-click data-cta-location="business-form">{site.phone}</a><p class="form-section__phone-note">Po wstępnej rozmowie ustalimy termin bezpłatnej wizji lokalnej.</p></div>
         <LeadForm formId="business-relocation-form" serviceType="Przeprowadzka firmy lub instytucji" variant="firma" presentation="page" context="business" formLocation="/przeprowadzki-firm-i-instytucji/" placeholder="Jakiej relokacji dotyczy zapytanie?" submitLabel="Wyślij zapytanie B2B" />

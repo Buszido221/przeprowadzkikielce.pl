@@ -14,7 +14,7 @@ const route = getRoute('/realizacje/');
 
 const technicalMentions = [
   { title: 'Ponad dwumetrowe szafy serwerowe wprowadzane przez okno', text: 'Sprzęt techniczny potrafi wykluczyć drogę, która na planie budynku wygląda na oczywistą. Przy ponad dwumetrowych szafach serwerowych zespół przygotował alternatywną trasę przez okno.' },
-  { title: 'Transporty pieców na pellet o masie około 350–450 kg', text: 'Piece na pellet transportowane również do i z piwnic. Schodołaz pomaga przenosić obciążenie po stopniach, ale wymaga asekuracji zespołu.' },
+  { title: 'Transporty pieców na pellet o masie około 350-450 kg', text: 'Piece na pellet transportowane również do i z piwnic. Schodołaz pomaga przenosić obciążenie po stopniach, ale wymaga asekuracji zespołu.' },
   { title: 'Szafy pancerne, sejfy i szafy na broń', text: 'Doświadczenie obejmuje egzemplarze od około 200 kg do szafy ważącej według danych producenta około 880 kg. Przy dużych gabarytach kierowany jest często zespół cztero- lub pięcioosobowy.' },
   { title: 'Prace przy zbiornikach azotu w Centrum Onkologii w Kielcach', text: 'Wykorzystanie schodołazu przy ciężkim wyposażeniu w środowisku placówki medycznej na Czarnowie.' },
   { title: 'Precyzyjne ustawianie sprzętu laboratoryjnego', text: 'Widły schodołazu pozwalają podnieść urządzenie na wysokość niemal 1,5 m i ustawić je na podwyższonym stojaku z dokładnością określaną jako milimetrowa.' },
@@ -32,8 +32,8 @@ const schemaGraph = buildSchemaGraph({
 <Layout seo={seo} schemaGraph={schemaGraph}>
   <ServiceHero
     eyebrow="Prawdziwe realizacje WHM"
-    heading="Projekty, w których sam transport był dopiero początkiem"
-    lead="Przenieść można niemal wszystko. Różnica polega na tym, czy przed rozpoczęciem pracy ktoś potrafi rozpoznać ryzyko, zaplanować kolejność i wziąć odpowiedzialność za cały proces. Pokazujemy realizacje WHM, w których liczyły się nie tylko samochody i siła zespołu, ale również organizacja, sprzęt, zabezpieczenia i umiejętność rozwiązania problemu."
+    heading="Realizacje WHM"
+    lead="Każda przeprowadzka ma inną skalę, inne wymagania i inny termin. Poniżej znajdziesz przykłady zrealizowanych projektów - od mieszkań po całe instytucje."
     breadcrumbs={[{ label: route.name }]}
     heroImage="/images/kielce-moving/przeprowadzki-kielce-5.webp"
     heroAlt="Zabezpieczone mienie podczas realizacji WHM"
@@ -46,7 +46,7 @@ const schemaGraph = buildSchemaGraph({
       <div class="editorial-single-column">
         <SectionHeading title="Nie każdą przeprowadzkę da się zamknąć w prostym schemacie" />
         <div class="editorial-single-column__copy">
-          <p>Nie każdą przeprowadzkę da się zamknąć w prostym schemacie „wyniesienie, transport, wniesienie”. Czasem obraz nie może zostać ustawiony pionowo nawet na chwilę. Czasem niemal osiem tysięcy pozycji archiwum musi po przeprowadzce wrócić dokładnie na swoje miejsce. Innym razem instytucja nie może przerwać pracy, mimo że z budynku trzeba wynieść wyposażenie ponad stu osób, dziesiątki szaf i kilometry bieżące akt.</p>
+          <p>Nie każdą przeprowadzkę da się zamknąć w prostym schemacie „wyniesienie, transport, wniesienie". Czasem obraz nie może zostać ustawiony pionowo nawet na chwilę. Czasem niemal osiem tysięcy pozycji archiwum musi po przeprowadzce wrócić dokładnie na swoje miejsce. Innym razem instytucja nie może przerwać pracy, mimo że z budynku trzeba wynieść wyposażenie ponad stu osób, dziesiątki szaf i kilometry bieżące akt.</p>
           <p>W takich projektach najdroższym błędem nie jest dodatkowy kurs samochodu. Jest nim utrata kolejności dokumentacji, uszkodzenie cennego mienia, zatrzymanie działalności klienta albo improwizacja w miejscu, w którym standardowa droga transportu po prostu nie istnieje.</p>
           <p>Dlatego realizacje WHM pokazujemy nie jako galerię przypadkowych zdjęć, lecz jako studia przypadków. Opisujemy punkt wyjścia, najważniejsze ograniczenie, przyjęty plan i sposób wykonania. To najlepszy dowód, że za sprzętem i flotą stoi doświadczenie zespołu, który potrafi myśleć o całej operacji.</p>
         </div>
@@ -91,7 +91,6 @@ const schemaGraph = buildSchemaGraph({
   <section class="section section--alt">
     <div class="container">
       <SectionHeading label="Dalsze realizacje techniczne" title="Doświadczenie przekrojowe WHM" />
-      <p class="realizacje-hub__intro-text">Poniższe historie są prawdziwe, ale mają mniej szczegółów niż osiem głównych case studies. Zostały uwzględnione w zbiorczym case study technicznym. Osobne indeksowane podstrony można uruchomić dopiero po przypisaniu właściwych zdjęć i wystarczającej treści.</p>
       <div class="realizacje-hub__technical-grid">
         {technicalMentions.map((item) => (
           <div class="realizacje-hub__technical-item">

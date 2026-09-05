@@ -285,8 +285,8 @@ export const transportSpecPage = {
     { label: 'Transport specjalistyczny' },
   ],
   hero: {
-    heading: 'Transport specjalistyczny w Kielcach zaczyna się od oceny',
-    lead: 'Masa przedmiotu to tylko jeden z elementów. Sprawdzamy również jego wymiary, sposób zabezpieczenia, drogę transportową i warunki w obu lokalizacjach.',
+    heading: 'Transport specjalistyczny',
+    lead: 'Pianina, fortepiany, sejfy, urządzenia przemysłowe, antyki. Przewozimy rzeczy, które wymagają indywidualnego podejścia do zabezpieczenia i transportu.',
     ctaLabel: 'Opisz przedmiot',
     note: 'Masz do przewiezienia coś ciężkiego lub nietypowego? Pokaż nam przedmiot i miejsce - znajdziemy najlepszy sposób.',
     image: '/images/transport-gabarytow/transport-gabarytow-kielce-1.webp',
@@ -369,33 +369,21 @@ export const transportSpecPage = {
   },
   faq: [
     {
-      question: 'Jakie informacje są potrzebne do oceny transportu?',
-      answer: 'Rodzaj przedmiotu, wymiary, przybliżona masa, piętra, zdjęcia schodów i zakrętów, informacja o windzie, odległość od wejścia do samochodu oraz warunki w miejscu docelowym. Im więcej nam pokażesz, tym szybciej ocenimy możliwości.',
+      question: 'Jak zabezpieczacie ciężkie przedmioty?',
+      answer: 'Używamy pasów z blokadą, wózków platformowych i rampy. Sejfy i urządzenia przemysłowe mocujemy do podłogi skrzyni ładunkowej.',
     },
     {
-      question: 'Czy wystarczą zdjęcia klatki schodowej i przedmiotu?',
-      answer: 'Tak, zdjęcia bardzo pomagają w wstępnej ocenie. Im dokładniejsze informacje prześlesz, tym precyzyjniej ocenimy możliwości i zaproponujemy najlepszy sposób.',
+      question: 'Czy transportujecie dzieła sztuki?',
+      answer: 'Tak. Obrazy, rzeźby i antyki zabezpieczamy indywidualnie - folią, kocami, narożnikami i sztywnymi przekładkami.',
     },
     {
-      question: 'Czy WHM korzysta ze schodołazu?',
-      answer: 'Tak, korzystamy z elektrycznego schodołazu kroczącego Escalera. Jego użycie zależy jednak od konstrukcji schodów, wymiarów przedmiotu i warunków w obu lokalizacjach - szczegóły ustalamy po ocenie.',
-    },
-    {
-      question: 'Czy każdy ciężki przedmiot można przewieźć schodołazem?',
-      answer: 'Nie. Schodołaz nie pasuje do każdych schodów. Szerokość schodów, spoczniki, zakręty i konstrukcja przedmiotu wpływają na możliwość jego użycia. Ostateczną decyzję podejmujemy po ocenie.',
-    },
-    {
-      question: 'Czy możliwy jest demontaż przedmiotu?',
-      answer: 'Tak, jeśli konstrukcja na to pozwala. Powiedz nam o takiej potrzebie przed wyceną, a uwzględnimy demontaż i ponowny montaż w zakresie.',
-    },
-    {
-      question: 'Czy transport specjalistyczny można połączyć z przeprowadzką?',
-      answer: 'Tak. Transport ciężkiego lub nietypowego przedmiotu może być częścią większej przeprowadzki - wystarczy, że powiesz nam o nim na etapie wyceny.',
+      question: 'Ile kosztuje transport specjalistyczny?',
+      answer: 'Cena zależy od masy, gabarytów, piętra i odległości. Podajemy kwotę po poznaniu szczegółów.',
     },
   ],
   finalCta: {
-    heading: 'Pokaż nam przedmiot i drogę transportową',
-    text: 'Prześlij zdjęcia, wymiary, przybliżoną masę oraz informacje o schodach, windzie i możliwości podjazdu. Na tej podstawie ocenimy, jak najlepiej to zrealizować.',
+    heading: 'Masz coś nietypowego do przewiezienia?',
+    text: 'Opisz przedmiot - powiemy, jak go zabezpieczymy i dostarczymy.',
     ctaLabel: 'Poproś o ocenę i wycenę',
   },
 };
@@ -415,8 +403,8 @@ export const pianinaPage = {
     { label: 'Pianina i fortepiany' },
   ],
   hero: {
-    heading: 'Transport pianin i fortepianów w Kielcach wymaga planu całej drogi',
-    lead: 'Instrument trzeba nie tylko podnieść. Zanim ruszymy, oceniamy jego konstrukcję, wymiary, schody, zakręty, miejsce podjazdu i warunki w lokalizacji docelowej - żeby zaplanować wszystko od A do Z.',
+    heading: 'Transport pianin i fortepianów',
+    lead: 'Zabezpieczamy instrument, wynosimy go z mieszkania i dostarczamy w ustalonym terminie. Bez ryzyka uszkodzeń.',
     ctaLabel: 'Wyceń transport instrumentu',
     image: '/images/hero/hero-2.webp',
   },
@@ -478,30 +466,28 @@ export const pianinaPage = {
   },
   faq: [
     {
-      question: 'Od czego zależy wycena transportu pianina?',
-      answer: 'Od rodzaju instrumentu, jego wymiarów, przybliżonej masy, pięter, warunków na klatce schodowej, obecności windy, odległości od wejścia do samochodu oraz warunków w miejscu docelowym.',
+      question: 'Czy fortepian trzeba nastroić po transporcie?',
+      answer: 'Tak - każdy transport wpływa na nastrój instrumentu. Zalecamy strojenie 2-3 tygodnie po ustawieniu w nowym miejscu, kiedy instrument zaaklimatyzuje się do nowych warunków.',
     },
     {
-      question: 'Czy potrzebne są zdjęcia klatki schodowej?',
-      answer: 'Tak. Zdjęcia schodów, zakrętów i spoczników pomagają nam ocenić możliwość przeniesienia instrumentu. Im dokładniejsze zdjęcia, tym precyzyjniejsza ocena.',
+      question: 'Jak zabezpieczacie instrument?',
+      answer: 'Klawiaturę blokujemy, pedały i nogi demontujemy (jeśli konstrukcja na to pozwala), a cały instrument owijamy kocami i folią stretch. Do transportu używamy pasów z blokadą.',
     },
     {
-      question: 'Czy pianino jest zabezpieczane przed wyniesieniem?',
-      answer: 'Tak. Instrument zabezpieczamy dopasowanymi materiałami ochronnymi, pasami i pokrowcami zanim zaczniemy go przenosić. Sposób zabezpieczenia zależy od konstrukcji.',
+      question: 'Czy wniesiecie pianino na piętro bez windy?',
+      answer: 'Tak. Mamy doświadczenie z wnoszeniem na piętra - także po wąskich klatkach schodowych.',
     },
     {
-      question: 'Czy schodołaz można wykorzystać na każdych schodach?',
-      answer: 'Nie. Schodołaz nie pasuje do każdych schodów. Szerokość schodów, spoczniki, zakręty i konstrukcja budynku wpływają na możliwość jego użycia.',
-    },
-    {
-      question: 'Czy WHM transportuje również fortepiany?',
-      answer: 'Tak. Transportujemy pianina i fortepiany. Każdy instrument wymaga indywidualnej oceny konstrukcji, wymiarów i drogi transportowej.',
-    },
-    {
-      question: 'Czy można połączyć transport instrumentu z przeprowadzką?',
-      answer: 'Tak. Transport instrumentu może być częścią większej przeprowadzki - wystarczy, że powiesz nam o nim na etapie wyceny.',
+      question: 'Ile kosztuje transport pianina?',
+      answer: 'Cena zależy od masy instrumentu, piętra, odległości i warunków lokalowych. Podajemy konkretną kwotę po poznaniu szczegółów.',
     },
   ],
+  form: {
+    heading: 'Opisz swój instrument i trasę',
+    intro: 'Podaj typ instrumentu, piętro, adres odbioru i dostawy - przygotujemy wycenę.',
+    placeholder: 'Jaki to instrument? Na którym piętrze? Czy jest winda?',
+    button: 'Wyślij zapytanie',
+  },
   finalCta: {
     heading: 'Wycenę zacznijmy od zdjęć instrumentu i drogi',
     text: 'Prześlij zdjęcia pianina lub fortepianu, schodów, wejścia oraz miejsca docelowego. Dodaj wymiary i informację o piętrach - a my zajmiemy się resztą.',
@@ -677,8 +663,8 @@ export const magazynyPage = {
   },
   breadcrumbs: [{ label: 'Magazyny WHM' }],
   hero: {
-    heading: 'Przechowywanie mienia w suchych i ogrzewanych schowkach',
-    lead: 'Magazyny WHM rozszerzają przeprowadzkę o etap pomiędzy odbiorem a dostarczeniem mienia. Ogrzewane boksy od 2 do 9 m² przy ulicy Lotniczej 60A w Masłowie są gotowe i częściowo zajęte.',
+    heading: 'Magazynowanie w Kielcach',
+    lead: 'Krótko- i długoterminowe przechowanie mienia - na czas przeprowadzki, remontu albo wtedy, kiedy brakuje miejsca.',
     ctaLabel: 'Zapytaj o dostępność',
     ctaHref: '/kontakt/',
     heroImage: null as string | null,
@@ -783,8 +769,8 @@ export const standardPage = {
   },
   breadcrumbs: [{ label: 'Standard WHM' }],
   hero: {
-    heading: 'Standard WHM to sposób pracy, nie dodatkowy pakiet',
-    lead: 'Jakość przeprowadzki wynika z decyzji podejmowanych przed transportem i podczas każdego etapu realizacji - od oceny warunków po zabezpieczenie oraz stabilizację mienia. Te zasady pracy obowiązują w każdej realizacji WHM - od lokalnych zleceń w Kielcach po trasy w całym regionie i kraju.',
+    heading: 'Standard WHM',
+    lead: 'Każda przeprowadzka z WHM wygląda tak samo pod względem organizacji, zabezpieczeń i komunikacji. To nasz standard - niezależnie od skali zlecenia.',
     ctaLabel: 'Poproś o wycenę',
     image: '/images/standard-whm/zabezpieczenia-1.webp',
     imageAlt: 'Pasy i zabezpieczenia stabilizujące ładunek',
@@ -907,8 +893,8 @@ export const shopPage = {
   },
   breadcrumbs: [{ label: 'WHM Shop' }],
   hero: {
-    heading: 'Materiały przeprowadzkowe sprawdzone w prawdziwej pracy',
-    lead: 'WHM Shop powstał z doświadczenia zdobywanego podczas przeprowadzek. Jeśli pakujesz się samodzielnie albo prowadzisz firmę przeprowadzkową - znajdziesz tu materiały przeznaczone do realnej pracy z mieniem.',
+    heading: 'Materiały do pakowania',
+    lead: 'Kartony, folia bąbelkowa, taśma, markery - wszystko, czego potrzebujesz do samodzielnego pakowania.',
     ctaLabel: 'Przejdź do WHM Shop',
     ctaHref: 'https://www.whmshop.pl/',
     ctaSecondaryLabel: 'Zobacz kartony do przeprowadzki',
@@ -1053,44 +1039,30 @@ export const jakToDzialaPage = {
   },
   breadcrumbs: [{ label: 'Jak to działa' }],
   hero: {
-    heading: 'Od pierwszego kontaktu do zakończenia przeprowadzki',
-    lead: 'Im więcej istotnych informacji ustalimy przed realizacją, tym mniej decyzji trzeba podejmować w jej trakcie. Dlatego zaczynamy od rozmowy. Proces dotyczy realizacji w Kielcach, województwie świętokrzyskim i na trasach krajowych.',
+    heading: 'Jak wygląda współpraca z WHM?',
+    lead: 'Od pierwszego kontaktu do ustawienia mebli w nowym miejscu. Sprawdź, jak działamy krok po kroku.',
     image: '/images/hero/hero-4.webp',
   },
   process: [
     {
       number: '01',
-      title: 'Opis zlecenia',
-      desc: 'Powiedz nam o rodzaju usługi, lokalizacji odbioru i dostawy, zakresie mienia, piętrach, windach, warunkach podjazdu, oczekiwanym terminie oraz nietypowych lub ciężkich elementach.',
+      title: 'Kontakt i wycena',
+      desc: 'Opisujesz, co trzeba przewieźć. My oceniamy zakres i podajemy cenę.',
     },
     {
       number: '02',
-      title: 'Ocena zakresu',
-      desc: 'Sprawdzamy, jakie informacje są jeszcze potrzebne i czy zlecenie wymaga dodatkowych zdjęć lub dokładniejszej oceny. Sposób przygotowania dopasowujemy do skali.',
+      title: 'Planowanie',
+      desc: 'Ustalamy termin, dobieramy ekipę i transport do kubatury.',
     },
     {
       number: '03',
-      title: 'Ustalenie odpowiedzialności',
-      desc: 'Przed realizacją wspólnie ustalamy, co pakujesz samodzielnie, co przejmuje WHM, które meble wymagają demontażu, jakie materiały są potrzebne i gdzie mają trafić rzeczy w nowej lokalizacji.',
+      title: 'Realizacja',
+      desc: 'Pakujemy, zabezpieczamy, przewozimy i wnosimy - zgodnie z planem.',
     },
     {
       number: '04',
-      title: 'Przygotowanie i zabezpieczenie',
-      desc: 'Kartony, koce, pokrowce, pasy i oznaczanie - każdy element przygotowujemy zgodnie z ustalonym zakresem i dobieramy zabezpieczenia do rodzaju Twojego mienia.',
-      image: '/images/moving-boxes/kartony-do-przeprowadzki-4.webp',
-      imageAlt: 'Oznaczone kartony przeprowadzkowe przygotowane do transportu',
-    },
-    {
-      number: '05',
-      title: 'Wynoszenie, transport i wniesienie',
-      desc: 'Kolejność wynoszenia, rozmieszczenie oraz stabilizacja ładunku mają znaczenie dla bezpieczeństwa mienia i sprawnego przebiegu realizacji.',
-      image: '/images/kielce-moving/przeprowadzki-kielce-4.webp',
-      imageAlt: 'Zabezpieczony i ustabilizowany ładunek wewnątrz samochodu WHM',
-    },
-    {
-      number: '06',
-      title: 'Zakończenie',
-      desc: 'Przeprowadzka kończy się po wykonaniu wspólnie ustalonych prac - wniesieniu, ustawieniu lub montażu uzgodnionych elementów.',
+      title: 'Odbiór',
+      desc: 'Ustawiamy wszystko na miejscu. Sprawdzamy, czy niczego nie brakuje.',
     },
   ],
   checklist: {
@@ -1265,14 +1237,14 @@ export const oNasPage = {
   },
   breadcrumbs: [{ label: 'O nas' }],
   hero: {
-    heading: 'WHM rozwija się razem z odpowiedzialnością za mienie klientów',
-    lead: 'Od 2019 roku przeszliśmy drogę od lokalnych usług transportowych do rozbudowanej obsługi przeprowadzek, transportu specjalistycznego, materiałów i przechowywania. Każda realizacja nauczyła nas czegoś nowego.',
+    heading: 'WHM Przeprowadzki - kto za tym stoi',
+    lead: 'Jesteśmy firmą z Kielc. Przeprowadzamy mieszkania, biura i instytucje na terenie całej Polski. Działamy od 2016 roku.',
     image: '/images/hero/hero-1.webp',
   },
   development: {
-    eyebrow: 'Od transportu do pełnej obsługi',
-    heading: 'Rozwój zakresu usług',
-    text: 'WHM zaczynało od lokalnych usług transportowych. Z każdym rokiem zakres rósł - od prostych przewozów, przez przeprowadzki mieszkań i domów, po obsługę firm, instytucji oraz transport specjalistyczny. Dziś WHM to ekosystem obejmujący przeprowadzki, materiały i przechowywanie mienia.',
+    eyebrow: 'Co nas wyróżnia?',
+    heading: 'Jeden zespół, własny sprzęt, pełna odpowiedzialność',
+    text: 'Jeden zespół koordynuje całość - od wyceny po ustawienie mebli. Własny sprzęt, nie wypożyczony. Ubezpieczenie przy każdym zleceniu. Doświadczenie w dużych projektach - w tym przeprowadzka prokuratury przez pięć kondygnacji.',
   },
   standard: {
     eyebrow: 'Dlaczego powstał Standard WHM',
@@ -1428,8 +1400,8 @@ export const pakowanePage = {
     { label: 'Pakowanie i zabezpieczanie' },
   ],
   hero: {
-    heading: 'Pakowanie i zabezpieczanie mienia do przeprowadzki w Kielcach',
-    lead: 'Odpowiednie zabezpieczenie ogranicza przypadkowe uszkodzenia, usprawnia wynoszenie i pozwala lepiej wykorzystać przestrzeń w samochodzie. Możesz się o to zatroszczyć samodzielnie albo powierzyć to nam.',
+    heading: 'Pakowanie i zabezpieczanie',
+    lead: 'Chronimy meble, sprzęt i delikatne przedmioty przed uszkodzeniem - zanim trafią na auto.',
     ctaLabel: 'Zapytaj o pakowanie',
   },
   whatWePack: {
@@ -1446,15 +1418,14 @@ export const pakowanePage = {
   },
   materials: {
     eyebrow: 'Materiały WHM',
-    heading: 'Materiały dobieramy do rzeczy, nie odwrotnie',
-    text: 'Każdy rodzaj mienia wymaga innego sposobu ochrony. Używamy materiałów dobranych do wrażliwości, kształtu i masy przewożonych przedmiotów - bo Twoje rzeczy tego zasługują.',
+    heading: 'Czym zabezpieczamy?',
+    text: 'Każdy rodzaj mienia wymaga innego sposobu ochrony. Używamy materiałów dobranych do wrażliwości, kształtu i masy przewożonych przedmiotów.',
     items: [
-      { name: 'Kartony przeprowadzkowe', desc: 'Wytrzymałe kartony w różnych rozmiarach do pakowania rzeczy osobistych i wyposażenia.' },
-      { name: 'Przekładki i materiały ochronne', desc: 'Papier pakowy i przekładki do ochrony delikatnych powierzchni.' },
-      { name: 'Koce ochronne', desc: 'Grube koce zabezpieczające meble i duże elementy przed zarysowaniami.' },
-      { name: 'Pokrowce', desc: 'Dedykowane pokrowce na materace, sofy, fotele i inne meble tapicerowane.' },
-      { name: 'Taśmy klejące i oznaczeniowe', desc: 'Taśmy do zabezpieczania i oznaczania paczek oraz kartonów.' },
-      { name: 'Pasy stabilizujące', desc: 'Pasy zabezpieczające ładunek w samochodzie przed przesuwaniem.' },
+      { name: 'Koce ochronne', desc: 'Grube, wielokrotnego użytku. Chronią meble, sprzęt AGD i powierzchnie drewniane przed zarysowaniami i uderzeniami.' },
+      { name: 'Folia stretch', desc: 'Przylega do powierzchni, nie zostawia śladów. Trzyma drzwi szaf zamknięte, zabezpiecza tapicerkę i szkło.' },
+      { name: 'Kartony', desc: 'Różne rozmiary - od małych na książki po duże na pościel i ubrania. Delikatne przedmioty pakujemy z wypełnieniem.' },
+      { name: 'Narożniki kartonowe', desc: 'Chronią krawędzie blatów, szafek i ram. Zakładamy je przed owinięciem folią lub kocami.' },
+      { name: 'Taśma i oznaczenia', desc: 'Zamknięte kartony opisujemy - co jest w środku i do którego pomieszczenia trafiają.' },
     ],
     image: '/images/packing-services/pakowanie-przeprowadzki-kielce-1.webp',
     imageAlt: 'Dokładnie zabezpieczone elementy wyposażenia przed transportem',
@@ -1512,24 +1483,30 @@ export const pakowanePage = {
   },
   faq: [
     {
-      question: 'Czy WHM może dostarczyć materiały przed przeprowadzką?',
-      answer: 'Tak. Kartony, pokrowce i inne materiały możemy dostarczyć wcześniej, żebyś mógł zacząć pakowanie we własnym tempie.',
+      question: 'Czy mogę spakować część rzeczy samodzielnie?',
+      answer: 'Tak. Możesz przygotować kartony z drobnymi rzeczami, a nam zostawić meble, sprzęt i przedmioty wymagające specjalnego zabezpieczenia.',
     },
     {
-      question: 'Czy można zlecić zapakowanie tylko wybranych rzeczy?',
-      answer: 'Tak. Możemy przejąć pakowanie całości lub tylko wybranych elementów - decydujesz, co potrzebujesz.',
+      question: 'Czy zabezpieczacie też sprzęt AGD?',
+      answer: 'Tak. Lodówki, pralki, zmywarki - zabezpieczamy folią, kocami i pasami transportowymi.',
     },
     {
-      question: 'Czy meble są zabezpieczane przed wyniesieniem?',
-      answer: 'Tak. Meble zabezpieczamy pokrowcami i kocami zanim zostaną przeniesione na klatkę schodową - to nasz standard.',
+      question: 'Skąd wiecie, jak zapakować delikatne przedmioty?',
+      answer: 'Doświadczenie. Pakujemy codziennie - wiemy, co wymaga kartonu z wypełnieniem, a co wystarczy owinąć kocem.',
     },
     {
-      question: 'Jak oznaczać kartony?',
-      answer: 'Kartony warto opisać krótko - nazwa pomieszczenia i zawartość. Jeśli pakowanie zlecasz nam, oznaczamy je za Ciebie.',
-    },
-    {
-      question: 'Gdzie kupić kartony do samodzielnego pakowania?',
-      answer: 'Kartony i materiały przeprowadzkowe znajdziesz w WHM Shop pod adresem whmshop.pl.',
+      question: 'Czy zostawiacie materiały po rozpakowaniu?',
+      answer: 'Zabieramy je ze sobą. Kartony, folia, narożniki - to nasza odpowiedzialność.',
     },
   ],
+  form: {
+    heading: 'Opisz, co trzeba zabezpieczyć',
+    intro: 'Podaj zakres - odezwiemy się z wyceną i terminem.',
+    placeholder: 'Jakie meble i przedmioty? Czy są rzeczy szczególnie delikatne?',
+    button: 'Wyślij zapytanie',
+  },
+  finalCta: {
+    heading: 'Wolisz porozmawiać?',
+    text: 'Zadzwoń - odpowiemy na pytania i umówimy oględziny.',
+  },
 };

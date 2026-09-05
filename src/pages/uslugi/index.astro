@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import ServiceHero from '../../components/ServiceHero.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import MobileStickyCta from '../../components/MobileStickyCta.astro';
 import SafeImage from '../../components/SafeImage.astro';
@@ -29,10 +29,10 @@ const schemaGraph = buildSchemaGraph({
 ---
 
 <Layout seo={seo} schemaGraph={schemaGraph}>
-  <ServiceHero eyebrow="Usługi WHM" heading="Usługi przeprowadzkowe w Kielcach dopasowane do rzeczywistej potrzeby" lead="Zamiast mnożyć podobne podstrony, porządkujemy ofertę w sześć czytelnych ścieżek. Jeśli zakres łączy kilka usług, koordynujemy je jako jeden proces." breadcrumbs={[{ label: route.name }]} heroImage="/images/kielce-moving/przeprowadzki-kielce-1.webp" heroAlt="Samochód i zespół WHM podczas realizacji przeprowadzki" secondaryCtaLabel="Przejdź do wyceny" secondaryCtaHref="/kontakt/#formularz" />
+  <SubpageHero heading="Wszystko, czego potrzebujesz przy zmianie miejsca" lead="Przeprowadzki, pakowanie, transport specjalistyczny, magazynowanie, opróżnianie - wybierz to, co dotyczy Twojej sytuacji." breadcrumbs={[{ label: route.name }]} heroImage="/images/kielce-moving/przeprowadzki-kielce-1.webp" ctaSecondaryLabel="Przejdź do wyceny" ctaSecondaryHref="/kontakt/#formularz" />
   <section class="section section--alt">
     <div class="container">
-      <SectionHeading label="Oferta WHM" title="Wybierz zakres, który najlepiej opisuje zadanie" description="Nie tworzymy osobnych podstron dla lodówki, AGD czy pakowania mebli - te potrzeby mieszczą się w jednej z ośmiu ścieżek poniżej. Jeśli Twoje zlecenie łączy kilka zakresów, koordynujemy je jako jeden proces." />
+      <SectionHeading label="Oferta WHM" title="Wybierz zakres, który najlepiej opisuje zadanie" description="WHM to więcej niż przeprowadzki. Jeśli szukasz jednej ekipy, która ogarnie cały proces - od zabezpieczenia mebli po utylizację tego, czego nie zabierasz - jesteś we właściwym miejscu." />
       <div class="services-grid services-grid--3col">
         {cardData.map((card) => <a class="service-card" href={card.slug}><div class="service-card__media"><SafeImage src={card.image} alt="" role="presentation" loading="lazy" decoding="async" /></div><div class="service-card__body"><h2 class="service-card__title">{card.route.name}</h2><p class="service-card__desc">{card.text}</p><span class="service-card__link">Poznaj zakres</span></div></a>)}
       </div>

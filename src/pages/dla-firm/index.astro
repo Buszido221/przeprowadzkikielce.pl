@@ -11,32 +11,32 @@ import { getSeo } from '../../data/seo';
 import { buildSchemaGraph } from '../../lib/schema';
 
 const route = getRoute('/dla-firm/');
-const pathways = [
-  { title: 'Relokacje firm i instytucji', text: 'Oględziny, plan, pakowanie, oznaczenia, transport i rozmieszczenie z myślą o ciągłości pracy.', href: '/przeprowadzki-firm-i-instytucji/', image: '/images/institution-moving/przeprowadzki-instytucji-4.webp' },
-  { title: 'Transport specjalistyczny', text: 'Serwery, wyposażenie laboratoryjne, piece i inne elementy wymagające indywidualnej technologii pracy.', href: '/transport-specjalistyczny/', image: '/images/transport-gabarytow/transport-gabarytow-kielce-7.webp' },
-  { title: 'Magazynowanie pomostowe', text: 'Ogrzewane boksy od 2 do 9 m² dla wyposażenia, dokumentów lub etapowej zmiany lokalizacji.', href: '/magazyny-kielce/', image: '/images/institution-moving/przeprowadzki-instytucji-3.webp' },
-  { title: 'Opróżnianie lokali', text: 'Wyniesienie i wywóz starych mebli oraz wyposażenia, z jasno opisanym zakresem wyłączeń.', href: '/oproznianie-mieszkan-i-wywoz-mebli/', image: '/images/furniture-assembly/montaz-demontaz-mebli-1.webp' },
+const services = [
+  { title: 'Przeprowadzki biur i instytucji', text: 'Pakowanie dokumentów, demontaż mebli biurowych, transport IT, ustawienie w nowej lokalizacji.' },
+  { title: 'Opróżnianie lokali', text: 'Wywóz starych mebli, sprzętu, kartonów. Utylizacja lub przekazanie do ponownego użytku.' },
+  { title: 'Prace porządkowe', text: 'Sprzątanie po remoncie, po przeprowadzce lub przed przekazaniem lokalu.' },
+  { title: 'Zabezpieczenie mienia', text: 'Foliowanie, kartony, palety - jeśli mienie czeka na transport lub przechowanie.' },
 ];
 ---
 
 <Layout seo={getSeo('/dla-firm/')} schemaGraph={buildSchemaGraph({ slug: '/dla-firm/', breadcrumbs: [{ name: 'Dla firm' }] })}>
   <ServiceHero
     eyebrow="WHM dla biznesu i instytucji"
-    heading="Relokacja, transport i magazynowanie w jednym odpowiedzialnym procesie"
-    lead="Koordynujemy zmianę lokalizacji, dokumenty, wyposażenie i zadania specjalistyczne. Zaczynamy od bezpłatnej wizji lokalnej i planu dopasowanego do pracy organizacji. Realizujemy relokacje firm i instytucji w Kielcach, województwie świętokrzyskim oraz na trasach ogólnopolskich."
+    heading="Obsługa firm i instytucji"
+    lead="Przeprowadzki biur, archiwów, magazynów, hal. Utylizacja wyposażenia, prace porządkowe po remoncie, zabezpieczenie mienia na czas zmiany lokalu."
     breadcrumbs={[{ label: route.name }]}
     heroImage="/images/office-moving/przeprowadzki-biura-1.webp"
     heroAlt="Zabezpieczone wyposażenie biurowe przygotowane przez zespół WHM"
-    secondaryCtaLabel="Porozmawiaj o projekcie"
+    secondaryCtaLabel="Zapytaj o wycenę"
     secondaryCtaHref="#kontakt-b2b"
   />
 
   <section class="section section--alt">
     <div class="container">
-      <SectionHeading label="Ścieżki współpracy" title="Wybierz potrzebę, nie przypadkową mikrousługę" description="Każda większa realizacja może łączyć kilka kompetencji. Jeden koordynowany zakres ułatwia planowanie i rozliczenie odpowiedzialności." />
+      <SectionHeading label="Usługi dla biznesu" title="Co robimy dla firm?" description="Łączymy kilka usług w jedno zlecenie - dzięki temu nie musisz koordynować osobno transportu, ekipy pakującej i firmy sprzątającej." />
       <div class="services-grid services-grid--2col">
-        {pathways.map((item) => (
-          <a class="service-card" href={item.href}><div class="service-card__media"><SafeImage src={item.image} alt="" role="presentation" loading="lazy" decoding="async" /></div><div class="service-card__body"><h2 class="service-card__title">{item.title}</h2><p class="service-card__desc">{item.text}</p><span class="service-card__link">Poznaj zakres</span></div></a>
+        {services.map((item) => (
+          <article class="service-card"><div class="service-card__body"><h2 class="service-card__title">{item.title}</h2><p class="service-card__desc">{item.text}</p></div></article>
         ))}
       </div>
     </div>
@@ -44,21 +44,9 @@ const pathways = [
 
   <section class="section">
     <div class="container">
-      <SectionHeading label="Standard współpracy" title="Najpierw ograniczenia operacyjne, potem harmonogram" />
-      <div class="items-grid items-grid--2x2">
-        <article class="items-grid__item"><h3 class="items-grid__title">Bezpłatne oględziny</h3><p class="items-grid__desc">Rozpoznajemy lokalizacje, drogi, zakres i elementy ryzyka.</p></article>
-        <article class="items-grid__item"><h3 class="items-grid__title">Plan i etapy</h3><p class="items-grid__desc">Ustalamy kolejność prac tak, aby ograniczyć przestój organizacji.</p></article>
-        <article class="items-grid__item"><h3 class="items-grid__title">Oznaczenia i pojemniki</h3><p class="items-grid__desc">Setki zamykanych pojemników około 70 l wspierają transport archiwów i wyposażenia.</p></article>
-        <article class="items-grid__item"><h3 class="items-grid__title">Zaplecze WHM</h3><p class="items-grid__desc">Materiały, sprzęt, własny zespół i ogrzewane boksy od 2 do 9 m².</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="container">
       <div class="split-section split-section--reverse">
         <div class="split-section__content">
-          <SectionHeading label="Dowód w praktyce" title="Relokacja instytucji bez przerwy w działaniu" description="W realizacji dla Prokuratury Kielce-Wschód i Kielce-Zachód zakres objął pięć kondygnacji oraz piwnicę z archiwami, wyposażenie ponad stu pracowników i dziesiątki szaf i komputerów. Organizacja prac pozwoliła utrzymać ciągłość działania instytucji." />
+          <SectionHeading label="Dowód w praktyce" title="Relokacja instytucji bez przerwy w działaniu" description="W realizacji dla Prokuratury Kielce-Wschód i Kielce-Zachód zakres objął pięć kondygnacji oraz piwnicę z archiwami, wyposażenie ponad stu pracowników i dziesiątki szaf i komputerów. Około 2 miesięcy prac. Organizacja pozwoliła utrzymać ciągłość działania instytucji." />
           <div class="section-cta"><a class="arrow-link" href="/realizacje/">Przejdź do studiów przypadków</a></div>
         </div>
         <div class="split-section__media"><SafeImage src="/images/institution-moving/przeprowadzki-instytucji-5.webp" alt="Zespół WHM podczas relokacji instytucjonalnej" loading="lazy" decoding="async" class="section-img" displayMode="section" /></div>
@@ -66,20 +54,22 @@ const pathways = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <SectionHeading label="Odpowiedzialność" title="Ustalenia potwierdzone przed realizacją" description="Przed startem uzgadniamy zakres, zadania stron, sposób zabezpieczenia i dokumenty. WHM posiada ochronę ubezpieczeniową do 1 mln zł; zastosowanie oraz warunki potwierdzamy dla konkretnego projektu." />
-    </div>
-  </section>
-
   <section id="kontakt-b2b" class="form-section" aria-label="Kontakt B2B">
     <div class="container">
-      <SectionHeading title="Opowiedz o projekcie" description="Podaj lokalizacje, przybliżony zakres, termin i najważniejsze ograniczenie operacyjne. Po rozmowie umówimy bezpłatne oględziny, jeśli będą potrzebne." />
+      <SectionHeading title="Opisz potrzeby swojej firmy" description="Zakres, termin, lokalizacja - na tej podstawie przygotujemy wycenę." />
       <div class="form-section__grid">
-        <div class="form-section__phone-card"><p class="section-heading__label">Kontakt dla firm</p><h3>Porozmawiaj z zespołem WHM</h3><a href={`tel:${site.phoneRaw}`} data-cta-click data-cta-location="business-hub-form">{site.phone}</a><p class="form-section__phone-note">W rozmowie skupimy się na zakresie i warunkach, nie na ogólnych deklaracjach.</p></div>
-        <LeadForm formId="business-hub-form" serviceType="Zapytanie B2B" variant="firma" presentation="page" context="business" formLocation="/dla-firm/" placeholder="Co, dokąd i w jakim terminie trzeba przenieść?" submitLabel="Wyślij zapytanie B2B" />
+        <div class="form-section__phone-card"><p class="section-heading__label">Kontakt dla firm</p><h3>Porozmawiaj z zespołem WHM</h3><a href={`tel:${site.phoneRaw}`} data-cta-click data-cta-location="business-hub-form">{site.phone}</a><p class="form-section__phone-note">Zadzwoń - omówimy zakres i zaproponujemy rozwiązanie.</p></div>
+        <LeadForm formId="business-hub-form" serviceType="Zapytanie B2B" variant="firma" presentation="page" context="business" formLocation="/dla-firm/" placeholder="Czego dotyczy zlecenie? Jaka jest skala? Na kiedy planujesz?" submitLabel="Wyślij zapytanie" />
       </div>
     </div>
   </section>
+
+  <section class="section section--alt">
+    <div class="container" style="text-align:center;">
+      <SectionHeading title="Wolisz porozmawiać?" description="Zadzwoń - omówimy zakres i zaproponujemy rozwiązanie." />
+      <a class="btn btn--primary" href="#kontakt-b2b">Zapytaj o wycenę</a>
+    </div>
+  </section>
+
   <MobileStickyCta formHref="#kontakt-b2b" />
 </Layout>

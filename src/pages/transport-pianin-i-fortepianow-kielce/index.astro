@@ -97,7 +97,7 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
 
   <section id="formularz" class="form-section" aria-label="Formularz wyceny transportu instrumentu">
     <div class="container">
-      <SectionHeading title="Opisz instrument i drogę transportu" description="Podaj typ instrumentu, lokalizacje, piętra i dostęp do budynków. Zdjęcia możesz dosłać po zgłoszeniu." />
+      <SectionHeading title="Opisz swój instrument i trasę" description="Podaj typ instrumentu, piętro, adres odbioru i dostawy - przygotujemy wycenę." />
       <div class="form-section__grid">
         <div class="form-section__phone-card">
           <p class="section-heading__label">Ocena przed realizacją</p>
@@ -105,7 +105,7 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
           <a href={`tel:${site.phoneRaw}`} data-cta-click data-cta-location="piano-form">{site.phone}</a>
           <p class="form-section__phone-note">Najpierw oceniamy instrument, trasę przenoszenia i potrzebne zabezpieczenia.</p>
         </div>
-        <LeadForm formId="piano-service-form" serviceType="Transport pianina lub fortepianu" presentation="page" context="consumer" formLocation="/transport-pianin-i-fortepianow-kielce/" placeholder="Jaki instrument i jakie warunki dostępu?" />
+        <LeadForm formId="piano-service-form" serviceType="Transport pianina lub fortepianu" presentation="page" context="consumer" formLocation="/transport-pianin-i-fortepianow-kielce/" placeholder="Jaki to instrument? Na którym piętrze? Czy jest winda?" submitLabel="Wyślij zapytanie" />
       </div>
     </div>
   </section>
@@ -134,7 +134,7 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
         <h2 class="final-cta__heading">{page.finalCta.heading}</h2>
         <p class="final-cta__text">{page.finalCta.text}</p>
         <div class="final-cta__actions">
-          <a href="/kontakt/#formularz" class="btn btn--primary btn--lg" data-cta-click data-cta-location="piano-final">{page.finalCta.ctaLabel}</a>
+          <a href="#formularz" class="btn btn--primary btn--lg" data-cta-click data-cta-location="piano-final">{page.finalCta.ctaLabel}</a>
           <a href={`tel:${site.phoneRaw}`} class="btn btn--secondary btn--lg" data-cta-click data-cta-location="piano-final">Zadzwoń: 720 719 022</a>
         </div>
         <p class="final-cta__hours">Pn–Pt: {site.hours.weekdays} &middot; Sob: {site.hours.saturday}</p>

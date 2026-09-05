@@ -45,8 +45,8 @@ export const transportMebliPage: ConsolidatedServicePage = {
   title: 'Transport mebli Kielce z wniesieniem i montażem | WHM',
   description: 'Transport mebli w Kielcach z zabezpieczeniem, wyniesieniem, wniesieniem oraz uzgodnionym demontażem i ponownym montażem przez jeden zespół.',
   eyebrow: 'Transport mebli • Kielce i województwo świętokrzyskie',
-  heading: 'Transport mebli w Kielcach - od odbioru do ustawienia',
-  lead: 'Kanapa, szafa, stół lub większy zestaw - zabezpieczamy, wynosimy, przewozimy i wnosimy. Gdy droga tego wymaga, uzgadniamy demontaż i ponowny montaż.',
+  heading: 'Transport mebli',
+  lead: 'Zabezpieczamy meble, wynosimy je z mieszkania i dostarczamy pod wskazany adres. Działamy na terenie Kielc i całej Polski.',
   heroImage: '/images/transport-mebli/transport-mebli-kielce-1.webp',
   heroAlt: 'Zabezpieczony mebel przygotowany do transportu przez zespół WHM',
   intro: {
@@ -106,11 +106,10 @@ export const transportMebliPage: ConsolidatedServicePage = {
   ],
   testimonialAuthors: ['Zbigniew Pakuła', 'Wiola'],
   faq: [
-    { question: 'Czy WHM przewozi pojedyncze meble?', answer: 'Tak. Możemy przewieźć pojedynczą kanapę, szafę, stół, komodę lub inny mebel, jeśli warunki umożliwiają bezpieczną realizację.' },
-    { question: 'Czy usługa obejmuje wyniesienie i wniesienie?', answer: 'Tak. Zakres ustalamy po poznaniu pięter, wind, schodów, możliwości podjazdu i miejsca docelowego.' },
-    { question: 'Czy możecie zdemontować mebel?', answer: 'Tak, jeżeli demontaż zostanie uzgodniony i konstrukcja mebla na to pozwala. Możemy również wykonać ponowny montaż w ustalonym zakresie.' },
-    { question: 'Czy odbieracie meble ze sklepu lub od osoby prywatnej?', answer: 'Tak. Odbieramy meble ze wskazanego adresu i dostarczamy je do uzgodnionego miejsca wraz z ustalonym wyniesieniem i wniesieniem.' },
-    { question: 'Od czego zależy cena transportu mebli?', answer: 'Od liczby, wymiarów i masy mebli, odległości, pięter, wind, podjazdu, zabezpieczeń oraz zakresu demontażu, wyniesienia i wniesienia.' },
+    { question: 'Czy demontujecie meble przed transportem?', answer: 'Tak - rozkładamy szafy, łóżka, stoły i regały. Na miejscu składamy je z powrotem.' },
+    { question: 'Jak zabezpieczacie meble?', answer: 'Koce ochronne, folia stretch, narożniki kartonowe. Każdy mebel zabezpieczamy osobno, zanim trafi na auto.' },
+    { question: 'Czy transportujecie pojedyncze meble?', answer: 'Tak. Przewozimy zarówno całe mieszkania, jak i pojedyncze szafy, kanapy czy biurka.' },
+    { question: 'Ile kosztuje transport mebli?', answer: 'Cena zależy od ilości mebli, piętra i odległości. Podajemy kwotę po poznaniu szczegółów.' },
   ],
   related: [
     { label: 'Przeprowadzki mieszkań i domów', href: '/przeprowadzki/', text: 'Pełny proces przeprowadzki pod opieką jednego zespołu.' },
@@ -120,11 +119,11 @@ export const transportMebliPage: ConsolidatedServicePage = {
   form: {
     id: 'transport-mebli-form',
     serviceType: 'Transport mebli',
-    placeholder: 'Jakie meble trzeba przewieźć? Podaj adresy, piętra i dostęp do windy.',
+    placeholder: 'Jakie meble? Na którym piętrze? Skąd i dokąd?',
   },
   finalCta: {
-    heading: 'Opisz mebel i drogę w obu lokalizacjach',
-    text: 'Zadzwoń lub zostaw kontakt. Zdjęcia możesz dosłać po zgłoszeniu SMS-em albo e-mailem.',
+    heading: 'Wolisz porozmawiać?',
+    text: 'Zadzwoń - odpowiemy na pytania i umówimy termin.',
   },
 };
 
@@ -133,8 +132,8 @@ export const oproznianiePage: ConsolidatedServicePage = {
   title: 'Opróżnianie mieszkań i wywóz mebli Kielce | WHM',
   description: 'Opróżnianie mieszkań w Kielcach: wyniesienie i wywóz uzgodnionych starych mebli oraz wyposażenia do PSZOK. Bez gruzu i odpadów budowlanych.',
   eyebrow: 'Opróżnianie mieszkań • Kielce i okolice',
-  heading: 'Opróżnianie mieszkań i wywóz starych mebli w Kielcach',
-  lead: 'Wynosimy uzgodnione meble i wyposażenie, ładujemy je i przewozimy do PSZOK. Przed terminem jasno potwierdzamy zakres oraz rzeczy, których usługa nie obejmuje.',
+  heading: 'Opróżnianie mieszkań i lokali',
+  lead: 'Wywozimy meble, sprzęt i pozostałości po remoncie. To, co nadaje się do ponownego użytku, przekazujemy dalej - resztę utylizujemy.',
   heroImage: '/images/kielce-moving/przeprowadzki-kielce-5.webp',
   heroAlt: 'Zespół WHM podczas wynoszenia wyposażenia z mieszkania',
   intro: {
@@ -186,11 +185,10 @@ export const oproznianiePage: ConsolidatedServicePage = {
     items: ['Gruz', 'Złom', 'Odpady budowlane i poremontowe', 'Azbest i chemikalia', 'Odpady niebezpieczne', 'Nieuzgodnione odpady zmieszane'],
   },
   faq: [
-    { question: 'Czy WHM może wywieźć pojedynczą kanapę?', answer: 'Tak. Podaj lokalizację, piętro, windę i prześlij zdjęcie przedmiotu.' },
-    { question: 'Czy opróżniacie całe mieszkania?', answer: 'Tak. Możemy opróżnić wybrane pomieszczenie albo całe mieszkanie z uzgodnionych mebli i wyposażenia.' },
-    { question: 'Czy wywozicie gruz albo złom?', answer: 'Nie. Usługa nie obejmuje gruzu, złomu ani odpadów budowlanych i poremontowych.' },
-    { question: 'Co dzieje się z odebranymi meblami?', answer: 'Przewozimy je do PSZOK. Możliwość przyjęcia i potrzebne informacje potwierdzamy po poznaniu zakresu.' },
-    { question: 'Czy trzeba przygotować meble do wyniesienia?', answer: 'Prześlij zdjęcia i opisz stan mebli. Jeżeli potrzebny jest demontaż, uwzględnimy go po wcześniejszym ustaleniu.' },
+    { question: 'Co robicie z rzeczami, które jeszcze się nadają?', answer: 'Przekazujemy je do ponownego użytku - organizacjom charytatywnym lub osobom potrzebującym. Nie wyrzucamy tego, co ma wartość.' },
+    { question: 'Czy opróżniacie też piwnice i strychy?', answer: 'Tak. Opróżniamy mieszkania, piwnice, strychy, garaże i lokale użytkowe.' },
+    { question: 'Ile trwa opróżnianie mieszkania?', answer: 'Standardowe mieszkanie - jeden dzień. Większe lokale lub te z dużą ilością mienia - dwa dni.' },
+    { question: 'Czy sprzątacie po opróżnieniu?', answer: 'Tak, jeśli tego potrzebujesz. Możemy zamieść, odkurzyć i przygotować lokal do przekazania.' },
   ],
   related: [
     { label: 'Transport mebli', href: '/transport-mebli-kielce/', text: 'Gdy mebel ma trafić pod nowy adres, a nie do PSZOK.' },
@@ -200,10 +198,10 @@ export const oproznianiePage: ConsolidatedServicePage = {
   form: {
     id: 'oproznianie-form',
     serviceType: 'Opróżnianie mieszkań i wywóz starych mebli',
-    placeholder: 'Co trzeba wynieść? Podaj lokalizację, piętro, windę i możliwość podjazdu.',
+    placeholder: 'Co opróżniamy? Ile pomieszczeń? Na kiedy?',
   },
   finalCta: {
-    heading: 'Pokaż, co trzeba wynieść',
-    text: 'Zadzwoń lub zostaw kontakt. Zdjęcia pomogą nam potwierdzić zakres i przygotować wycenę.',
+    heading: 'Wolisz porozmawiać?',
+    text: 'Zadzwoń - opowiemy, jak to wygląda i podamy wstępną wycenę.',
   },
 };

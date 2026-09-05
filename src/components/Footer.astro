@@ -12,6 +12,7 @@ const showCookieLink = isProduction && validGtm;
   <div class="container">
     <div class="footer-grid">
       <div class="footer-section">
+        <p class="footer-description">Przeprowadzki, pakowanie, transport specjalistyczny, magazynowanie i opróżnianie. Działamy w Kielcach i na terenie całej Polski.</p>
         <p class="footer-section__title">Kontakt</p>
         <div class="footer-section__list">
           <div class="footer-contact-item">
@@ -29,6 +30,7 @@ const showCookieLink = isProduction && validGtm;
         </div>
         <div style="margin-top: var(--space-4);">
           <p>{site.address.full}</p>
+          <p class="footer-visit-note">Przed wizytą zadzwoń - nie zawsze jesteśmy na miejscu.</p>
         </div>
         <div class="footer-hours">
           <p>Pn–Pt: {site.hours.weekdays}</p>
@@ -91,6 +93,19 @@ const showCookieLink = isProduction && validGtm;
 )}
 
 <style>
+  .footer-description {
+    margin-bottom: var(--space-6, 1.5rem);
+    max-width: 36ch;
+    opacity: 0.85;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .footer-visit-note {
+    margin-top: var(--space-2, 0.5rem);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-style: italic;
+  }
   .footer-cookie-btn {
     background: none;
     border: none;

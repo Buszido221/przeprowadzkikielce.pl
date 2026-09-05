@@ -42,7 +42,7 @@ export const seoPages: SeoPage[] = [
     category: 'main',
     title: 'Przeprowadzki Kielce - mieszkania, firmy, transport mebli | WHM',
     description: 'WHM to firma przeprowadzkowa z Kielc. Przeprowadzki mieszkań i firm, transport mebli, pianin i ciężkich przedmiotów, pakowanie i magazynowanie.',
-    h1: 'Przeprowadzki w Kielcach - powiedz, czego potrzebujesz, a zajmiemy się resztą',
+    h1: 'Ty planujesz nowe miejsce. My zajmiemy się przeprowadzką.',
     robots: 'index, follow',
     ogType: 'website',
     schemaType: 'WebPage',

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getSeo } from '../data/seo';
+import { site } from '../data/site';
 
 const seo = getSeo('/404');
 ---
@@ -8,11 +9,15 @@ const seo = getSeo('/404');
 <Layout seo={seo}>
   <section class="page-skeleton">
     <div class="container" style="text-align: center; padding: 4rem 1rem;">
-      <h1>Nie znaleziono strony</h1>
-      <p class="page-skeleton__desc" style="margin-inline: auto;">
-        Strona, której szukasz, nie istnieje lub została przeniesiona.
+      <h1>Tej strony nie możemy znaleźć</h1>
+      <p class="page-skeleton__desc" style="margin-inline: auto; max-width: 36rem;">
+        Link mógł się zmienić albo adres zawiera literówkę. Wybierz usługę lub skontaktuj się z nami - pomożemy Ci znaleźć właściwe informacje.
       </p>
-      <a href="/" style="font-weight: 600;">Wróć na stronę główną</a>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
+        <a href="/" class="btn btn--primary">Przejdź na stronę główną</a>
+        <a href="/uslugi/" class="btn btn--secondary">Zobacz usługi WHM</a>
+        <a href={`tel:${site.phoneRaw}`} class="btn btn--secondary">Zadzwoń: {site.phone}</a>
+      </div>
     </div>
   </section>
 </Layout>

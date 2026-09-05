@@ -15,8 +15,8 @@ const schemaGraph = buildSchemaGraph({ slug: '/kontakt/', breadcrumbs: [{ name: 
 <Layout seo={seo} schemaGraph={schemaGraph}>
 
   <SubpageHero
-    heading={page.hero.heading}
-    lead={page.hero.lead}
+    heading="Porozmawiajmy o tym, czego potrzebujesz"
+    lead="Opisz zlecenie, zadzwoń lub napisz - odpowiemy najszybciej jak potrafimy."
     breadcrumbs={page.breadcrumbs}
   />
 
@@ -36,7 +36,7 @@ const schemaGraph = buildSchemaGraph({ slug: '/kontakt/', breadcrumbs: [{ name: 
           </div>
           <div class="contact-card__row">
             <span class="contact-card__label">Godziny kontaktu</span>
-            <span class="contact-card__value">Pn–Pt: {page.contact.hoursWeekdays}<br />Sob: {page.contact.hoursSaturday}</span>
+            <span class="contact-card__value">Pn-Pt: {page.contact.hoursWeekdays}<br />Sob: {page.contact.hoursSaturday}</span>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ const schemaGraph = buildSchemaGraph({ slug: '/kontakt/', breadcrumbs: [{ name: 
             <span class="contact-card__label">Wskazówki dojazdu</span>
             <span class="contact-card__value"><a href={page.contact.directionsUrl} target="_blank" rel="noopener noreferrer">Zobacz na mapie</a></span>
           </div>
-          <p class="contact-card__note">{page.contact.visitNote}</p>
+          <p class="contact-card__note">Przed wizytą zadzwoń - nie zawsze jesteśmy na miejscu.</p>
         </div>
 
         <div class="contact-card">
@@ -76,7 +76,7 @@ const schemaGraph = buildSchemaGraph({ slug: '/kontakt/', breadcrumbs: [{ name: 
     <div class="container">
       <div class="split-section">
         <div class="split-section__content">
-          <SectionHeading label="Formularz wyceny" title="Opowiedz nam, czego potrzebujesz" alignment="left" />
+          <SectionHeading label="Formularz wyceny" title="Opisz, czego potrzebujesz" alignment="left" />
 
           <LeadForm
             formId="contact-form"
@@ -86,7 +86,8 @@ const schemaGraph = buildSchemaGraph({ slug: '/kontakt/', breadcrumbs: [{ name: 
             formLocation="/kontakt/"
             submitLabel="Wyślij zapytanie"
             heading=""
-            intro="Zostaw telefon lub e-mail i krótko opisz zlecenie. Wrócimy z pytaniami potrzebnymi do przygotowania wyceny."
+            intro="Podaj szczegóły - odezwiemy się z wyceną lub pytaniami."
+            placeholder="Co chcesz przewieźć albo zabezpieczyć? Na kiedy planujesz? Czy jest coś, o co chcesz dopytać?"
           />
         </div>
 
@@ -103,7 +104,7 @@ const schemaGraph = buildSchemaGraph({ slug: '/kontakt/', breadcrumbs: [{ name: 
             </div>
             <div class="contact-card__row">
               <span class="contact-card__label">Godziny kontaktu</span>
-              <span class="contact-card__value">Pn–Pt: {site.hours.weekdays}<br />Sob: {site.hours.saturday}</span>
+              <span class="contact-card__value">Pn-Pt: {site.hours.weekdays}<br />Sob: {site.hours.saturday}</span>
             </div>
           </div>
         </div>

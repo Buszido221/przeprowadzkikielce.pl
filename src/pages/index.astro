@@ -12,6 +12,7 @@ import {
   introSection,
   servicesSection,
   standardSection,
+  b2bSection,
   featuredRealizations,
   specialTransportSection,
   testimonials,
@@ -19,6 +20,7 @@ import {
   processSection,
   guideSection,
   faqItems,
+  serviceLinks,
   finalCta,
 } from '../data/home';
 ---
@@ -31,7 +33,7 @@ import {
   <link slot="head" rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link slot="head" rel="preload" href="/fonts/manrope-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- HERO -->
+  <!-- 1. HERO -->
   <section class="hero hero--single">
     <div class="hero__bg">
       <SafeImage
@@ -52,14 +54,14 @@ import {
         <p class="hero__lead">{hero.lead}</p>
         <div class="hero__actions">
           <a href={`tel:${site.phoneRaw}`} class="btn btn--primary btn--lg" data-cta-click data-cta-location="home-hero">Zadzwoń: {site.phone}</a>
-          <a href="/kontakt/#formularz" class="btn btn--hero-secondary btn--lg" data-cta-click data-cta-location="home-hero">Poproś o wycenę</a>
+          <a href="/kontakt/#formularz" class="btn btn--hero-secondary btn--lg" data-cta-click data-cta-location="home-hero">Zapytaj o wycenę</a>
         </div>
         <p class="hero__note">{hero.contactNote}</p>
       </div>
     </div>
   </section>
 
-  <!-- TRUST BAR -->
+  <!-- 2. TRUST BAR -->
   <section class="trust-strip">
     <div class="container">
       <div class="trust-strip__grid">
@@ -73,27 +75,66 @@ import {
     </div>
   </section>
 
-  <!-- B2B -->
-  <section class="section home-business">
+  <!-- 3. SERVICES -->
+  <section class="section">
     <div class="container">
-      <div class="split-section split-section--reverse">
-        <div class="split-section__content">
-          <SectionHeading label="Dla firm i instytucji" title="Relokacja zaplanowana tak, aby ograniczyć przestój" description="Bezpłatne oględziny, plan etapów, transport archiwów i sprzętu oraz magazynowanie pomostowe tworzą jeden koordynowany proces." />
-          <ul class="check-list">
-            <li class="check-list__item">firmy, biura i instytucje,</li>
-            <li class="check-list__item">archiwa i setki zamykanych pojemników około 70 l,</li>
-            <li class="check-list__item">serwery, laboratoria i wyposażenie specjalistyczne,</li>
-            <li class="check-list__item">ochrona ubezpieczeniowa do 1 mln zł - warunki potwierdzane dla zlecenia.</li>
-          </ul>
-          <div class="section-cta"><a href="/dla-firm/" class="btn btn--primary" data-cta-click data-cta-location="home-b2b">Zobacz ofertę B2B</a></div>
-        </div>
-        <div class="split-section__media"><SafeImage src="/images/institution-moving/przeprowadzki-instytucji-4.webp" alt="Zespół WHM podczas relokacji instytucji" loading="lazy" decoding="async" class="section-img" displayMode="section" /></div>
+      <SectionHeading
+        label={servicesSection.eyebrow}
+        title={servicesSection.heading}
+        description={servicesSection.intro}
+      />
+      <div class="services-grid">
+        {servicesSection.items.map((item) => (
+          <a href={item.href} class="service-card">
+            <div class="service-card__media">
+              <SafeImage
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">{item.title}</h3>
+              <p class="service-card__desc">{item.desc}</p>
+              <span class="service-card__link">Poznaj usługę</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="section-cta section-cta--center">
+        <a href={servicesSection.cta.href} class="arrow-link">{servicesSection.cta.label}</a>
       </div>
     </div>
   </section>
 
-  <!-- INTRO -->
-  <section class="section section--alt">
+  <!-- 4. TESTIMONIALS -->
+  {testimonials.length > 0 && (
+    <section class="section section--alt testimonials-static">
+      <div class="container">
+        <SectionHeading label="Opinie klientów" title="Spokojna przeprowadzka zaczyna się od zaufania" description="Klienci opisują nie tylko transport, ale też sposób, w jaki zajmujemy się nimi i ich rzeczami." />
+        <div class="testimonials-static__grid">
+          {testimonials.map((t) => (
+            <div class="testimonial-static">
+              <blockquote class="testimonial-static__text">{t.text}</blockquote>
+              <p class="testimonial-static__author">
+                {t.author}
+                {t.source && <span class="testimonial-static__source"> · {t.source}</span>}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div class="section-cta section-cta--center" style="margin-top: var(--space-6);">
+          <a href="https://maps.app.goo.gl/G3BqHNabtfWtzAhk7" target="_blank" rel="noopener noreferrer" class="arrow-link">
+            Zobacz opinie w Google
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 5. INTRO / HOW WE HELP -->
+  <section class="section">
     <div class="container">
       <div class="split-section">
         <div class="split-section__content">
@@ -125,40 +166,7 @@ import {
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section">
-    <div class="container">
-      <SectionHeading
-        label={servicesSection.eyebrow}
-        title={servicesSection.heading}
-        description={servicesSection.intro}
-      />
-      <div class="services-grid">
-        {servicesSection.items.map((item) => (
-          <a href={item.href} class="service-card">
-            <div class="service-card__media">
-              <SafeImage
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="service-card__body">
-              <h3 class="service-card__title">{item.title}</h3>
-              <p class="service-card__desc">{item.desc}</p>
-              <span class="service-card__link">Dowiedz się więcej</span>
-            </div>
-          </a>
-        ))}
-      </div>
-      <div class="section-cta section-cta--center">
-        <a href={servicesSection.cta.href} class="arrow-link">{servicesSection.cta.label}</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- STANDARD WHM -->
+  <!-- 6. STANDARD WHM -->
   <section class="section section--alt">
     <div class="container">
       <SectionHeading
@@ -185,19 +193,37 @@ import {
     </div>
   </section>
 
-  <!-- FEATURED REALIZATIONS -->
+  <!-- 7. B2B -->
   <section class="section">
     <div class="container">
+      <div class="split-section split-section--reverse">
+        <div class="split-section__content">
+          <SectionHeading label={b2bSection.eyebrow} title={b2bSection.heading} description={b2bSection.text} />
+          <ul class="check-list">
+            {b2bSection.points.map((point) => (
+              <li class="check-list__item">{point}</li>
+            ))}
+          </ul>
+          <div class="section-cta"><a href={b2bSection.cta.href} class="btn btn--primary" data-cta-click data-cta-location="home-b2b">{b2bSection.cta.label}</a></div>
+        </div>
+        <div class="split-section__media"><SafeImage src={b2bSection.image} alt="Zespół WHM podczas relokacji instytucji" loading="lazy" decoding="async" class="section-img" displayMode="section" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FEATURED REALIZATIONS -->
+  <section class="section section--alt">
+    <div class="container">
       <SectionHeading
-        label="Prawdziwe realizacje"
-        title="Nie pokazujemy zdjęć stockowych. Pokazujemy swoją pracę."
-        description="Każde zdjęcie na stronie pochodzi z naszych realizacji. Zobaczysz prawdziwy sprzęt, prawdziwe zabezpieczenia i efekty prawdziwej pracy."
+        label="Realizacje"
+        title="Za naszym doświadczeniem stoją konkretne realizacje"
+        description="Od przeprowadzek domowych po instytucje, w których znaczenie ma każdy etap. Zobacz, jakie zadania powierzono WHM i jak je wykonaliśmy."
       />
       <div class="featured-realizations">
         {featuredRealizations.map((real) => (
           <a class="featured-realization" href={real.href}>
             <div class="featured-realization__media">
-              <SafeImage src={real.image} alt="Zdjęcie z realizacji WHM Przeprowadzki" loading="lazy" decoding="async" />
+              <SafeImage src={real.image} alt={real.title} loading="lazy" decoding="async" />
             </div>
             <div class="featured-realization__body">
               <span class="featured-realization__label">{real.label}</span>
@@ -206,23 +232,20 @@ import {
               <ul class="featured-realization__params">
                 {real.params.map((param) => <li>{param}</li>)}
               </ul>
-              <div class="featured-realization__challenge">
-                <p><strong>Wyzwanie:</strong> {real.challenge}</p>
-                <p><strong>Rezultat:</strong> {real.result}</p>
-              </div>
-              <span class="arrow-link">Poznaj przebieg realizacji</span>
+              <p class="featured-realization__desc">{real.desc}</p>
+              <span class="arrow-link">Zobacz realizację</span>
             </div>
           </a>
         ))}
       </div>
       <div class="section-cta section-cta--center">
-        <a href="/realizacje/" class="arrow-link">Zobacz wszystkie realizacje</a>
+        <a href="/realizacje/" class="arrow-link">Poznaj pozostałe realizacje</a>
       </div>
     </div>
   </section>
 
-  <!-- SPECIAL TRANSPORT -->
-  <section class="section section--alt">
+  <!-- 9. SPECIAL TRANSPORT -->
+  <section class="section">
     <div class="container">
       <SectionHeading
         label={specialTransportSection.eyebrow}
@@ -234,9 +257,6 @@ import {
           <li class="tag-list__item">{cat}</li>
         ))}
       </ul>
-      <div class="notice-box">
-        <p>{specialTransportSection.notice}</p>
-      </div>
       <div class="section-cta" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
         <a href={specialTransportSection.cta.href} class="btn btn--primary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.cta.label}</a>
         <a href={specialTransportSection.ctaSecondary.href} class="btn btn--secondary" data-cta-click data-cta-location="home-special-transport">{specialTransportSection.ctaSecondary.label}</a>
@@ -270,33 +290,7 @@ import {
     </div>
   </section>
 
-  <!-- TESTIMONIALS (static) -->
-  {testimonials.length > 0 && (
-    <section class="section testimonials-static">
-      <div class="container">
-        <SectionHeading label="Opinie klientów" title="Sprawdź, co mówią o nas klienci." />
-        <div class="testimonials-static__grid">
-          {testimonials.map((t) => (
-            <div class="testimonial-static">
-              <blockquote class="testimonial-static__text">{t.text}</blockquote>
-              <figcaption class="testimonial-static__author">- {t.author}{t.source ? `, ${t.source}` : ''}</figcaption>
-              <p class="testimonial-static__author">
-                {t.author}
-                {t.source && <span class="testimonial-static__source"> · {t.source}</span>}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div class="section-cta section-cta--center" style="margin-top: var(--space-6);">
-          <a href="https://maps.app.goo.gl/G3BqHNabtfWtzAhk7" target="_blank" rel="noopener noreferrer" class="arrow-link">
-            Zobacz wszystkie opinie na Google
-          </a>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ECOSYSTEM -->
+  <!-- 10. ECOSYSTEM -->
   <section class="section section--alt">
     <div class="container">
       <SectionHeading
@@ -342,7 +336,7 @@ import {
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- 11. PROCESS -->
   <section class="section">
     <div class="container">
       <SectionHeading
@@ -366,7 +360,7 @@ import {
     </div>
   </section>
 
-  <!-- GUIDE -->
+  <!-- 12. GUIDE -->
   <section class="section section--alt">
     <div class="container">
       <div class="split-section">
@@ -394,12 +388,12 @@ import {
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- 13. FAQ -->
   <section class="section">
     <div class="container">
       <SectionHeading
         label="Najczęstsze pytania"
-        title="Odpowiedzi na pytania, które słyszymy najczęściej."
+        title="Odpowiedzi na pytania, które słyszymy najczęściej"
       />
       <div class="faq-list">
         {faqItems.map((item) => (
@@ -414,26 +408,19 @@ import {
     </div>
   </section>
 
-  <!-- QUICK VALUATION HUB -->
+  <!-- 14. SERVICE LINKS -->
   <section class="section section--sm">
     <div class="container">
-      <SectionHeading label="Szybka wycena" title="Wyceń konkretną usługę" tag="p" />
+      <SectionHeading label="Usługi" title="Znajdź usługę dla siebie" tag="p" />
       <div class="related-links">
-        <a href="/przeprowadzki/" class="arrow-link">Wyceń przeprowadzkę w Kielcach</a>
-        <a href="/przeprowadzki/" class="arrow-link">Sprawdź, co wpływa na cenę przeprowadzki</a>
-        <a href="/przeprowadzki-firm-i-instytucji/" class="arrow-link">Omów relokację firmy</a>
-        <a href="/oproznianie-mieszkan-i-wywoz-mebli/" class="arrow-link">Wyceń wywóz starych mebli</a>
-        <a href="/transport-pianin-i-fortepianow-kielce/" class="arrow-link">Wyceń transport pianina</a>
-        <a href="/transport-specjalistyczny/" class="arrow-link">Wyceń transport specjalistyczny</a>
-        <a href="/transport-specjalistyczny/" class="arrow-link">Wyceń transport gabarytowy</a>
-        <a href="/przeprowadzki/" class="arrow-link">Wyceń transport lodówki</a>
-        <a href="/przeprowadzki/" class="arrow-link">Wyceń transport AGD</a>
-        <a href="/pakowanie-i-zabezpieczanie/" class="arrow-link">Zamów pakowanie do przeprowadzki</a>
+        {serviceLinks.map((link) => (
+          <a href={link.href} class="arrow-link">{link.label}</a>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- 15. FINAL CTA -->
   <section class="final-cta">
     <div class="container">
       <div class="final-cta__inner">
@@ -441,11 +428,11 @@ import {
         <p class="final-cta__text">{finalCta.text}</p>
         <div class="final-cta__actions">
           <a href={`tel:${site.phoneRaw}`} class="btn btn--primary btn--lg" data-cta-click data-cta-location="home-final">Zadzwoń: {site.phone}</a>
-          <a href="/kontakt/#formularz" class="btn btn--secondary btn--lg" data-cta-click data-cta-location="home-final">Poproś o wycenę</a>
+          <a href="/kontakt/#formularz" class="btn btn--secondary btn--lg" data-cta-click data-cta-location="home-final">Zapytaj o wycenę</a>
           <a href={`sms:${site.phoneRaw}`} class="btn btn--secondary btn--lg" data-cta-click data-cta-location="home-final">Wyślij SMS</a>
         </div>
         <p class="final-cta__hours">
-          Pn–Pt: {site.hours.weekdays} · Sob: {site.hours.saturday}
+          Pn-Pt: {site.hours.weekdays} · Sob: {site.hours.saturday}
         </p>
       </div>
     </div>

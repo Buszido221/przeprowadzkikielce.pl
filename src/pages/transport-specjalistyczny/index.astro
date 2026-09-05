@@ -24,7 +24,7 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
     ctaLabel={`Zadzwoń: ${site.phone}`}
     ctaHref={`tel:${site.phoneRaw}`}
     ctaSecondaryLabel="Opisz transport"
-    ctaSecondaryHref="#formularz"
+    ctaSecondaryHref="/kontakt/#formularz"
     note={page.hero.note}
     heroImage={page.hero.image}
   />
@@ -110,21 +110,6 @@ const faqSchema = buildFaqSchema(page.faq.map((q) => ({ question: q.question, an
             </div>
           </div>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="formularz" class="form-section" aria-label="Formularz wyceny transportu specjalistycznego">
-    <div class="container">
-      <SectionHeading title="Opisz przedmiot i warunki dostępu" description="Podaj gabaryty, masę, lokalizacje i utrudnienia. Zdjęcia oraz dokumentację możesz dosłać po zgłoszeniu." />
-      <div class="form-section__grid">
-        <div class="form-section__phone-card">
-          <p class="section-heading__label">Najpierw ocena</p>
-          <h3>Zadzwoń i omów zadanie</h3>
-          <a href={`tel:${site.phoneRaw}`} data-cta-click data-cta-location="specialist-form">{site.phone}</a>
-          <p class="form-section__phone-note">Przy nietypowych zleceniach ustalamy technologię pracy przed potwierdzeniem realizacji.</p>
-        </div>
-        <LeadForm formId="specialist-service-form" serviceType="Transport specjalistyczny" presentation="page" context="consumer" formLocation="/transport-specjalistyczny/" placeholder="Co mamy przetransportować i jakie są warunki dostępu?" />
       </div>
     </div>
   </section>
