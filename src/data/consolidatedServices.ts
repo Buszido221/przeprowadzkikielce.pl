@@ -107,7 +107,7 @@ export const transportMebliPage: ConsolidatedServicePage = {
   testimonialAuthors: ['Zbigniew Pakuła', 'Wiola'],
   faq: [
     { question: 'Czy demontujecie meble przed transportem?', answer: 'Tak - rozkładamy szafy, łóżka, stoły i regały. Na miejscu składamy je z powrotem.' },
-    { question: 'Jak zabezpieczacie meble?', answer: 'Koce ochronne, folia stretch, narożniki kartonowe. Każdy mebel zabezpieczamy osobno, zanim trafi na auto.' },
+    { question: 'Jak zabezpieczacie meble?', answer: 'Koce ochronne, dedykowane pokrowce, narożniki kartonowe. Każdy mebel zabezpieczamy osobno, zanim trafi na auto.' },
     { question: 'Czy transportujecie pojedyncze meble?', answer: 'Tak. Przewozimy zarówno całe mieszkania, jak i pojedyncze szafy, kanapy czy biurka.' },
     { question: 'Ile kosztuje transport mebli?', answer: 'Cena zależy od ilości mebli, piętra i odległości. Podajemy kwotę po poznaniu szczegółów.' },
   ],

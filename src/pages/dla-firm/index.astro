@@ -14,7 +14,7 @@ const route = getRoute('/dla-firm/');
 const services = [
   { title: 'Przeprowadzki biur i instytucji', text: 'Pakowanie dokumentów, demontaż mebli biurowych, transport IT, ustawienie w nowej lokalizacji.' },
   { title: 'Opróżnianie lokali', text: 'Wywóz starych mebli, sprzętu, kartonów. Utylizacja lub przekazanie do ponownego użytku.' },
-  { title: 'Prace porządkowe', text: 'Sprzątanie po remoncie, po przeprowadzce lub przed przekazaniem lokalu.' },
+  { title: 'Magazynowanie', text: 'Krótko- i długoterminowe przechowanie mienia na czas przeprowadzki, remontu lub zmiany lokalu.' },
   { title: 'Zabezpieczenie mienia', text: 'Foliowanie, kartony, palety - jeśli mienie czeka na transport lub przechowanie.' },
 ];
 ---
@@ -23,7 +23,7 @@ const services = [
   <ServiceHero
     eyebrow="WHM dla biznesu i instytucji"
     heading="Obsługa firm i instytucji"
-    lead="Przeprowadzki biur, archiwów, magazynów, hal. Utylizacja wyposażenia, prace porządkowe po remoncie, zabezpieczenie mienia na czas zmiany lokalu."
+    lead="Przeprowadzki biur, archiwów, magazynów, hal. Utylizacja wyposażenia, zabezpieczenie i magazynowanie mienia na czas zmiany lokalu."
     breadcrumbs={[{ label: route.name }]}
     heroImage="/images/office-moving/przeprowadzki-biura-1.webp"
     heroAlt="Zabezpieczone wyposażenie biurowe przygotowane przez zespół WHM"
@@ -33,7 +33,7 @@ const services = [
 
   <section class="section section--alt">
     <div class="container">
-      <SectionHeading label="Usługi dla biznesu" title="Co robimy dla firm?" description="Łączymy kilka usług w jedno zlecenie - dzięki temu nie musisz koordynować osobno transportu, ekipy pakującej i firmy sprzątającej." />
+      <SectionHeading label="Usługi dla biznesu" title="Co robimy dla firm?" description="Łączymy kilka usług w jedno zlecenie - dzięki temu nie musisz koordynować osobno transportu, ekipy pakującej i magazynu." />
       <div class="services-grid services-grid--2col">
         {services.map((item) => (
           <article class="service-card"><div class="service-card__body"><h2 class="service-card__title">{item.title}</h2><p class="service-card__desc">{item.text}</p></div></article>

@@ -471,7 +471,7 @@ export const pianinaPage = {
     },
     {
       question: 'Jak zabezpieczacie instrument?',
-      answer: 'Klawiaturę blokujemy, pedały i nogi demontujemy (jeśli konstrukcja na to pozwala), a cały instrument owijamy kocami i folią stretch. Do transportu używamy pasów z blokadą.',
+      answer: 'Klawiaturę blokujemy, pedały i nogi demontujemy (jeśli konstrukcja na to pozwala), a cały instrument owijamy kocami i dedykowanymi pokrowcami. Do transportu używamy pasów z blokadą.',
     },
     {
       question: 'Czy wniesiecie pianino na piętro bez windy?',
@@ -1238,7 +1238,7 @@ export const oNasPage = {
   breadcrumbs: [{ label: 'O nas' }],
   hero: {
     heading: 'WHM Przeprowadzki - kto za tym stoi',
-    lead: 'Jesteśmy firmą z Kielc. Przeprowadzamy mieszkania, biura i instytucje na terenie całej Polski. Działamy od 2016 roku.',
+    lead: 'Jesteśmy firmą z Kielc. Przeprowadzamy mieszkania, biura i instytucje na terenie całej Polski. Działamy od 2019 roku.',
     image: '/images/hero/hero-1.webp',
   },
   development: {
@@ -1422,7 +1422,7 @@ export const pakowanePage = {
     text: 'Każdy rodzaj mienia wymaga innego sposobu ochrony. Używamy materiałów dobranych do wrażliwości, kształtu i masy przewożonych przedmiotów.',
     items: [
       { name: 'Koce ochronne', desc: 'Grube, wielokrotnego użytku. Chronią meble, sprzęt AGD i powierzchnie drewniane przed zarysowaniami i uderzeniami.' },
-      { name: 'Folia stretch', desc: 'Przylega do powierzchni, nie zostawia śladów. Trzyma drzwi szaf zamknięte, zabezpiecza tapicerkę i szkło.' },
+      { name: 'Dedykowane pokrowce', desc: 'Dopasowane do kształtu mebla. Chronią tapicerkę, szkło i drewno przed zarysowaniami podczas transportu.' },
       { name: 'Kartony', desc: 'Różne rozmiary - od małych na książki po duże na pościel i ubrania. Delikatne przedmioty pakujemy z wypełnieniem.' },
       { name: 'Narożniki kartonowe', desc: 'Chronią krawędzie blatów, szafek i ram. Zakładamy je przed owinięciem folią lub kocami.' },
       { name: 'Taśma i oznaczenia', desc: 'Zamknięte kartony opisujemy - co jest w środku i do którego pomieszczenia trafiają.' },
