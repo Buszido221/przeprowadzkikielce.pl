@@ -461,7 +461,6 @@ export const pianinaPage = {
     items: [
       'Strojenia instrumentu',
       'Naprawy i renowacji',
-      'Magazynowania instrumentów w warunkach specjalistycznych',
     ],
   },
   faq: [
