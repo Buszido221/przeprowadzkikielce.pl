@@ -56,7 +56,7 @@ export const caseStudies: CaseStudy[] = [
         heading: 'Budynek miał zostać opróżniony, a praca instytucji trwała dalej',
         paragraphs: [
           'Do przewiezienia było wyposażenie stanowisk, meble i dokumentacja. Każdy element miał swoje miejsce w organizacji: należał do określonej osoby, pomieszczenia lub części archiwum. Po przeniesieniu musiał trafić tam, gdzie będzie ponownie potrzebny.',
-          'Dlatego przygotowanie obejmowało kolejność prac i poprawne rozdysponowanie mienia w lokalizacji tymczasowej. Sam transport stanowił część większego zadania — udostępnienia wyposażenia w sposób pozwalający kontynuować obowiązki instytucji.',
+          'Dlatego przygotowanie obejmowało kolejność prac i poprawne rozdysponowanie mienia w lokalizacji tymczasowej. Sam transport stanowił część większego zadania - udostępnienia wyposażenia w sposób pozwalający kontynuować obowiązki instytucji.',
         ],
       },
       {

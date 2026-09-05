@@ -1,7 +1,7 @@
 export const hero = {
   eyebrow: 'WHM Przeprowadzki · Kielce i województwo świętokrzyskie',
-  heading: 'Przeprowadzki w Kielcach — powiedz, czego potrzebujesz, a zajmiemy się resztą',
-  lead: 'Przeprowadzka mieszkania, transport mebla, relokacja firmy albo wywóz starego wyposażenia. Zadzwoń lub napisz kilka zdań — pomożemy ustalić zakres i kolejne kroki.',
+  heading: 'Przeprowadzki w Kielcach - powiedz, czego potrzebujesz, a zajmiemy się resztą',
+  lead: 'Przeprowadzka mieszkania, transport mebla, relokacja firmy albo wywóz starego wyposażenia. Zadzwoń lub napisz kilka zdań - pomożemy ustalić zakres i kolejne kroki.',
   contactNote: 'Odpowiadamy zwykle w ciągu 1–2 godzin w godzinach pracy.',
   image: '/images/hero/hero-1.webp',
   imageAlt: 'Samochód WHM Przeprowadzki przy realizacji zlecenia w Kielcach',
@@ -14,14 +14,14 @@ export const trustFacts = [
   },
   {
     title: 'Ochrona do 1 mln zł',
-    desc: 'Ubezpieczenie mienia — zastosowanie i warunki potwierdzamy dla zlecenia.',
+    desc: 'Ubezpieczenie mienia - zastosowanie i warunki potwierdzamy dla zlecenia.',
   },
   {
     title: 'Bezpłatne oględziny',
     desc: 'Przy większym zakresie możemy obejrzeć miejsca przed wyceną.',
   },
   {
-    title: 'Kielce — cała Polska',
+    title: 'Kielce - cała Polska',
     desc: 'Obsługujemy region i realizujemy trasy krajowe.',
   },
 ];
@@ -210,7 +210,7 @@ export const testimonials: Testimonial[] = [
 
 export const ecosystemSection = {
   eyebrow: 'Magazyny i materiały',
-  heading: 'Przeprowadzka, przechowanie i materiały — w jednym miejscu',
+  heading: 'Przeprowadzka, przechowanie i materiały - w jednym miejscu',
   storage: {
     title: 'Magazyny WHM',
     text: 'Ogrzewane boksy od 2 do 9 m² i miejsca paletowe w Masłowie koło Kielc. Możemy odebrać rzeczy i przewieźć je do magazynu.',
@@ -219,7 +219,7 @@ export const ecosystemSection = {
   },
   shop: {
     title: 'WHM Shop',
-    text: 'Kartony, pokrowce, koce i materiały do przeprowadzki — te same, których używamy podczas realizacji. Dostępne dla każdego.',
+    text: 'Kartony, pokrowce, koce i materiały do przeprowadzki - te same, których używamy podczas realizacji. Dostępne dla każdego.',
     cta: { label: 'Przejdź do WHM Shop', href: '/whm-shop/' },
     image: '/images/moving-boxes/kartony-do-przeprowadzki-3.webp',
   },
@@ -286,7 +286,7 @@ export const faqItems = [
   },
   {
     question: 'Jaki jest zasięg WHM?',
-    answer: 'Działamy w Kielcach i województwie świętokrzyskim. Realizujemy też przeprowadzki krajowe — wystarczy opisać trasę.',
+    answer: 'Działamy w Kielcach i województwie świętokrzyskim. Realizujemy też przeprowadzki krajowe - wystarczy opisać trasę.',
   },
 ];
 
