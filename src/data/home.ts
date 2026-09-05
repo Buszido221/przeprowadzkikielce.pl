@@ -1,8 +1,8 @@
 export const hero = {
-  eyebrow: 'WHM Przeprowadzki \u2022 Kielce i województwo świętokrzyskie',
-  heading: 'Firma przeprowadzkowa z Kielc, która odpowiada za cały proces',
-  lead: 'Od zabezpieczenia pierwszego mebla po ustawienie ostatniego kartonu. Zajmiemy się organizacją, pakowaniem, transportem i wniesieniem, aby cała przeprowadzka przebiegła sprawnie, bezpiecznie i zgodnie z planem.',
-  contactNote: 'Zadzwoń, napisz SMS lub wyślij zdjęcia - odezwiemy się szybko.',
+  eyebrow: 'WHM Przeprowadzki · Kielce i województwo świętokrzyskie',
+  heading: 'Przeprowadzki w Kielcach — powiedz, czego potrzebujesz, a zajmiemy się resztą',
+  lead: 'Przeprowadzka mieszkania, transport mebla, relokacja firmy albo wywóz starego wyposażenia. Zadzwoń lub napisz kilka zdań — pomożemy ustalić zakres i kolejne kroki.',
+  contactNote: 'Odpowiadamy zwykle w ciągu 1–2 godzin w godzinach pracy.',
   image: '/images/hero/hero-1.webp',
   imageAlt: 'Samochód WHM Przeprowadzki przy realizacji zlecenia w Kielcach',
 };
@@ -10,112 +10,112 @@ export const hero = {
 export const trustFacts = [
   {
     title: 'Od 2019 roku',
-    desc: 'Rozwijamy system przeprowadzek, transportu i magazynowania.',
+    desc: 'Firma przeprowadzkowa rozwijana w Kielcach i regionie świętokrzyskim.',
   },
   {
     title: 'Ochrona do 1 mln zł',
-    desc: 'Ochrona ubezpieczeniowa mienia - warunki potwierdzane dla zlecenia.',
+    desc: 'Ubezpieczenie mienia — zastosowanie i warunki potwierdzamy dla zlecenia.',
   },
   {
     title: 'Bezpłatne oględziny',
-    desc: 'Przy większych projektach oględziny i plan realizacji bez opłat.',
+    desc: 'Przy większym zakresie możemy obejrzeć miejsca przed wyceną.',
   },
   {
-    title: 'Kielce - cała Polska',
-    desc: 'Działamy w województwie świętokrzyskim i realizujemy trasy krajowe.',
+    title: 'Kielce — cała Polska',
+    desc: 'Obsługujemy region i realizujemy trasy krajowe.',
   },
 ];
 
 export const introSection = {
-  eyebrow: 'Więcej niż przewóz',
-  heading: 'Dobra przeprowadzka zaczyna się od rozmowy, nie od pakowania.',
-  text: 'Zanim przyjadą samochody, poznajemy Twoją sytuację - co przewozisz, dokąd, jakie są warunki dostępu i na czym Ci najbardziej zależy. Dzięki temu w dniu przeprowadzki nie ma niespodzianek, a Ty możesz skupić się na nowym miejscu.',
+  eyebrow: 'Jak pomagamy',
+  heading: 'Zaczynamy od rozmowy, nie od pakowania',
+  text: 'Zanim przyjadą samochody, poznajemy Twoją sytuację. Co zabierasz, dokąd jedziesz, jakie są warunki dostępu i na czym Ci najbardziej zależy. Dzięki temu w dniu przeprowadzki nie ma niespodzianek.',
   points: [
-    'Dokładne poznanie zakresu i warunków',
-    'Plan kolejności prac dostosowany do sytuacji',
-    'Zabezpieczenie dopasowane do Twoich rzeczy',
-    'Transport i ustawienie w nowym miejscu',
+    'Ustalamy zakres i warunki realizacji',
+    'Przygotowujemy plan kolejności prac',
+    'Zabezpieczamy meble i wyposażenie',
+    'Przewozimy i ustawiamy w nowym miejscu',
   ],
-  cta: { label: 'Zobacz, jak pracujemy', href: '/jak-to-dziala/' },
+  cta: { label: 'Zobacz, jak to działa', href: '/jak-to-dziala/' },
   image: '/images/kielce-moving/przeprowadzki-kielce-1.webp',
 };
 
 export const servicesSection = {
-  eyebrow: 'Oferta WHM',
-  heading: 'Jedna firma, cały proces - od początku do końca.',
-  intro: 'Niezależnie od tego, czy przenosisz mieszkanie, firmę czy pojedynczy ciężki przedmiot - dopasujemy zakres do Twojej sytuacji.',
+  eyebrow: 'Usługi WHM',
+  heading: 'Wybierz zakres pomocy dopasowany do Twojej sytuacji',
+  intro: 'Przeprowadzka całego mieszkania, przewóz jednego mebla, pakowanie albo wywóz starych rzeczy. Powiedz, czego potrzebujesz.',
   items: [
     {
       title: 'Przeprowadzki mieszkań i domów',
-      desc: 'Spakujemy, zabezpieczymy, przewieziemy i ustawimy wszystko w nowym miejscu.',
+      desc: 'Zabezpieczenie, pakowanie, transport i ustawienie w nowym miejscu.',
       href: '/przeprowadzki/',
       image: '/images/home-moving/przeprowadzki-domow-kielce-3.webp',
     },
     {
-      title: 'Przeprowadzki firm i biur',
-      desc: 'Przenosimy biura i placówki etapami, żeby Twoja firma mogła działać dalej.',
-      href: '/przeprowadzki-firm-i-instytucji/',
+      title: 'Transport mebli',
+      desc: 'Odbiór, zabezpieczenie, przewóz i wniesienie pojedynczego mebla lub zestawu.',
+      href: '/transport-mebli-kielce/',
       image: '/images/office-moving/przeprowadzki-biura-1.webp',
     },
     {
-      title: 'Transport specjalistyczny',
-      desc: 'Pianina, sejfy, duże urządzenia - bezpiecznie przewieziemy to, czego inni się nie podejmują.',
-      href: '/transport-specjalistyczny/',
+      title: 'Pakowanie i zabezpieczanie',
+      desc: 'Przygotowanie mieszkania, biura lub wybranych rzeczy do przeprowadzki.',
+      href: '/pakowanie-i-zabezpieczanie/',
       image: '/images/transport-gabarytow/transport-gabarytow-kielce-7.webp',
     },
     {
-      title: 'Pakowanie i zabezpieczanie',
-      desc: 'Profesjonalne materiały i doświadczony zespół - Twoje rzeczy dotrą w takim stanie, w jakim nam je powierzysz.',
-      href: '/pakowanie-i-zabezpieczanie/',
+      title: 'Transport specjalistyczny',
+      desc: 'Pianina, sejfy, piece, serwery i inne przedmioty wymagające przygotowania.',
+      href: '/transport-specjalistyczny/',
       image: '/images/packing-services/pakowanie-przeprowadzki-kielce-3.webp',
     },
   ],
-  cta: { label: 'Zobacz pełną ofertę', href: '/uslugi/' },
+  cta: { label: 'Zobacz wszystkie usługi WHM', href: '/uslugi/' },
 };
 
 export const standardSection = {
   eyebrow: 'Standard WHM',
-  heading: 'Bezpieczeństwo Twojego mienia to nie opcja - to nasz standard.',
-  text: 'Każdą przeprowadzkę realizujemy z pełnym zabezpieczeniem. Pokrowce, koce, pasy, wózki i odpowiedni sprzęt - to dla nas norma, nie dodatek.',
+  heading: 'Zabezpieczenie Twoich rzeczy jest częścią każdej przeprowadzki',
+  text: 'Koce, pokrowce, pasy i odpowiedni sprzęt dobieramy do wyposażenia. Ochrona mebli to nasz standard, nie opcja.',
   equipmentModules: [
     {
       name: 'Dedykowane pokrowce',
-      benefit: 'Chronią meble przed rysami i otarciami w trakcie przenoszenia i transportu.',
+      benefit: 'Osłaniają meble przed otarciami podczas przenoszenia i transportu.',
       image: '/images/standard-whm/dedykowane-pokrowce-1.webp',
     },
     {
       name: 'Koce ochronne',
-      benefit: 'Zabezpieczają krawędzie, rogi i delikatne powierzchnie przed uszkodzeniem.',
+      benefit: 'Chronią krawędzie, rogi i delikatne powierzchnie.',
       image: '/images/standard-whm/koce-przeprowadzkowe-1.webp',
     },
     {
       name: 'Pasy i stabilizacja',
-      benefit: 'Stabilizują ładunek w samochodzie, żeby nic nie przesunęło się na trasie.',
+      benefit: 'Utrzymują ładunek w miejscu podczas jazdy.',
       image: '/images/standard-whm/zabezpieczenia-1.webp',
     },
     {
-      name: 'Wózki i przygotowanie do wynoszenia',
-      benefit: 'Pozwalają bezpiecznie podtrzymywać i manewrować ciężkimi przedmiotami podczas przenoszenia.',
+      name: 'Wózki transportowe',
+      benefit: 'Pomagają manewrować ciężkimi przedmiotami.',
       image: '/images/standard-whm/zabezpieczenia-2.webp',
     },
     {
       name: 'Uprzęże i sprzęt',
-      benefit: 'Pozwalają bezpiecznie przenosić ciężkie ładunki po schodach, ograniczając ryzyko uszkodzenia i przeciążenia zespołu.',
+      benefit: 'Wspierają przenoszenie ciężkich ładunków po schodach.',
       image: '/images/transport-gabarytow/transport-gabarytow-kielce-1.webp',
     },
     {
       name: 'Schodołazy',
-      benefit: 'Elektryczne schodołazy pozwalają przenosić duże ładunki po schodach, nawet do około 400 kg.',
+      benefit: 'Elektryczne urządzenia do transportu ciężkich przedmiotów po schodach.',
       image: '/images/transport-gabarytow/transport-gabarytow-kielce-5.webp',
     },
     {
       name: 'Pojemniki',
-      benefit: 'Pojemniki około 70 l z możliwością plombowania - mienie zorganizowane i chronione.',
+      benefit: 'Zamykane pojemniki około 70 l do uporządkowanego pakowania.',
       image: '/images/moving-boxes/pojemniki-przeprowadzkowe-1.webp',
     },
     {
       name: 'Zabudowa samochodów',
-      benefit: 'Samochody z zabudową i suchą przestrzenią ładunkową - mienie jedzie w odpowiednich warunkach.',
+      benefit: 'Sucha i zabezpieczona przestrzeń ładunkowa.',
       image: '/images/standard-whm/sztywna-zabudowa-1.webp',
     },
   ],
@@ -125,21 +125,21 @@ export const standardSection = {
 export const featuredRealizations = [
   {
     label: 'Relokacja instytucji publicznej',
-    title: 'Relokacja Prokuratur Kielce-Wschód i Zachód',
+    title: 'Relokacja kieleckich prokuratur',
     location: 'Kielce',
-    params: ['4 kondygnacje + piwnica', 'Ponad 100 pracowników', 'Ciągłość działania instytucji'],
-    challenge: 'Przenieść wyposażenie instytucji bez przerywania jej pracy.',
-    result: 'Budynek opróżniony, mienie rozdysponowane, praca kontynuowana.',
+    params: ['5 kondygnacji + piwnica z archiwami', 'Ponad 100 pracowników', 'Około 2 miesiące prac'],
+    challenge: 'Pięć kondygnacji oraz piwnica z archiwami. Przeprowadzka wyposażenia ponad stu pracowników prowadzona etapami przez około dwa miesiące.',
+    result: 'Wyposażenie wyniesione, przewiezione i rozdysponowane. Instytucje zachowały ciągłość działania.',
     href: '/realizacje/relokacja-prokuratur-kielce/',
     image: '/images/realizacje/prokuratury-kielce/przeprowadzka-prokuratury-1.webp',
   },
   {
     label: 'Relokacja instytucji kultury',
-    title: 'Relokacja Teatru im. Stefana Żeromskiego',
+    title: 'Powrót Teatru im. Stefana Żeromskiego',
     location: 'Kielce',
-    params: ['Niemal 50 pełnych samochodów', 'Scenografia i kostiumy', 'Dwa fortepiany'],
-    challenge: 'Zebrać rozproszone zasoby z kilku lokalizacji w jednej siedzibie.',
-    result: 'Rozproszone zasoby wróciły do odnowionego historycznego budynku.',
+    params: ['Niemal 50 pełnych transportów', 'Kilka lokalizacji', 'Dwa fortepiany'],
+    challenge: 'Scenografia, kostiumy, technika, biblioteka i dwa fortepiany z kilku lokalizacji do odnowionej siedziby.',
+    result: 'Rozproszone zasoby wróciły do historycznego budynku teatru.',
     href: '/realizacje/relokacja-teatru-zeromskiego-kielce/',
     image: '/images/realizacje/teatr-zeromskiego/relokacja-teatru-2.webp',
   },
@@ -157,8 +157,8 @@ export const featuredRealizations = [
 
 export const specialTransportSection = {
   eyebrow: 'Transport specjalistyczny',
-  heading: 'Masz coś ciężkiego lub nietypowego? Zajmiemy się tym.',
-  text: 'Pianina, sejfy, piece, duże AGD, serwery i wyposażenie laboratoryjne wymagają oceny przed realizacją. Pokaż nam, co i skąd trzeba zabrać, a dobierzemy sposób transportu.',
+  heading: 'Ciężkie i nietypowe przedmioty? WHM zaplanuje ich transport.',
+  text: 'Sejf, piec, pianino czy urządzenie laboratoryjne wymaga przygotowanego zespołu i odpowiedniego sprzętu. Pokaż nam, co trzeba przenieść.',
   categories: [
     'pianina i fortepiany',
     'ciężkie meble',
@@ -169,7 +169,7 @@ export const specialTransportSection = {
     'wyposażenie laboratoryjne',
     'inne nietypowe gabaryty',
   ],
-  notice: 'Każdy nietypowy transport wyceniamy po zapoznaniu się z przedmiotem i drogą transportową.',
+  notice: 'Każdy transport wyceniamy po zapoznaniu się z przedmiotem i drogą.',
   cta: { label: 'Transport specjalistyczny', href: '/transport-specjalistyczny/' },
   ctaSecondary: { label: 'Pianina i fortepiany', href: '/transport-pianin-i-fortepianow-kielce/' },
   images: [
@@ -209,17 +209,17 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const ecosystemSection = {
-  eyebrow: 'Cały ekosystem WHM',
-  heading: 'Przeprowadzka, przechowanie i materiały - wszystko w jednym miejscu.',
+  eyebrow: 'Magazyny i materiały',
+  heading: 'Przeprowadzka, przechowanie i materiały — w jednym miejscu',
   storage: {
     title: 'Magazyny WHM',
-    text: 'Ogrzewane boksy od 2 do 9 m², miejsca paletowe oraz przechowywanie instrumentów. Szczelny, ogrzewany i zabezpieczony obiekt w Masłowie koło Kielc.',
-    cta: { label: 'Poznaj Magazyny WHM', href: '/magazyny-kielce/' },
+    text: 'Ogrzewane boksy od 2 do 9 m² i miejsca paletowe w Masłowie koło Kielc. Możemy odebrać rzeczy i przewieźć je do magazynu.',
+    cta: { label: 'Poznaj magazyny WHM', href: '/magazyny-kielce/' },
     image: '/images/magazyny-kielce/ogrzewany-magazyn-kielce.webp',
   },
   shop: {
     title: 'WHM Shop',
-    text: 'Kartony, pokrowce, koce i materiały zabezpieczające - te same, których sami używamy podczas przeprowadzek. Dostępne dla każdego.',
+    text: 'Kartony, pokrowce, koce i materiały do przeprowadzki — te same, których używamy podczas realizacji. Dostępne dla każdego.',
     cta: { label: 'Przejdź do WHM Shop', href: '/whm-shop/' },
     image: '/images/moving-boxes/kartony-do-przeprowadzki-3.webp',
   },
@@ -228,42 +228,37 @@ export const ecosystemSection = {
 export const processSteps = [
   {
     number: '01',
-    title: 'Opowiedz o przeprowadzce',
-    desc: 'Zadzwoń, napisz SMS lub wypełnij formularz wyceny.',
+    title: 'Opisz sytuację',
+    desc: 'Zadzwoń, napisz SMS lub wypełnij formularz. Powiedz, co przewozisz i dokąd.',
   },
   {
     number: '02',
-    title: 'Przekaż najważniejsze informacje',
-    desc: 'Lokalizacje, termin, co przewozisz, piętra i ewentualne nietypowe przedmioty.',
+    title: 'Ustalmy zakres',
+    desc: 'Dopytamy o szczegóły i przygotujemy wycenę dopasowaną do Twojego zlecenia.',
   },
   {
     number: '03',
-    title: 'Dobierzemy zespół i sprzęt',
-    desc: 'Przygotujemy wycenę dopasowaną do Twojej sytuacji.',
+    title: 'Przygotujemy i przewieziemy',
+    desc: 'Zabezpieczymy meble, spakujemy uzgodnione rzeczy i przewieziemy je pod nowy adres.',
   },
   {
     number: '04',
-    title: 'Realizujemy przeprowadzkę',
-    desc: 'Zabezpieczamy, pakujemy, przewozimy i wnosimy - zgodnie z planem.',
-  },
-  {
-    number: '05',
-    title: 'Ustawiamy na miejscu',
-    desc: 'Montujemy meble, ustawiamy rzeczy i upewniamy się, że wszystko jest w porządku.',
+    title: 'Ustawimy na miejscu',
+    desc: 'Wniesiemy wyposażenie, wykonamy uzgodniony montaż i upewnimy się, że zakres został zrealizowany.',
   },
 ];
 
 export const processSection = {
   eyebrow: 'Jak wygląda współpraca',
-  heading: 'Od pierwszego telefonu do ustawienia ostatniego mebla.',
+  heading: 'Od rozmowy do ustawienia rzeczy w nowym miejscu',
   steps: processSteps,
   cta: { label: 'Sprawdź cały proces', href: '/jak-to-dziala/' },
 };
 
 export const guideSection = {
-  eyebrow: 'Poradniki WHM',
-  heading: 'Przygotuj się do przeprowadzki spokojnie i bez chaosu.',
-  text: 'Praktyczny poradnik pomoże Ci zaplanować przeprowadzkę krok po kroku - od pierwszych przygotowań po dzień transportu.',
+  eyebrow: 'Poradnik WHM',
+  heading: 'Przygotuj przeprowadzkę krok po kroku',
+  text: 'Nie musisz zrobić wszystkiego jednego dnia. Podziel przygotowania na etapy i zacznij od rzeczy używanych najrzadziej.',
   cta: { label: 'Przeczytaj poradnik', href: '/poradniki/' },
   image: '/images/guides/poradnik-jak-przygotowac-sie-do-przeprowadzki.webp',
 };
@@ -271,31 +266,31 @@ export const guideSection = {
 export const faqItems = [
   {
     question: 'Ile kosztuje przeprowadzka?',
-    answer: 'Każdą przeprowadzkę wyceniamy indywidualnie, dzięki czemu płacisz za zakres, którego naprawdę potrzebujesz. Podaj nam podstawowe informacje, a przygotujemy konkretną wycenę.',
+    answer: 'Wyceniamy indywidualnie na podstawie zakresu, trasy i warunków. Opisz sytuację, a przygotujemy konkretną propozycję.',
   },
   {
     question: 'Czy WHM może spakować moje rzeczy?',
-    answer: 'Tak - możemy spakować całe mieszkanie lub tylko wybrane elementy. Materiały dobieramy do rodzaju Twoich rzeczy, żeby dotarły bezpiecznie.',
+    answer: 'Tak. Możesz zlecić pakowanie całego mieszkania lub wybranych rzeczy. Materiały dobieramy do zawartości.',
   },
   {
     question: 'Czy wykonujecie demontaż i montaż mebli?',
-    answer: 'Tak. Wystarczy, że powiesz nam o tym przy wycenie, a uwzględnimy demontaż i ponowny montaż w zakresie prac.',
+    answer: 'Tak. Wskaż meble wymagające rozłożenia przy wycenie, a uwzględnimy to w przygotowaniu.',
   },
   {
-    question: 'Czy przewozicie pianina, sejfy i ciężkie przedmioty?',
-    answer: 'Tak, regularnie przewozimy takie rzeczy. Wyślij nam zdjęcia przedmiotu i drogi transportowej, a ocenimy najlepszy sposób realizacji.',
+    question: 'Czy przewozicie pianina i ciężkie przedmioty?',
+    answer: 'Tak. Prześlij zdjęcia przedmiotu i drogi transportowej, a ocenimy sposób realizacji.',
   },
   {
     question: 'Czy obsługujecie firmy i instytucje?',
-    answer: 'Tak. Przenosimy biura, firmy i instytucje - również etapami, żeby ograniczyć przestoje w pracy organizacji.',
+    answer: 'Tak. Organizujemy relokacje biur i instytucji, również etapowe. Przy większym zakresie zaczynamy od bezpłatnych oględzin.',
   },
   {
-    question: 'Gdzie działa WHM?',
-    answer: 'Działamy w Kielcach i województwie świętokrzyskim. Realizujemy też przeprowadzki międzymiastowe - wystarczy, że opiszesz swoją sytuację.',
+    question: 'Jaki jest zasięg WHM?',
+    answer: 'Działamy w Kielcach i województwie świętokrzyskim. Realizujemy też przeprowadzki krajowe — wystarczy opisać trasę.',
   },
 ];
 
 export const finalCta = {
-  heading: 'Porozmawiajmy o Twojej przeprowadzce.',
-  text: 'Powiedz nam, co i dokąd przewozisz - resztą zajmiemy się my. Jeśli masz zdjęcia lub dodatkowe pytania, chętnie je przyjmiemy.',
+  heading: 'Porozmawiajmy o tym, czego potrzebujesz',
+  text: 'Zadzwoń, napisz SMS lub wypełnij formularz. Odpowiemy na pytania i pomożemy ustalić zakres przeprowadzki.',
 };

@@ -24,9 +24,9 @@ function validateForm(form: HTMLFormElement): { valid: boolean; errorType: strin
     let errorMsg = '';
 
     if (field.type === 'checkbox') {
-      if (!(field as HTMLInputElement).checked) errorMsg = 'Wymagana zgoda';
+      if (!(field as HTMLInputElement).checked) errorMsg = 'Zapoznaj się z polityką prywatności i zaznacz zgodę.';
     } else if (!field.value.trim()) {
-      errorMsg = 'To pole jest wymagane';
+      errorMsg = field.name === 'customer_name' ? 'Podaj imię, żebyśmy wiedzieli, jak się do Ciebie zwracać.' : field.name === 'message' ? 'Opisz krótko, czego potrzebujesz. Wystarczy kilka zdań.' : 'To pole jest wymagane';
     }
 
     if (errorEl) errorEl.textContent = errorMsg;
@@ -48,8 +48,8 @@ function validateForm(form: HTMLFormElement): { valid: boolean; errorType: strin
   const emailError = form.querySelector('[data-error-for="email"]') as HTMLElement;
 
   if (!phoneVal && !emailVal) {
-    if (phoneError) phoneError.textContent = 'Podaj telefon lub e-mail';
-    if (emailError) emailError.textContent = 'Podaj telefon lub e-mail';
+    if (phoneError) phoneError.textContent = 'Podaj telefon lub e-mail, żebyśmy mogli odpowiedzieć.';
+    if (emailError) emailError.textContent = 'Podaj telefon lub e-mail, żebyśmy mogli odpowiedzieć.';
     phoneInput.classList.add('is-error');
     emailInput.classList.add('is-error');
     phoneInput.setAttribute('aria-invalid', 'true');
@@ -59,7 +59,7 @@ function validateForm(form: HTMLFormElement): { valid: boolean; errorType: strin
     valid = false;
   } else {
     if (phoneVal && !validatePhone(phoneVal)) {
-      if (phoneError) phoneError.textContent = 'Nieprawidłowy numer telefonu';
+      if (phoneError) phoneError.textContent = 'Sprawdź numer telefonu.';
       phoneInput.classList.add('is-error');
       phoneInput.setAttribute('aria-invalid', 'true');
       if (!firstError) firstError = phoneInput;
@@ -71,7 +71,7 @@ function validateForm(form: HTMLFormElement): { valid: boolean; errorType: strin
       phoneInput.setAttribute('aria-invalid', 'false');
     }
     if (emailVal && !validateEmail(emailVal)) {
-      if (emailError) emailError.textContent = 'Nieprawidłowy adres e-mail';
+      if (emailError) emailError.textContent = 'Sprawdź adres e-mail.';
       emailInput.classList.add('is-error');
       emailInput.setAttribute('aria-invalid', 'true');
       if (!firstError) firstError = emailInput;
@@ -173,7 +173,7 @@ export function initLeadForms(): void {
       submitted = true;
       submitBtn.disabled = true;
       submitBtn.setAttribute('aria-busy', 'true');
-      submitBtn.textContent = 'Wysyłanie...';
+      submitBtn.textContent = 'Wysyłam…';
       statusEl.textContent = '';
       statusEl.className = 'lead-form__status';
 
@@ -191,13 +191,13 @@ export function initLeadForms(): void {
         const emailjs = (await import('@emailjs/browser')).default;
         await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY);
 
-        statusEl.textContent = 'Dziękujemy. Zgłoszenie zostało wysłane. Skontaktujemy się na podany numer telefonu lub adres e-mail.';
+        statusEl.textContent = 'Dziękujemy. Wiadomość została wysłana. Odezwiemy się na podany numer telefonu lub adres e-mail.';
         statusEl.className = 'lead-form__status is-success';
         submitBtn.textContent = 'Wysłano';
 
         pushEvent('generate_lead', { ...baseParams, lead_id: leadId });
       } catch {
-        statusEl.textContent = 'Nie udało się wysłać zgłoszenia. Zadzwoń pod numer ' + (document.querySelector('[data-phone]')?.getAttribute('data-phone') || '720 719 022') + ' albo spróbuj ponownie za chwilę.';
+        statusEl.textContent = 'Wysyłka nie powiodła się. Zadzwoń pod numer ' + (document.querySelector('[data-phone]')?.getAttribute('data-phone') || '720 719 022') + ' albo spróbuj ponownie za chwilę.';
         statusEl.className = 'lead-form__status is-error';
         submitted = false;
         submitBtn.disabled = false;
