@@ -4,13 +4,27 @@
 
 | Zmienna | Opis | Przykład |
 |---|---|---|
-| `PUBLIC_SITE_ENV` | `production` lub `staging` | `staging` |
-| `PUBLIC_GTM_ID` | Identyfikator Google Tag Manager | `GTM-XXXXXXX` |
+| `PUBLIC_SITE_ENV` | `production` lub `staging` | `production` |
+| `PUBLIC_GTM_ID` | Identyfikator Google Tag Manager | `GTM-5BR37FWX` |
 | `PUBLIC_EMAILJS_SERVICE_ID` | Klucz usługi EmailJS | `service_xxx` |
 | `PUBLIC_EMAILJS_TEMPLATE_ID` | ID szablonu EmailJS | `template_xxx` |
 | `PUBLIC_EMAILJS_PUBLIC_KEY` | Klucz publiczny EmailJS | `xxx` |
 
 Pomiar (GTM, baner zgód, zdarzenia) aktywny wyłącznie gdy jednocześnie `PUBLIC_SITE_ENV=production` i `PUBLIC_GTM_ID` pasuje do wzorca `GTM-[A-Z0-9]+`.
+
+**Uwaga:** Identyfikator GA4 (`G-X0K3ND72TV`) **nie** jest zmienną środowiskową. Nie jest przechowywany w `.env` ani ładowany bezpośrednio przez kod strony. GA4 jest konfigurowany wewnątrz GTM jako Google tag.
+
+## Architektura analityki
+
+Strona instaluje **wyłącznie** Google Tag Manager. Przez GTM są obsługiwane:
+
+- Google Analytics 4 (`G-X0K3ND72TV`);
+- Google Ads;
+- Conversion Linker;
+- Meta Pixel;
+- zdarzenia niestandardowe strony.
+
+Kod strony nie ładuje równolegle GA4 przez `gtag.js`. Nie występuje jednocześnie bezpośredni Google tag GA4 i Google tag GA4 skonfigurowany w GTM. Zapobiega to podwójnemu rejestrowaniu odsłon i zdarzeń.
 
 ## Model zgód (Consent Mode v2 - Basic)
 
@@ -26,16 +40,20 @@ Pomiar (GTM, baner zgód, zdarzenia) aktywny wyłącznie gdy jednocześnie `PUBL
 
 1. Przed jakimkolwiek skryptem GTM: `dataLayer.push` z `consent default` - wszystkie sygnały `denied` poza `security_storage: granted`.
 2. Baner wyświetla się dopiero na produkcji z ustawionym GTM ID.
-3. Użytkownik klika: „Akceptuję wszystkie", „Odrzucam wszystkie" lub konfiguruje w panelu szczegółowym.
-4. Po decyzji: `consent update` z nowymi stanami → jeśli przynajmniej jedna kategoria opcjonalna `granted`, GTM ładowany (idempotentnie, raz).
+3. Użytkownik klika: "Akceptuję wszystkie", "Odrzucam wszystkie" lub konfiguruje w panelu szczegółowym.
+4. Po decyzji: `consent update` z nowymi stanami -> jeśli przynajmniej jedna kategoria opcjonalna `granted`, GTM ładowany (idempotentnie, raz).
 5. Decyzja zapisana w `localStorage` pod kluczem `whm_consent_v3` (wersja 3).
 6. **Każda** zmiana kategorii po załadowaniu GTM: aktualizacja consent + `window.location.reload()`. Pierwsza decyzja (brak GTM w DOM) nigdy nie przeładowuje.
-7. Zmiana zgód z poziomu stopki: przycisk „Ustawienia cookies" → event `whm:open-cookie-settings`.
+7. Zmiana zgód z poziomu stopki: przycisk "Ustawienia cookies" -> event `whm:open-cookie-settings`.
 8. Na stagingu: brak banera, brak GTM, brak zdarzeń, brak linku w stopce.
+
+### Basic Consent Mode a automatyczny tester Google
+
+GTM nie jest pobierany przed decyzją użytkownika. Automatyczny tester Google może nie wykryć tagu przed zaakceptowaniem cookies. Nie próbujemy obchodzić tego przez ładowanie GTM przed zgodą. Test końcowy należy wykonać przez GTM Preview i GA4 DebugView po zaakceptowaniu analityki.
 
 ## Kontrakt zdarzeń
 
-Wszystkie zdarzenia emitowane przez `pushEvent()` (wrapper na `dataLayer.push`) - zwraca `boolean` (`true` = wyemitowano, `false` = zablokowano brakiem zgody). Emitowane wyłącznie gdy przynajmniej jedna kategoria opcjonalna zaakceptowana.
+Wszystkie zdarzenia emitowane przez `pushEvent()` (wrapper na `dataLayer.push`) - zwraca `boolean` (`true` = wyemitowano, `false` = zablokowano brakiem zgody). Emitowane wyłącznie gdy przynajmniej jedna kategoria opcjonalna zaakceptowana. Zdarzenia trafiają wyłącznie do `dataLayer`; kod strony nie wysyła ich bezpośrednio do GA4, Google Ads ani Meta Pixel.
 
 ### Zdarzenia formularza
 
@@ -65,7 +83,7 @@ Wszystkie zdarzenia emitowane przez `pushEvent()` (wrapper na `dataLayer.push`) 
 
 ### Zasady
 
-- Żadne PII (imię, telefon, email) nie trafia do dataLayer.
+- Żadne PII (imię, nazwisko, telefon, email, wiadomość klienta, treść formularza) nie trafia do dataLayer.
 - `cta_target` to ścieżka URL (pathname) bez query string.
 - `form_location` to pathname strony.
 - `link_location` pochodzi z `data-cta-location`, kontekstowego `data-location`, lub domyślnie z pozycji w DOM (header/hero/footer/form/service_body).
@@ -88,9 +106,10 @@ Kod strony **nie** ładuje bezpośrednio GA4, Google Ads ani Meta Pixel. Wszystk
 
 ### GA4
 
-1. Utworzyć property GA4.
-2. W GTM dodać tag GA4 Configuration z triggerem „Consent Initialization - Analytics Consent Granted" (warunek: `analytics_storage = granted`).
-3. Dodać tagi GA4 Event dla zdarzeń: `generate_lead`, `form_start`, `phone_click`, `cta_click`, `scroll_depth`, `engaged_time`.
+1. Otworzyć kontener `GTM-5BR37FWX`.
+2. Utworzyć w nim Google tag z identyfikatorem `G-X0K3ND72TV`.
+3. Skonfigurować tagi zdarzeń GA4 dla zdarzeń: `generate_lead`, `form_start`, `phone_click`, `cta_click`, `scroll_depth`, `engaged_time`.
+4. Skonfigurować wymagane zgody dla tagów (warunek: `analytics_storage = granted`).
 
 ### Google Ads
 
@@ -106,7 +125,7 @@ Kod strony **nie** ładuje bezpośrednio GA4, Google Ads ani Meta Pixel. Wszystk
 
 1. Użyj GTM Preview Mode.
 2. Sprawdź, że tagi uruchamiają się wyłącznie po udzieleniu odpowiedniej zgody.
-3. Zweryfikuj, że po „Odrzucam wszystkie" żadne tagi nie są aktywne.
+3. Zweryfikuj, że po "Odrzucam wszystkie" żadne tagi nie są aktywne.
 4. Sprawdź GA4 DebugView, Google Ads Tag Assistant, Meta Pixel Helper.
 
 ## Zakazy
@@ -115,3 +134,4 @@ Kod strony **nie** ładuje bezpośrednio GA4, Google Ads ani Meta Pixel. Wszystk
 - Żadne `gtag('config', ...)` bezpośrednio w kodzie - wszystko przez GTM.
 - Żaden skrypt pomiarowy poza GTM loader nie jest dodawany ręcznie.
 - Żadne zdarzenie emitowane bez zgody.
+- Identyfikator GA4 nie może być hardcodowany w komponentach strony.

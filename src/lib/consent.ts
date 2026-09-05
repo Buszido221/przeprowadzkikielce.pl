@@ -1,7 +1,6 @@
 const STORAGE_KEY = 'whm_consent_v3';
 const CURRENT_VERSION = 3;
 const GTM_SCRIPT_ATTR = 'data-whm-gtm';
-const GA_SCRIPT_ATTR = 'data-whm-ga';
 
 export type ConsentState = {
   version: 3;
@@ -79,10 +78,6 @@ function isGtmInDom(): boolean {
   return document.querySelector(`script[${GTM_SCRIPT_ATTR}]`) !== null;
 }
 
-function isGaInDom(): boolean {
-  return document.querySelector(`script[${GA_SCRIPT_ATTR}]`) !== null;
-}
-
 function loadGtm(gtmId: string): void {
   if (!gtmId || isGtmInDom()) return;
   const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
@@ -94,24 +89,10 @@ function loadGtm(gtmId: string): void {
   document.head.appendChild(s);
 }
 
-function loadGa(measurementId: string): void {
-  if (!measurementId || isGaInDom()) return;
-  const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
-  function gtag(..._args: any[]) { dl.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', measurementId, { send_page_view: true });
-  const s = document.createElement('script');
-  s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
-  s.setAttribute(GA_SCRIPT_ATTR, '');
-  document.head.appendChild(s);
-}
-
 export function applyConsent(
   analytics: boolean,
   marketing: boolean,
   gtmId: string,
-  gaMeasurementId?: string,
 ): ConsentState {
   const prev = getSavedConsent();
   const state = makeState(analytics, marketing);
@@ -124,13 +105,9 @@ export function applyConsent(
   }
 
   const gtmAlreadyLoaded = isGtmInDom();
-  const gaAlreadyLoaded = isGaInDom();
 
   if (!gtmAlreadyLoaded && (analytics || marketing) && gtmId) {
     loadGtm(gtmId);
-  }
-  if (!gaAlreadyLoaded && analytics && gaMeasurementId) {
-    loadGa(gaMeasurementId);
   }
 
   window.dispatchEvent(new CustomEvent('whm:consent-changed', { detail: state }));
@@ -138,14 +115,14 @@ export function applyConsent(
   const changed = prev !== null && (
     prev.analytics !== analytics || prev.marketing !== marketing
   );
-  if (changed && (gtmAlreadyLoaded || gaAlreadyLoaded)) {
+  if (changed && gtmAlreadyLoaded) {
     window.location.reload();
   }
 
   return state;
 }
 
-export function restoreConsent(gtmId: string, gaMeasurementId?: string): void {
+export function restoreConsent(gtmId: string): void {
   const saved = getSavedConsent();
   if (!saved) return;
   memoryState = saved;
@@ -153,17 +130,10 @@ export function restoreConsent(gtmId: string, gaMeasurementId?: string): void {
   if (saved.analytics || saved.marketing) {
     if (gtmId) loadGtm(gtmId);
   }
-  if (saved.analytics && gaMeasurementId) {
-    loadGa(gaMeasurementId);
-  }
 }
 
 export function isGtmLoaded(): boolean {
   return isGtmInDom();
-}
-
-export function isGaLoaded(): boolean {
-  return isGaInDom();
 }
 
 export function pushEvent(

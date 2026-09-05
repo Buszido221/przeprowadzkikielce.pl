@@ -1,6 +1,6 @@
 # Checklista kontrolowanego uruchomienia produkcyjnego
 
-Aktualizacja: 2 września 2026
+Aktualizacja: 5 września 2026
 
 Repozytorium pozostaje stagingiem do osobnej akceptacji. Kod i materiały zostały zweryfikowane lokalnie; operacji na hostingu i kontach zewnętrznych nie wykonano.
 
@@ -11,20 +11,20 @@ Repozytorium pozostaje stagingiem do osobnej akceptacji. Kod i materiały zosta�
 
 ```text
 PUBLIC_SITE_ENV=production
-PUBLIC_GTM_ID=GTM-XXXXXXXX
+PUBLIC_GTM_ID=GTM-5BR37FWX
 PUBLIC_EMAILJS_SERVICE_ID=...
 PUBLIC_EMAILJS_TEMPLATE_ID=...
 PUBLIC_EMAILJS_PUBLIC_KEY=...
 ```
 
-Identyfikatory GA4, Google Ads i Meta należy skonfigurować wewnątrz GTM. Sekrety nie mogą trafić do repozytorium ani zmiennych `PUBLIC_*`.
+Identyfikator GA4 (`G-X0K3ND72TV`), Google Ads i Meta należy skonfigurować wewnątrz kontenera GTM `GTM-5BR37FWX`. Sekrety nie mogą trafić do repozytorium ani zmiennych `PUBLIC_*`. Identyfikator GA4 nie jest zmienną środowiskową.
 
 ## 2. Test przed wdrożeniem
 
 1. Uruchomić `npm run build` w trybie staging i `npm run verify:site`.
 2. Zbudować lokalnie z kompletem testowych zmiennych produkcyjnych i ponownie uruchomić `npm run verify:site`.
 3. Potwierdzić właściwe robots: staging zawsze `noindex, nofollow, noarchive`; produkcja `index, follow` poza polityką prywatności i 404.
-4. W podglądzie GTM i DebugView sprawdzić domyślne sygnały zgody `denied`, zmianę po decyzji użytkownika, nazwy zdarzeń i brak PII.
+4. W podglądzie GTM Preview i GA4 DebugView sprawdzić domyślne sygnały zgody `denied`, zmianę po decyzji użytkownika, nazwy zdarzeń i brak PII.
 5. Z rzeczywistą konfiguracją EmailJS wysłać po jednym zatwierdzonym leadzie testowym B2C i B2B.
 6. Potwierdzić odbiór, polskie znaki, kontekst formularza, atrybucję kampanii i brak PII w analityce.
 
@@ -43,7 +43,7 @@ Identyfikatory GA4, Google Ads i Meta należy skonfigurować wewnątrz GTM. Sekr
 - [ ] Formularze B2C i B2B wysyłają jedno zgłoszenie i pokazują komunikat sukcesu.
 - [ ] Zdjęcia, menu mobilne, fokus, FAQ i kotwice działają na 390 px i desktopie.
 - [ ] Produkcja nie ma `noindex` na trasach przeznaczonych do indeksacji.
-- [ ] GA4, Ads i Meta uruchamiają się zgodnie z konfiguracją zgód i nie otrzymują PII.
+- [ ] GTM uruchamia się po zgodzie; GA4, Ads i Meta uruchamiają się zgodnie z konfiguracją zgód i nie otrzymują PII.
 - [ ] Sitemap została przesłana, a Search Console nie zgłasza nowej serii błędów 404.
 
 Szczegóły kampanii i konfiguracji tagów: `docs/MEASUREMENT_AND_ADS_HANDOFF.md`.

@@ -1,6 +1,6 @@
 # Raport wdrożenia analityki - WHM Przeprowadzki
 
-Data: 2026-09-04 (ostatni szlif: 2026-09-04)
+Data: 2026-09-05 (ostatni szlif: 2026-09-05)
 
 ## 1. Model zgód
 
@@ -10,7 +10,15 @@ Data: 2026-09-04 (ostatni szlif: 2026-09-04)
 - Klucz przechowywania: `whm_consent_v3` w `localStorage` z fallback do pamięci (in-memory).
 - Wersjonowanie: wersja 3 - starsze klucze (v2 i starsze) ignorowane, baner pojawia się ponownie.
 
-## 2. Ładowanie GTM
+## 2. Architektura analityki
+
+- Strona instaluje **wyłącznie** Google Tag Manager. Produkcyjny kontener to `GTM-5BR37FWX`.
+- GA4 (`G-X0K3ND72TV`), Google Ads, Conversion Linker, Meta Pixel oraz zdarzenia niestandardowe są konfigurowane **wewnątrz GTM**, nie w kodzie strony.
+- Identyfikator GA4 **nie** jest przechowywany w zmiennych środowiskowych ani ładowany bezpośrednio przez kod strony.
+- Kod strony nie ładuje `gtag.js` ani nie wywołuje `gtag('config', ...)`. Zapobiega to podwójnemu rejestrowaniu odsłon i zdarzeń.
+- Usunięto komponent `GoogleTag.astro` oraz wszystkie odwołania do `PUBLIC_GA_MEASUREMENT_ID` i `__WHM_GA_ID`.
+
+## 3. Ładowanie GTM
 
 - GTM ładowany **wyłącznie** po udzieleniu przynajmniej jednej zgody opcjonalnej.
 - `gtm.start` pushowany do `dataLayer` **PRZED** `appendChild` skryptu.
@@ -18,26 +26,27 @@ Data: 2026-09-04 (ostatni szlif: 2026-09-04)
 - Noscript iframe GTM **usunięty** - omijał model zgód.
 - Na stagingu lub bez `PUBLIC_GTM_ID`: zerowy output.
 
-## 3. Reload przy zmianie kategorii
+## 4. Reload przy zmianie kategorii
 
 - **Każda** zmiana kategorii po załadowaniu GTM (`document.querySelector('script[data-whm-gtm]')`) powoduje `window.location.reload()`.
 - Pierwsza decyzja (brak GTM w DOM) **nigdy** nie przeładowuje.
 - Gwarantuje usunięcie tagów Meta Pixel / GA4 / Ads po odwołaniu ich kategorii.
 
-## 4. Baner zgód
+## 5. Baner zgód
 
 - Dostępność: `role="dialog"`, `aria-label`, `aria-expanded`, `aria-controls`, focus management, Escape zamyka panel.
-- Równorzędne przyciski: „Akceptuję wszystkie" i „Odrzucam wszystkie".
+- Równorzędne przyciski: "Akceptuję wszystkie" i "Odrzucam wszystkie".
 - Panel szczegółowy z checkboxami analitycznymi i marketingowymi.
 - Przy ponownym otwarciu panel odtwarza zapisany stan.
 - Focus management:
-  - Otwarcie panelu → focus na checkbox `#consent-analytics` (nie na div).
-  - Zapamiętanie elementu otwierającego (opener) → focus powraca po zamknięciu.
-  - Po zapisie → focus na `#main-content` lub `body`.
+  - Otwarcie panelu -> focus na checkbox `#consent-analytics` (nie na div).
+  - Zapamiętanie elementu otwierającego (opener) -> focus powraca po zamknięciu.
+  - Po zapisie -> focus na `#main-content` lub `body`.
+- Baner widoczny wyłącznie gdy `PUBLIC_SITE_ENV=production` i `PUBLIC_GTM_ID` jest prawidłowym identyfikatorem GTM.
 
-## 5. Zdarzenia
+## 6. Zdarzenia
 
-Wszystkie zdarzenia emitowane przez `pushEvent()` - zwraca `boolean` (`true` jeśli wyemitowane, `false` jeśli zablokowane brakiem zgody).
+Wszystkie zdarzenia emitowane przez `pushEvent()` - zwraca `boolean` (`true` jeśli wyemitowane, `false` jeśli zablokowane brakiem zgody). Zdarzenia trafiają wyłącznie do `dataLayer`. Kod strony nie wysyła ich bezpośrednio do GA4, Google Ads ani Meta Pixel.
 
 | Zdarzenie | Status |
 |---|---|
@@ -55,7 +64,9 @@ Wszystkie zdarzenia emitowane przez `pushEvent()` - zwraca `boolean` (`true` je�
 
 Stare nazwy (`lead_form_start`, `lead_form_validation_error`, `lead_form_submit_error`) i mechanizm (`whm:analytics` custom event + gtag) **usunięte**.
 
-## 6. Atrybucja kampanii
+Brak PII w `dataLayer`: imię, nazwisko, telefon, email, wiadomość klienta ani treść formularza nie są przesyłane.
+
+## 7. Atrybucja kampanii
 
 - Klucz: `whm_campaign_v3` w `sessionStorage`.
 - Parametry przechowywane w pamięci; zapis do storage dopiero po zgodzie.
@@ -63,33 +74,31 @@ Stare nazwy (`lead_form_start`, `lead_form_validation_error`, `lead_form_submit_
 - Walidacja: max 200 znaków, dozwolone `\w.~%+-`.
 - Odrzucenie zgód: dane kampanii usunięte z `sessionStorage`.
 
-## 7. Stopka - link do ustawień
+## 8. Stopka - link do ustawień
 
 - Inline `onclick` **usunięty** - zastąpiony `<button>` z event listenerem.
 - Na stagingu: przycisk **całkowicie niewidoczny** (nie renderowany).
 - Komunikacja przez `CustomEvent('whm:open-cookie-settings')`.
 
-## 8. Polityka prywatności
+## 9. Polityka prywatności
 
-- Sekcja „Analityka, pomiar reklam i pliki cookies" zaktualizowana: GTM jako warstwa zarządzania, trzy kategorie, `whm_consent_v3`.
-- Nowa sekcja „Atrybucja kampanii": `whm_campaign_v3`, warunki zapisu.
-- Sekcja „Dostawcy usług" rozróżnia GTM/GA4/Ads/Meta Pixel/EmailJS.
+- Sekcja "Analityka, pomiar reklam i pliki cookies" zaktualizowana: GTM jako warstwa zarządzania, trzy kategorie, `whm_consent_v3`.
+- Nowa sekcja "Atrybucja kampanii": `whm_campaign_v3`, warunki zapisu.
+- Sekcja "Dostawcy usług" rozróżnia GTM/GA4/Ads/Meta Pixel/EmailJS.
 - `privacyPolicyFinalized` ustawione na `false` - ostrzeżenie deweloperskie aktywne do ostatecznej weryfikacji prawnej.
 
-## 9. Tagowanie CTA
+## 10. Tagowanie CTA
 
 - 40+ elementów z `data-cta-click` i `data-cta-location` na wszystkich stronach.
 - Lokalizacje: `header`, `header-mobile`, `top-bar`, `hero`, `subpage-hero`, `service_body`, `form-section`, `final-cta`, `sticky-cta`, `case-study-sales`, `home-hero`, `home-b2b`, `home-special-transport`, `home-final`, `about-final`, `area-final`, `cases-final`, `cases-technical`, `how-it-works`, `packing-shop`, `packing-final`, `standard-whm-final`, `piano-final`, `specialist-final`, `services-b2b`, `shop-final`, `business-hub-form`, `storage-form`, `packing-form`, `piano-form`, `specialist-form`, `business-form`, `pricing`.
 
-## 10. Walidacja automatyczna
+## 11. Walidacja automatyczna
 
 ### verify:analytics (statyczny)
 
 - Wykrywa 3 warianty budowania: `staging`, `production-no-gtm`, `production-gtm`.
-- Wspólne sprawdzenia: brak GTM iframe, brak bezpośredniego GA4/Meta, brak inline onclick, poprawne nazwy zdarzeń, consent v3, campaign v3, `pushEvent` zwraca boolean, `data-whm-gtm` idempotency guard, `gtm.start` przed `appendChild`.
-- Staging: brak banera, brak GTM ID.
-- Production: baner, domyślne denied, checkboxy, aria-expanded, ukryte pola formularza, 25+ CTA.
-- **Wynik: PASS** (staging + production-gtm z GTM-TEST123).
+- Sprawdza: brak `PUBLIC_GA_MEASUREMENT_ID` w kodzie, brak `__WHM_GA_ID`, brak bezpośredniego `gtag/js`, brak `gtag('config', 'G-...')`, brak komponentu `GoogleTag.astro`, obecność `PUBLIC_GTM_ID`, obecność domyślnych stanów Consent Mode, obecność zabezpieczenia `data-whm-gtm`, brak `data-whm-ga`, brak GTM w staging, brak GTM w produkcji bez poprawnego ID, obecność poprawnego GTM w produkcji z poprawnym ID, brak błędnych identyfikatorów (`GTM-5BR37FW` bez `X`, `G-X0K3ND72TVX`).
+- **Wynik: PASS** (production-gtm z `GTM-5BR37FWX`).
 
 ### verify:seo (statyczny)
 
@@ -97,43 +106,39 @@ Stare nazwy (`lead_form_start`, `lead_form_validation_error`, `lead_form_submit_
 - Staging: akceptuje globalny `noindex, nofollow, noarchive` dla wszystkich stron.
 - **Wynik: PASS** (staging + production).
 
-### verify:site (Playwright - pominięty środowiskowo)
+### verify:site (Playwright - pominięty srodowiskowo)
 
-- **Status: POMINIĘTY** - wymaga Chromium, który nie jest dostępny w bieżącym środowisku.
+- **Status: POMINIĘTY** - wymaga Chromium, ktory nie jest dostępny w bieżącym środowisku.
 
-## 11. Trzy warianty budowania
+## 12. Trzy warianty budowania
 
 | Wariant | `PUBLIC_SITE_ENV` | `PUBLIC_GTM_ID` | Baner | GTM | Zdarzenia | Robots |
 |---|---|---|---|---|---|---|
 | staging | `staging` | pusty/brak | nie | nie | nie | noindex |
 | production-no-gtm | `production` | pusty/brak | nie | nie | nie | index |
-| production-gtm | `production` | `GTM-XXXXXXX` | tak | tak (po zgodzie) | tak (po zgodzie) | index |
+| production-gtm | `production` | `GTM-5BR37FWX` | tak | tak (po zgodzie) | tak (po zgodzie) | index |
 
-## 12. Poprawki z fazy „ostatni szlif"
+## 13. Basic Consent Mode a automatyczny tester Google
 
-- `applyConsent()` przeładowuje stronę przy **każdej** zmianie kategorii (nie tylko odwołaniu wszystkich).
-- `gtm.start` pushowany **przed** `appendChild`.
-- In-memory fallback (`memoryState`) gdy `localStorage` niedostępny.
-- `pushEvent()` zwraca `boolean` - scroll/time tracking dodaje próg do `fired` wyłącznie po sukcesie.
-- `engaged_time` nie liczy czasu sprzed udzielenia zgody.
-- Focus management w banerze: focus na checkbox, zapamiętanie openera, powrót focusu.
-- 15 brakujących `data-cta-click` dodanych na stronach.
-- Literówka `registerredAddress` → `registeredAddress` w schema.ts.
-- `PUBLIC_GA4_ID` usunięte z .env.
+- Strona pozostaje na Basic Consent Mode: GTM jest ładowany dopiero po decyzji użytkownika.
+- Automatyczny tester Google (np. Consent Mode Validator) może nie wykryć tagu GTM przed zaakceptowaniem cookies, ponieważ skrypt nie jest jeszcze pobrany.
+- Nie próbujemy obchodzić tego przez ładowanie GTM przed zgodą.
+- Test końcowy należy wykonać przez GTM Preview i GA4 DebugView po zaakceptowaniu analityki.
 
-## 13. Ostrzeżenia
+## 14. Ostrzeżenia
 
 - `/polityka-prywatnosci/` - opis meta ma 80 znaków (zalecane 120-160). Istniejący problem z SEO, niezwiązany z tą zmianą.
 
-## 14. Czynności pozostające do wykonania ręcznie
+## 15. Czynności pozostające do wykonania ręcznie
 
 | # | Czynność | Odpowiedzialny |
 |---|---|---|
-| 1 | Wpisać produkcyjny `PUBLIC_GTM_ID` w zmiennych środowiskowych | Właściciel |
-| 2 | Skonfigurować GA4 property i tag w GTM | Właściciel |
-| 3 | Skonfigurować Google Ads Conversion tag na `generate_lead` | Właściciel |
-| 4 | Skonfigurować Meta Pixel Base + Lead Event w GTM | Właściciel |
-| 5 | Przetestować GTM Preview Mode: tagi uruchamiają się po zgodzie, nie uruchamiają po odrzuceniu | Właściciel |
-| 6 | Zweryfikować Google Tag Assistant, GA4 DebugView, Meta Pixel Helper | Właściciel |
-| 7 | Uruchomić `npm run verify:site` na maszynie z Chromium | Dev |
-| 8 | Weryfikacja prawna polityki prywatności i ustawienie `privacyPolicyFinalized = true` | Właściciel + prawnik |
+| 1 | Otworzyć kontener `GTM-5BR37FWX` | Właściciel |
+| 2 | Utworzyć w nim Google tag z identyfikatorem `G-X0K3ND72TV` | Właściciel |
+| 3 | Skonfigurować tagi zdarzeń GA4 | Właściciel |
+| 4 | Skonfigurować wymagane zgody dla tagów | Właściciel |
+| 5 | Uruchomić GTM Preview | Właściciel |
+| 6 | Zaakceptować analitykę na stronie testowej | Właściciel |
+| 7 | Sprawdzić GA4 DebugView | Właściciel |
+| 8 | Opublikować kontener GTM | Właściciel |
+| 9 | Po konfiguracji wykonać produkcyjny deploy strony | Właściciel |

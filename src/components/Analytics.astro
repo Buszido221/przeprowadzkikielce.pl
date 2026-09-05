@@ -2,10 +2,8 @@
 import { isProduction } from '../lib/environment';
 
 const gtmId = import.meta.env.PUBLIC_GTM_ID || '';
-const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || '';
 const validGtm = /^GTM-[A-Z0-9]+$/i.test(gtmId);
-const validGa = /^G-[A-Z0-9]+$/i.test(gaMeasurementId);
-const enabled = isProduction && (validGtm || validGa);
+const enabled = isProduction && validGtm;
 ---
 
 {enabled && (
@@ -69,8 +67,7 @@ const enabled = isProduction && (validGtm || validGa);
 
     (function initConsentBanner() {
       const gtmId = (window as any).__WHM_GTM_ID as string | undefined;
-      const gaMeasurementId = (window as any).__WHM_GA_ID as string | undefined;
-      if (!gtmId && !gaMeasurementId) return;
+      if (!gtmId) return;
 
       const banner = document.getElementById('cookie-consent')!;
       const panel = document.getElementById('cookie-settings-panel')!;
@@ -122,7 +119,7 @@ const enabled = isProduction && (validGtm || validGa);
       }
 
       function save(analytics: boolean, marketing: boolean) {
-        applyConsent(analytics, marketing, gtmId, gaMeasurementId);
+        applyConsent(analytics, marketing, gtmId);
         hideBanner();
         panel.hidden = true;
         btnOpen.setAttribute('aria-expanded', 'false');
@@ -146,7 +143,7 @@ const enabled = isProduction && (validGtm || validGa);
       const saved = getSavedConsent();
       if (hasDecision(saved)) {
         hideBanner();
-        restoreConsent(gtmId, gaMeasurementId);
+        restoreConsent(gtmId);
       } else {
         showBanner();
       }

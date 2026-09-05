@@ -48,7 +48,42 @@ console.log(`Detected build variant: ${variant}`);
 const srcFiles = filesIn(resolve('src'), '.ts').concat(filesIn(resolve('src'), '.astro'));
 const srcContent = srcFiles.map((path) => readFileSync(path, 'utf8')).join('\n');
 
-// === SHARED CHECKS (all variants) ===
+// === CHECK 1: No PUBLIC_GA_MEASUREMENT_ID in active code ===
+report(!srcContent.includes('PUBLIC_GA_MEASUREMENT_ID'), 'PUBLIC_GA_MEASUREMENT_ID found in source (should be removed).');
+
+// === CHECK 2: No __WHM_GA_ID ===
+report(!srcContent.includes('__WHM_GA_ID'), '__WHM_GA_ID found in source (should be removed).');
+
+// === CHECK 3: No direct gtag/js loading ===
+report(!srcContent.includes('googletagmanager.com/gtag/js'), 'Direct gtag.js loading found in source.');
+
+// === CHECK 4: No gtag('config', 'G-...') ===
+report(!/gtag\(\s*['"]config['"]\s*,\s*['"]G-/i.test(srcContent), "gtag('config', 'G-...') found in source.");
+
+// === CHECK 5: No GoogleTag.astro component ===
+report(!existsSync(resolve('src/components/GoogleTag.astro')), 'GoogleTag.astro component still exists.');
+
+// === CHECK 6: PUBLIC_GTM_ID present ===
+report(srcContent.includes('PUBLIC_GTM_ID'), 'PUBLIC_GTM_ID not found in source.');
+
+// === CHECK 7: Consent Mode defaults present ===
+report(srcContent.includes('analytics_storage'), 'Consent default analytics_storage not found in source.');
+report(srcContent.includes('ad_storage'), 'Consent default ad_storage not found in source.');
+report(srcContent.includes('ad_user_data'), 'Consent default ad_user_data not found in source.');
+report(srcContent.includes('ad_personalization'), 'Consent default ad_personalization not found in source.');
+report(srcContent.includes('security_storage'), 'Consent default security_storage not found in source.');
+
+// === CHECK 8: data-whm-gtm guard present ===
+report(srcContent.includes('data-whm-gtm'), 'GTM idempotency guard (data-whm-gtm) not found in source.');
+
+// === CHECK 9: No data-whm-ga guard (removed) ===
+report(!srcContent.includes('data-whm-ga'), 'GA idempotency guard (data-whm-ga) still in source (should be removed).');
+
+// === CHECK 12: No wrong identifiers in dist ===
+// Exact match for wrong GTM ID (GTM-5BR37FW without trailing X)
+const wrongGtmPattern = /GTM-5BR37FW(?!X)/;
+report(!wrongGtmPattern.test(allHtml), 'Wrong GTM ID "GTM-5BR37FW" (without trailing X) found in dist HTML.');
+report(!allHtml.includes('G-X0K3ND72TVX'), 'Wrong GA4 ID "G-X0K3ND72TVX" found in dist HTML.');
 
 // No GTM noscript iframe anywhere
 report(!hasGtmIframe, 'GTM noscript iframe found (should not exist in any build).');
@@ -73,7 +108,6 @@ report(!srcContent.includes("'lead_form_submit_error'"), 'Old event name "lead_f
 report(!srcContent.includes("whm:analytics"), 'Old custom event "whm:analytics" still in source.');
 report(!srcContent.includes("'whm_consent_v2'"), 'Old consent key whm_consent_v2 still in source.');
 report(!srcContent.includes("'whm_campaign_v2'"), 'Old campaign key whm_campaign_v2 still in source.');
-report(srcContent.includes('PUBLIC_GA_MEASUREMENT_ID'), 'PUBLIC_GA_MEASUREMENT_ID not found in source.');
 
 // Consent + campaign keys present
 report(srcContent.includes('whm_consent_v3'), 'Consent key whm_consent_v3 not found in source.');
@@ -81,10 +115,6 @@ report(srcContent.includes('whm_campaign_v3'), 'Campaign key whm_campaign_v3 not
 
 // pushEvent returns boolean
 report(srcContent.includes('): boolean'), 'pushEvent should return boolean.');
-
-// data-whm-gtm and data-whm-ga idempotency guards
-report(srcContent.includes('data-whm-gtm'), 'GTM idempotency guard (data-whm-gtm) not found in source.');
-report(srcContent.includes('data-whm-ga'), 'GA idempotency guard (data-whm-ga) not found in source.');
 
 // gtm.start pushed BEFORE script append
 const consentTs = existsSync(resolve('src/lib/consent.ts'))
@@ -166,6 +196,8 @@ if (variant === 'staging') {
 
   if (variant === 'production-gtm') {
     report(hasGtmId, 'production-gtm: __WHM_GTM_ID not found.');
+    // Correct GTM ID should be present in dist
+    report(indexHtml.includes('GTM-5BR37FWX'), 'production-gtm: Correct GTM ID GTM-5BR37FWX not found in index.html.');
   }
 }
 
