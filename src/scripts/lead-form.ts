@@ -196,6 +196,15 @@ export function initLeadForms(): void {
         submitBtn.textContent = 'Wysłano';
 
         pushEvent('generate_lead', { ...baseParams, lead_id: leadId });
+
+        const dl = ((window as any).dataLayer = (window as any).dataLayer || []);
+        function gtag(..._args: any[]) { dl.push(arguments); }
+        gtag('event', 'form_submit_success', {
+          form_id: formId,
+          service_type: serviceType,
+          form_location: formLocation,
+          form_context: leadContext,
+        });
       } catch {
         statusEl.textContent = 'Wysyłka nie powiodła się. Zadzwoń pod numer ' + (document.querySelector('[data-phone]')?.getAttribute('data-phone') || '720 719 022') + ' albo spróbuj ponownie za chwilę.';
         statusEl.className = 'lead-form__status is-error';
